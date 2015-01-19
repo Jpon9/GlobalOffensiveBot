@@ -1,0 +1,9 @@
+/*********************************************************************
+ * Version:  1.0
+ * Client:   /r/GlobalOffensive
+ * Author:   /u/eNzyy, /u/Jpon9, /u/JovialFeline, /u/BrokN9
+ * Website:  http://reddit.com/r/GlobalOffensive/about/moderators
+ *
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *********************************************************************/

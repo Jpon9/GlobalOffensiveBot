@@ -1,0 +1,8 @@
+{
+	"bot": {
+		"username": "reddit_bot_username",
+		"password": "reddit_bot_password"
+	},
+	"thread_id": "2qek0q",
+	"steam_api_key": "YOUR_STEAM_API_KEY"
+}

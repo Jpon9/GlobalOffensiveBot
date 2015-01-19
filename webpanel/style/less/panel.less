@@ -1,0 +1,299 @@
+@import (reference) "./colors.less";
+
+@font-face {
+	font-family: roboto;
+	src: url('/fonts/Roboto/Regular.ttf');
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	color: @font-color;
+	background-color: @body-bg-color;
+	font-family: roboto;
+
+	a {
+		color: @link-color;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 500;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+nav {
+	background-color: @header-bg-color;
+	color: @font-color-light;
+	height: 100px;
+	position: relative;
+	width: 100%;
+	z-index: 30;
+
+	table {
+		height: 100%;
+
+		td:first-child {
+			font-size: 24px;
+			padding: 0px 50px;
+			vertical-align: middle;
+
+			span {
+				color: #E1A636;
+			}
+		}
+	}
+
+	a {
+		color: @link-color-light;
+		&, &:hover {
+			color: @font-color-light;
+			text-decoration: none;
+		}
+	}
+}
+
+div#body {
+	margin: 30px 360px 30px 50px;
+	position: absolute;
+
+	h2 {
+		margin-bottom: 20px;
+	}
+
+	p {
+		max-width: 900px;
+	}
+
+	div.success {
+		background-color: #ADDEAE;
+		border: 1px solid #101010;
+		padding: 20px 40px;
+		margin-bottom: 20px;
+		display: inline-block;
+
+		h3 {
+			font-size: 18px;
+			margin-bottom: 10px;
+		}
+	}
+
+	table#webpanel-log, table#giveaway-winners, table#applications {
+		color: darken(@font-color-light, 20%);
+
+		a { color: @link-color-light; }
+
+		tr {
+			background-color: @header-bg-color;
+
+			&:nth-child(odd) {
+				background-color: darken(@header-bg-color, 3%);
+			}
+
+			&.title-row {
+				font-weight: bold;
+				background-color: @sidebar-bg-color;
+			}
+
+			td {
+				padding: 4px 10px;
+			}
+		}
+
+		&#applications {
+			display: block;
+			overflow: scroll;
+			vertical-align: top;
+			width: 1400px;
+
+			td:first-child a {
+				height: 100%;
+			}
+
+			td:nth-child(6) {
+				max-width: 550px;
+			}
+
+			td:nth-child(7) {
+				width: 250px;
+			}
+		}
+	}
+
+	form {
+		table {
+			tr {
+				td:first-child {
+					width: 300px;
+				}
+				&#final-row {
+					td, td.button-row {
+						column-span: all;
+						padding-top: 15px;
+					}
+				}
+			}
+
+			&.notice-edit {
+				background-color: darken(@body-bg-color, 5%);
+				border: 1px #101828 solid;
+				border-radius: 6px;
+				display: block;
+				margin-bottom: 10px;
+				margin-top: 10px;
+				padding: 20px 30px;
+
+				input {
+					width: 400px;
+
+					&[type="checkbox"] {
+						width: auto;
+					}
+
+					&.duration_hours {
+						width: 25px;
+					}
+				}
+
+				textarea {
+					height: 300px;
+					max-height: 1000px;
+					max-width: 1300px;
+					width: 400px;
+				}
+
+				span.local_time_msg {
+					font-size: 12px;
+					margin-left: 10px;
+				}
+			}
+		}
+
+		label:hover {
+			cursor: text;
+		}
+
+		input {
+			&.demonym {
+				margin-bottom: 5px;
+				width: 250px;
+			}
+
+			&[type="text"] {
+				padding: 3px 5px;
+			}
+
+			&[name="target_subreddit"] {
+				width: 129px;
+			}
+
+			&[type="submit"], &[type="reset"], &[type="button"] {
+				margin: 0px 10px 10px 0px;
+				padding: 5px 15px;
+			}
+		}
+
+		textarea {
+			height: 150px;
+			max-height: 300px;
+			max-width: 400px;
+			padding: 3px 6px;
+			width: 140px;
+
+			&.sidebar-chunk {
+				height: 400px;
+				max-height: 750px;
+				max-width: 1000px;
+				width: 500px;
+			}
+
+			&[name="stylesheet"] {
+				height: 700px;
+				max-height: 1000px;
+				max-width: 1300px;
+				width: 700px;
+			}
+		}
+	}
+
+	table.notice-help {
+		background-color: darken(@body-bg-color, 5%);
+		border: 1px #101828 solid;
+		border-radius: 6px;
+		display: block;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		padding: 20px 30px;
+		width: 600px;
+
+		td:first-child {
+			width: 150px;
+			padding-right: 30px;
+		}
+	}
+}
+
+div#sidebar {
+	background-color: @sidebar-bg-color;
+	color: @font-color-light;
+	height: 100%;
+	overflow: hidden;
+	padding: 10px;
+	position: fixed;
+	right: 0px;
+	top: 0px;
+	width: 310px;
+
+	h2 {
+		margin: 20px;
+		position: relative;
+		top: 100px;
+	}
+
+	ul {
+		list-style: none;
+		margin-left: 25px;
+		position: relative;
+		top: 100px;
+
+		li {
+			a {
+				color: @link-color-light;
+
+				&.active {
+					color: @link-color-light-2;
+				}
+			}
+
+			span {
+				color: #E1A636;
+
+				&.status-indeterminate { color: #E1A636; }
+				&.status-online { color: #AAFFAA; }
+				&.status-offline { color: #E1A636; }
+			}
+		}
+	}
+
+	a#scroll-top {
+		bottom: 50px;
+		color: @link-color-light;
+		position: fixed;
+		right: 190px;
+
+		&.active {
+			color: @link-color-light-2;
+		}
+	}
+}
