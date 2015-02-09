@@ -50,9 +50,9 @@ def GetUpcomingGames():
 	try:
 		try:
 			gosusoup = urllib2.urlopen(urllib2.Request(gosuapi, headers={ 'User-Agent': 'Mozilla/5.0' })).read()
-		except:
+		except Exception as detail:
 			# Do the error logging
-			print "runtime error in GetUpcomingGames fetching from GosuGamers API: " + detail
+			print "runtime error in GetUpcomingGames fetching from GosuGamers API: ", detail
 			print "URL Attempted: " + gosuapi
 			traceback.print_exc(file=sys.stdout)
 			logging.exception("runtime error in GetUpcomingGames() fetching from GosuGamers API iter=" + str(count) + " :")

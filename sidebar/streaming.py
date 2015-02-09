@@ -148,9 +148,15 @@ def GetCurrentlyStreamingOnTwitch():
 def GetCurrentlyStreamingOnMLG():
 	count = reddit.count
 	botSettings = getSettings()
-	# mlg279 is playCEVO's unique identifier
+	# mlg279 = playCEVO
+	# mlg436 = moe
+	# mlg396 = csgo (English)
+	# mlg310 = 99damage (German)
+	# mlg432 = gaminglive (French)
+	# mlg46  = mlgtv1 (Russian)
+	# mlg199 = mlg-brasil (Portuguese)
 	# MLG told me we will be picking from only a group of streams until they filter their streams by game
-	mlgChannelsToPull = ["mlg279"]
+	mlgChannelsToPull = ["mlg279", "mlg436", "mlg396", "mlg310", "mlg432", "mlg46", "mlg199"]
 	mlgChannelsToPullStr = ""
 	mlgChannels = {} # Holds the top MLG streams
 	print("\tRetrieving MLG TV API data...")
@@ -162,7 +168,7 @@ def GetCurrentlyStreamingOnMLG():
 				streamDataStr = urllib2.urlopen("http://streamapi.majorleaguegaming.com/service/streams/status/" + channel).read()
 			except Exception as detail:
 				# Do the error logging
-				print "runtime error in GetCurrentlyStreamingOnTwitch fetching from MLG TV API: " + detail
+				print "runtime error in GetCurrentlyStreamingOnTwitch fetching from MLG TV API: ", detail
 				print("URL Attempted: http://streamapi.majorleaguegaming.com/service/streams/status/" + channel)
 				traceback.print_exc(file=sys.stdout)
 				logging.exception("runtime error in GetCurrentlyStreamingOnMLG fetching from MLG TV API iter=" + str(count) + " :")
@@ -173,7 +179,7 @@ def GetCurrentlyStreamingOnMLG():
 				print "\t\t-> Duration: ",str(dt.total_seconds()),"s"
 				return cachedData
 			streamData = json.loads(streamDataStr)['data']
-			if streamData['status'] == -1:
+			if (streamData['status'] == -1) or ('viewers' not in streamData):
 				continue
 			mlgChannelsToPullStr += str(streamData['channel_id']) + ","
 			mlgChannels[streamData['channel_id']] = {}
@@ -214,7 +220,7 @@ def GetCurrentlyStreamingOnMLG():
 		dt = datetime.datetime.now() - currentTime2
 		print "\t\t-> Duration: ",str(dt.total_seconds()),"s"
 		return []
-	except:
+	except Exception as detail:
 		print "runtime error in GetCurrentlyStreamingOnMLG getting MLG TV data :", detail
 		traceback.print_exc(file=sys.stdout)
 		logging.exception('runtime error in GetCurrentlyStreamingOnMLG getting MLG TV data iter='+ str(count) +' :')
