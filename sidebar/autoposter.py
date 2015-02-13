@@ -119,6 +119,7 @@ def submitpost(post,sticky):
 
     except Exception, e:
         print "NOTICE ERROR: Failed to submit post: ",post["post_title"],": %s" % str(e)
+        return
 
     #Mark post as live to be updated in stickies.json
     post["postedflag"] = 1
@@ -150,6 +151,7 @@ def removepost(post,sticky):
 
     except Exception, e:
         print "NOTICE ERROR: Unable to remove post: ",post["post_title"],": %s" % str(e)
+        return
 
     #Revert posting flag to not-posted
     post["postedflag"] = 0
