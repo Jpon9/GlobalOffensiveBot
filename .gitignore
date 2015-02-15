@@ -98,3 +98,8 @@ giveaway/settings.json
 
 webpanel/logging/log.*
 webpanel/includes/settings.php
+*.ods
+flair/config/settings.json
+flair/cache/flairs.json
+flair/cache/flair-counts.json
+flair/cache/flair-counts.csv
