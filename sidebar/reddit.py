@@ -23,8 +23,9 @@ from demonym_cycle import BuildDemonymRule
 from streaming import GetCurrentlyStreaming,BuildCurrentlyStreaming
 from upcominggames import GetUpcomingGames,BuildUpcomingGames
 from helperfuncs import GetMatchmakingStatus,reset,updateMetadata
-from redditlogin import r,target_subreddit
+from redditlogin import r
 from notices import BuildNotices
+from header_rotation import GetHeader
 
 # Builds the sidebar and writes it to description.txt after retrieving necessary API data.
 def BuildSidebar():
@@ -54,12 +55,17 @@ def BuildSidebar():
 
 def BuildStylesheet():
 	currentTime2 = datetime.datetime.now()
+	botSettings = getSettings()
 	print("\tBeginning stylesheet update...")
-	base_stylesheet = open(base_path + "/config/stylesheet/main_stylesheet.txt", 'r').read()
+	base_stylesheet = open(base_path + "/config/stylesheet/main_stylesheet.txt", 'r').read().replace('%%header%%', GetHeader())
 	stylesheetRules = BuildDemonymRule() + "\n\n" + base_stylesheet
 	
 	stylesheet = open(base_path + "config/stylesheet.txt", 'w')
-	minifiedStylesheet = cssmin(stylesheetRules.encode('utf-8'))
+	minifiedStylesheet = ""
+	if botSettings['minify_stylesheet'] == True:
+		minifiedStylesheet = cssmin(stylesheetRules.encode('utf-8'))
+	else:
+		minifiedStylesheet = stylesheetRules.encode('utf-8')
 	stylesheet.write(minifiedStylesheet)
 	stylesheet.close()
 	stylesheet_unminified = open(base_path + "config/stylesheet_unminified.txt", 'w')
@@ -71,7 +77,6 @@ def BuildStylesheet():
 
 def main():
 	global r
-	global target_subreddit
 	global count
 	botSettings = getSettings()
 	botAccounts = getAccounts()
@@ -112,10 +117,10 @@ def main():
 			lastUpdatedStr = ""
 			#lastUpdatedStr = "Last Updated " + currentTime + "\n\n"
 			r.update_settings(
-				target_subreddit,
+				subreddit=botSettings['target_subreddit'],
 				description=lastUpdatedStr + sidebarMarkdown)
 			print("\tUploading stylesheet...")
-			r.set_stylesheet(target_subreddit, stylesheet)
+			r.set_stylesheet(botSettings['target_subreddit'], stylesheet)
 			print("Sidebar update #" + str(count) + " complete (" + str(sidebarLength) + " chars used, " + str(5120 - sidebarLength) + " left)")
 			count += 1
 			dt = datetime.datetime.now() - currentTime2
@@ -138,14 +143,19 @@ def main():
 			user_agent = ("GlobalOffensiveBot 1.0 by /u/Jpon9 and /u/Tremaux")
 			r = praw.Reddit(user_agent=user_agent)
 			r.login(botAccounts['__MODERATORACCOUNT__'], botAccounts[botAccounts['__MODERATORACCOUNT__']])
+			botIsModerator = False
 			for subreddit in r.get_my_moderation():
-				if subreddit.display_name.lower() == botSettings['target_subreddit']:
-					target_subreddit = subreddit
+				if subreddit.display_name.lower() == botSettings['target_subreddit'].display_name.lower():
+					botIsModerator = True
 					break
+			if botIsModerator == False:
+				print "ERROR: Bot account '" + botAccounts['__MODERATORACCOUNT__'] + "' is not a mod on /r/" + botSettings['target_subreddit'].display_name
+				print botAccounts['__MODERATORACCOUNT__'] + " is a mod in:\n" + '\n'.join([str(x) for x in r.get_my_moderation()])
+				sys.exit(1)
 			try:
 				BuildSidebar()
 				sidebarMarkdown = open(base_path + 'config/description.txt', 'r').read()
-				r.update_settings(target_subreddit, description=sidebarMarkdown)
+				r.update_settings(botSettings['target_subreddit'], description=sidebarMarkdown)
 				print "Handled error, update complete."
 				time.sleep(60 * botSettings['update_timeout'])
 				main()

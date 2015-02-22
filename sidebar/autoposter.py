@@ -132,7 +132,7 @@ def submitpost(post,sticky):
     #Write changes to stickies.json
     try:
         with open(base_path + "cache/stickies.json", 'r+', encoding='utf-8') as f:
-            json.dump(sticky,f,ensure_ascii=False, indent=4, separators=(',', ': '))))
+            json.dump(sticky, f, ensure_ascii=False, indent=4, separators=(',', ': '))
     
     except Exception, e:
         print "NOTICE ERROR: Failed to write to sickies.json after post: ",post["post_title"],": %s" % str(e)
@@ -163,7 +163,7 @@ def removepost(post,sticky):
     #Write changes to stickies.json
     try:
         with open(base_path + "cache/stickies.json", 'r+', encoding='utf-8') as f:
-            json.dump(sticky,f,ensure_ascii=False, indent=4, separators=(',', ': '))))
+            json.dump(sticky, f, ensure_ascii=False, indent=4, separators=(',', ': '))
 
     except Exception, e:
         print "NOTICE ERROR: Failed to write to sickies.json after remove: ",post["post_title"],": %s" % str(e)

@@ -8,8 +8,6 @@ function getCurrentTime() {
 function formatSeconds(sex) {
     "use strict";
 
-	console.log(sex);
-
 	if (sex < 1) {
 		return "right now...";
 	}

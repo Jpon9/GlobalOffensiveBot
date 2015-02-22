@@ -1,5 +1,5 @@
 /***************
- * Base: #101828
+ * Base: #494949
  * c1-1: #333847
  * c1-2: #202834
  * c1-3: #091528
@@ -17,37 +17,57 @@
  * c4-3: #405141
  ***************/
 
-/************************************************************************************************************************************
- * SNOW FALLING EFFECT
- ************************************************************************************************************************************/
+/******************************
+ *  KATOWICE 2015 THEME CODE
+ ******************************/
 
-body:not(.res-nightmode) #header-bottom-left {
-    background-color:transparent;
-    background-image:url(%%flake1%%),url(%%flake2%%),url(%%flake3%%);
-    -webkit-animation:snow 20s linear infinite;
-    -moz-animation:snow 20s linear infinite;
-    -ms-animation:snow 20s linear infinite;
-    animation:snow 20s linear infinite
+.side .usertext-body .md ul {
+    padding-left: 0px;
 }
 
-@-webkit-keyframes snow {
-    0%{ background-position:0 0,0 0,0 0 }
-    100%{ background-position:500px 1000px,400px 400px,300px 300px }
+.side .usertext-body .md a[href*="esl-one.com/csgo/katowice-2015"], 
+.side .usertext-body .md a[href*="/r/GlobalOffensive/wiki/mumble"],
+.side .usertext-body .md a[href*="http://www.reddit.com/r/GlobalOffensive/wiki/irc"] {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px 0px 5px 5px;
+    text-decoration: none;
+    margin-bottom: 3px;
+    opacity: 1;
+    height: 100px;
 }
 
-@-moz-keyframes snow {
-    0% { background-position:0 0,0 0,0 0 }
-    100% { background-position:500px 1000px,400px 400px,300px 300px }
+.side .usertext-body .md a[href*="esl-one.com/csgo/katowice-2015"] {
+    background: #454545 url(%%katowice-logo%%) no-repeat center;
+    background-size: 210px 100px;
+    width: 98.3%;
 }
 
-@-ms-keyframes snow {
-    0% { background-position:0 0,0 0,0 0}
-    100% { background-position:500px 1000px,400px 400px,300px 300px }
+.side .usertext-body .md a[href*="/r/GlobalOffensive/wiki/mumble"],
+.side .usertext-body .md a[href*="http://www.reddit.com/r/GlobalOffensive/wiki/irc"] {
+    background-size: 90px 90px!important;
+    padding-top: 5px;
+    width: 47.4%;
 }
 
-@keyframes snow {
-    0% { background-position:0 0,0 0,0 0 }
-    100% { background-position:500px 1000px,400px 400px,300px 300px }
+.side .usertext-body .md a[href*="/r/GlobalOffensive/wiki/mumble"] {
+    background: #454545 url(%%mumble-advert%%) no-repeat center;
+    margin-right: 2px;
+}
+
+.side .usertext-body .md a[href*="http://www.reddit.com/r/GlobalOffensive/wiki/irc"] {
+    background: #454545 url(%%irc-advert%%) no-repeat center;
+}
+
+.side .usertext-body .md a[href*="esl-one.com/csgo/katowice-2015"]:hover,
+.side .usertext-body .md a[href*="/r/GlobalOffensive/wiki/mumble"]:hover,
+.side .usertext-body .md a[href*="http://www.reddit.com/r/GlobalOffensive/wiki/irc"]:hover {
+    background-color: #666666;
+}
+
+body #header-bottom-right {
+    background-color: #454545 !important;
 }
 
 /************************************************************************************************************************************
@@ -55,16 +75,31 @@ body:not(.res-nightmode) #header-bottom-left {
  ************************************************************************************************************************************/
 
 /* HEADER BACKGROUND */
-#header{background: #010713 url(%%header%%) center no-repeat;}
+#header {
+    background: #2E2E2E url(%%header%%) center no-repeat;
+    background-size: cover;
+}
+
+#header:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(72, 167, 224, 0.5);
+}
+
 #header-bottom-left{height: 154px;}
 
 /* HEADER SUBREDDITS */
 #sr-header-area {
-    transition: opacity 0.2s;
-    opacity: 0.4;
     height: 20px;
-    background-color: #010713;
+    background-color: #2E2E2E;
     border-bottom: 0;
+    position: relative;
+    z-index: 9;
 }
 
 #sr-header-area:hover {opacity: 90;}
@@ -139,7 +174,7 @@ body:not(.res-nightmode) #header-bottom-left {
 
 #userbarToggle {
     color: #e6e6e6!important;
-    background-color: rgb(21, 32, 43) !important;
+    background-color: #494949 !important;
     border-right: 1px solid #000 !important;
 }
 
@@ -169,8 +204,7 @@ body:not(.res-nightmode) #header-bottom-left {
 
 /* HEADER NAVIGATION */
 #header-bottom-left .tabmenu {
-    opacity: 0.5;
-    transition: opacity 0.2s;
+    opacity: 1;
 }
 
 #header-bottom-left .tabmenu:hover {
@@ -187,12 +221,12 @@ body:not(.res-nightmode) #header-bottom-left {
     color: #abc1bd!important;
     width: 100%;
     clear: both;
-    background-color: #010713;
+    background-color: #2E2E2E;
     height:20px;
 }
 
 .tabmenu.formtab {
-    background-color: #1E2636;
+    background-color: #666666;
     margin-bottom: 30px;
     padding-top: 3px;
     padding-left: 0;
@@ -250,7 +284,7 @@ ul.tabmenu li.selected:hover {font-weight: 700!important;}
 
 .side:not(.res-nightmode) {
     position: relative;
-    background-color: #010713 !important;
+    background-color: #2E2E2E !important;
     color: #a9bbab;
     margin: 0;
     z-index: 20;
@@ -263,7 +297,7 @@ ul.tabmenu li.selected:hover {font-weight: 700!important;}
 /* SEARCH BAR */
 
 .side form#search input[name=q] {
-    color: #101828!important;
+    color: #494949!important;
     background-color: #e1eaef!important;
     padding: 10px!important;
     border: 0!important;
@@ -275,23 +309,23 @@ ul.tabmenu li.selected:hover {font-weight: 700!important;}
     outline:0;
 }
 
-.side form#search input[name=q]::-webkit-input-placeholder {color: #101828;}
-.side form#search input[name=q]::-moz-placeholder {color: #101828;}
-.side form#search input[name=q]:-ms-input-placeholder {color: #101828;}
+.side form#search input[name=q]::-webkit-input-placeholder {color: #494949;}
+.side form#search input[name=q]::-moz-placeholder {color: #494949;}
+.side form#search input[name=q]:-ms-input-placeholder {color: #494949;}
 
 /* Search bar expando */
 #searchexpando a {color:#fff;font-weight:bold;}
 #searchexpando br {display:none;}
 #searchexpando #search_showmore {font-size:11px;}
-#search input[type='submit'] {margin-top: 25px;}
-.searchexpando-submit input[type='submit'] {height:25px!important;padding: 5px;background: #1E2636!important;color:#bdc3c7!important;width: 100%!important;border: 0;margin-bottom: 5px;margin-left:0!important;margin-top:0!important;outline:0}
+.side form#search input[type='submit'] {margin-top: 25px;}
+.searchexpando-submit input[type='submit'] {height:25px!important;padding: 5px;background: #666666!important;color:#bdc3c7!important;width: 100%!important;border: 0;margin-bottom: 5px;margin-left:0!important;margin-top:0!important;outline:0}
 #searchexpando label {display:block;font-size:11px;}
 #searchexpando label select {width:100%;padding:3px;outline:0}
 
 #searchexpando {
     border-radius: 0;
     border: 0;
-    background-color: #101828;
+    background-color: #494949;
     width: 292px;
 }
 
@@ -316,6 +350,10 @@ ul.tabmenu li.selected:hover {font-weight: 700!important;}
     text-indent: 0!important;
     background-position: -4px 0!important;
     margin-top: -5px;
+}
+
+.search-page .sidebox.submit-link {
+    margin-top: 36px;
 }
 
 .sidebox.submit-text {
@@ -364,7 +402,7 @@ h1.redditname {display: none;}
 .side .fancy-toggle-button .add, .side .fancy-toggle-button .remove {
     height: 25px;
     padding: 0 7px;
-    background: #101828;
+    background: #494949;
     border: none;
     border-radius: 0;
     font-size: 11px;
@@ -384,7 +422,7 @@ h1.redditname {display: none;}
     padding: 0;
     margin: 1px 0 5px;
     display: inline-block;
-    background: #101828;
+    background: #494949;
     border: none;
     border-radius: 0;
     font-weight: normal;
@@ -392,11 +430,11 @@ h1.redditname {display: none;}
     color: #A0B6CA;
 }
 .res .RESshortcutside {margin-right: 6px;}
-.res .RESshortcutside:hover, .res .RESshortcutside.remove, .res .RESDashboardToggle.remove {background: #1E2636;}
+.res .RESshortcutside:hover, .res .RESshortcutside.remove, .res .RESDashboardToggle.remove {background: #666666;}
 
 /* SUBSCRIBERS/USERS ONLINE */
 .subscribers {
-    background: #101828;
+    background: #494949;
     padding: 5px 7px;
     display: inline-block;
     width: 296px;
@@ -404,7 +442,7 @@ h1.redditname {display: none;}
     margin-bottom: 5px;
 }
 .users-online {
-    background: #101828;
+    background: #494949;
     padding: 5px 7px;
     display: inline-block;
     width: 296px;
@@ -420,7 +458,7 @@ h1.redditname {display: none;}
     top: 293px!important;
     box-shadow: none;
     padding: 0px!important;
-    border: 1px solid #101828;
+    border: 1px solid #494949;
 }
 
 .side .flairselector.drop-choices.active h2 {
@@ -442,7 +480,7 @@ h1.redditname {display: none;}
     padding: 5px 5px 5px 37px;
     margin-top: 3px;
     position: relative;
-    background: #101828!important;
+    background: #494949!important;
     height:10px;
 }
 
@@ -454,7 +492,7 @@ h1.redditname {display: none;}
     position: absolute; 
     top: 0;
     left: 0;
-    background: #1E2636;
+    background: #666666;
 }
 
 .titlebox form.flairtoggle input {position: absolute;top: 12px;left: 9px;}
@@ -464,7 +502,7 @@ h1.redditname {display: none;}
     height: 20px;
     padding: 0 5px 0 37px;
     margin: 0 0 5px 0;
-    background: #101828;
+    background: #494949;
     line-height: 18px;
     color: #a9bbab;
 }
@@ -480,24 +518,27 @@ h1.redditname {display: none;}
     right: 0px;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    width: 600px;
+    width: 356px;
 }
 
 .side .usertext-body .md ol a {
-    background-color: #010713;
+    background-color: #2E2E2E;
     display: inline-block;
     font-size: 12px;
     font-weight: normal;
     padding: 5px 0px 5px 5px;
     text-decoration: none;
-    margin-bottom:3px;
-    opacity:0.8;
+    margin-bottom: 3px;
+    opacity: 0.8;
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 1);
+    -moz-box-shadow:    0px 0px 14px 0px rgba(0, 0, 0, 1);
+    box-shadow:         0px 0px 14px 0px rgba(0, 0, 0, 1);
 }
 
 .side .usertext-body .md ol a:hover {opacity:1;}
 .side .usertext-body .md ol a[href$='#event'] {border: 2px solid #e29b1e;}
-.side .usertext-body .md ol a[href$='#notice'] {border: 2px solid #101828;}
-.side .usertext-body .md ol a[href$='#discussion'] {border: 2px solid #101828;}
+.side .usertext-body .md ol a[href$='#notice'] {border: 2px solid #494949;}
+.side .usertext-body .md ol a[href$='#discussion'] {border: 2px solid #494949;}
 
 .side .usertext-body .md ol a[href$='#event'],
 .side .usertext-body .md ol a[href$='#notice'],
@@ -520,13 +561,13 @@ h1.redditname {display: none;}
 }
 
 .side .usertext-body .md ol a[href$='#notice']:after {
-    background-color: #101828;
+    background-color: #494949;
     content: "NOTICE";
     color: #a9bbab;
 }
 
 .side .usertext-body .md ol a[href$='#discussion']:after {
-    background-color: #101828;
+    background-color: #494949;
     content: "DISCUSSION";
     color: #a9bbab;
 }
@@ -567,7 +608,7 @@ h1.redditname {display: none;}
 /* BUTTONS */
 .side .usertext a[href*='#button'] {
     color: #bdc3c7 !important;
-    background-color: #101828;
+    background-color: #494949;
     font-size: 12px;
     line-height: 35px;
     padding-left: 10px;
@@ -577,27 +618,27 @@ h1.redditname {display: none;}
     height: 35px;
     margin-bottom: 3px;
 }
-.side .usertext a[href*='#button']:hover {color: #ecf0f1 !important;background-color: #1E2636;opacity:1;}
+.side .usertext a[href*='#button']:hover {color: #ecf0f1 !important;background-color: #666666;opacity:1;}
 .side .usertext a[href*='#slim'] {line-height:25px;height:25px;opacity:0.4;}
 
 /* RULES BUTTON */
-.side .usertext a[href*='#rules'] {margin-bottom:5px;background:#101828 url(%%sidebar-icons%%) no-repeat 275px -34px;}
+.side .usertext a[href*='#rules'] {margin-bottom:5px;background:#494949 url(%%sidebar-icons%%) no-repeat 275px -34px;}
 
 /* MESSAGE MODS BUTTON */
-.side .usertext a[href*='#mods'] {margin-bottom:5px;background:#101828 url(%%sidebar-icons%%) no-repeat 275px 0px;}
+.side .usertext a[href*='#mods'] {margin-bottom:5px;background:#494949 url(%%sidebar-icons%%) no-repeat 275px 0px;}
 
 /* FILTER LIST */
 .side .md> ul:first-of-type {
     list-style: none!important;
     background: transparent!important;
     width: 310px;
-    background-color: #101828!important;
+    background-color: #494949!important;
     height: 35px;
     overflow:hidden;
     z-index:2147483648;
     margin:0 0 5px 0;
 }
-.side .md> ul:first-of-type:hover {height:auto;background-color:#1E2636!important;}
+.side .md> ul:first-of-type:hover {height:auto;background-color:#666666!important;}
 
 .side .md> ul:first-of-type li {
     font-size: 12px;
@@ -666,18 +707,19 @@ h1.redditname {display: none;}
 .sidecontentbox .collapse-button {vertical-align: 2px;margin: 0 8px;}
 .titlebox .usertext {border: 0;margin-bottom: -30px;}
 
-.sidecontentbox .content .more, .sidecontentbox .content .flair, .sidecontentbox .content .userTagLink, .sidecontentbox .content a.voteWeight {display:none!important;}
+.sidecontentbox .content .flair, .sidecontentbox .content .userTagLink, .sidecontentbox .content a.voteWeight {display:none!important;}
 
 /* HIDE MESSAGE MODS LINK */
 .sidecontentbox a.helplink {display: none!important;}
 
 /* MODERATORS */
-.sidecontentbox .content a.author { background:#101828;display:block;margin:0;padding:5px 10px;margin-bottom:3px;text-align:left;}
-.sidecontentbox .content a.author:hover {background:#1E2636;}
+.sidecontentbox .content a.author { background:#494949;display:block;margin:0;padding:5px 10px;margin-bottom:3px;text-align:left;}
+.sidecontentbox .content a.author:hover {background:#666666;}
+.sidecontentbox .content .more {margin-left:20px;}
 
 /* RECENTLY VIEWED */
 .gadget .reddit-link {
-    background: #101828;
+    background: #494949;
     padding: 5px 10px;
     padding-top: 8px;
     padding-bottom: 0px;
@@ -685,14 +727,14 @@ h1.redditname {display: none;}
     font-size:12px;
     text-align: left;
 }
-.gadget .reddit-link:hover {background:#1E2636;}
+.gadget .reddit-link:hover {background:#666666;}
 .gadget .reddit-link .reddit-entry {padding:0;}
 .gadget  .reddit-comment-link {color: #DFEAF3;}
 .gadget .linkflairlabel {display:none;}
 
 /* ACCOUNT ACTIVITY */
-.account-activity-box a {display:block;padding:10px;background:#101828 ;margin:-10px 0;}
-.account-activity-box a:hover {background:#1E2636;}
+.account-activity-box a {display:block;padding:10px;background:#494949 ;margin:-10px 0;}
+.account-activity-box a:hover {background:#666666;}
 
 /* POST PAGE - POST SCORE */
 .linkinfo {
@@ -702,7 +744,7 @@ h1.redditname {display: none;}
     border: 0;
     width: 310px;
     border-radius: 0 !important;
-    background-color: #101828 !important;
+    background-color: #494949 !important;
     margin-top: -5px;
 }
 .linkinfo .downvotes .number, .linkinfo .upvotes .number, .linkinfo .score .number {display: block;font-weight: bold !important;font-size: 14px;}
@@ -740,7 +782,7 @@ h1.redditname {display: none;}
     margin-top: -10px;
     margin-bottom: 7px;
     color: #BDC3C7;
-    background-color: #1E2636;
+    background-color: #666666;
 }
 .linkinfo .totalvotes {font-size: 18px!important;margin-top: 35px!important;display: block;}
 
@@ -757,13 +799,22 @@ h1.redditname {display: none;}
     width: 340px!important;
     height: 0!important;
     z-index: 11!important;
-    box-shadow: -55px 35px 50px 25px #010713 !important;
+    box-shadow: -55px 35px 50px 25px #2E2E2E !important;
 }
 .side .md blockquote:hover>blockquote:before { display: none!important;}
 .side blockquote {border:0;margin:0;padding:0;}
-.side .md>blockquote>blockquote>blockquote {background:#101828;margin:0;padding:5px 40px 5px 55px;height:30px;position:relative;}
+.side .md>blockquote>blockquote>blockquote {background:#494949;margin:0;padding:5px 40px 5px 55px;height:30px;position:relative;}
 .side .md > blockquote {max-height: 150px!important;overflow: hidden!important;margin-bottom:5px;}
 .side .md>blockquote:hover {max-height: 100%!important;background-image: none!important;}
+
+.side .md blockquote > blockquote > blockquote h1,
+.side .md blockquote > blockquote > blockquote h2,
+.side .md blockquote > blockquote > blockquote h3,
+.side .md blockquote > blockquote > blockquote h4,
+.side .md blockquote > blockquote > blockquote h5,
+.side .md blockquote > blockquote > blockquote h6 {
+    padding: 0;
+}
 
 /* LIVE STREAMS */
 .side .md>blockquote>blockquote>blockquote h1 a:before {
@@ -805,27 +856,27 @@ h1.redditname {display: none;}
     content:"";
     height:40px;
     width:40px;
-    background:#1E2636 url(%%extra-icons%%) no-repeat 0 0;
+    background:#666666 url(%%extra-icons%%) no-repeat 0 0;
     display:block;
     position:absolute;
     right:0;
-    margin-top:-20px;
+    margin-top:-23px;
 }
 
 .side .md>blockquote>blockquote>blockquote h1 a[href*='twitch.tv']:after {
-    background:#1E2636 url(%%stream-sources%%) no-repeat 0 0;
+    background:#666666 url(%%stream-sources%%) no-repeat 0 0;
 }
 
 .side .md>blockquote>blockquote>blockquote h1 a[href*='tv.majorleaguegaming.com']:after {
-    background:#1E2636 url(%%stream-sources%%) no-repeat -40px 0;
+    background:#666666 url(%%stream-sources%%) no-repeat -40px 0;
 }
 
 .side .md>blockquote>blockquote>blockquote h1 a[href*='hitbox.tv']:after {
-    background:#1E2636 url(%%stream-sources%%) no-repeat -80px 0;
+    background:#666666 url(%%stream-sources%%) no-repeat -80px 0;
 }
 
 .side .md>blockquote>blockquote>blockquote h1 a[href*='azubu.tv']:after {
-    background:#1E2636 url(%%stream-sources%%) no-repeat -120px 0;
+    background:#666666 url(%%stream-sources%%) no-repeat -120px 0;
 }
 
 .side .md>blockquote>blockquote>blockquote h3:before {
@@ -894,7 +945,7 @@ h1.redditname {display: none;}
     left: 5px;
     top:5px;
     color: #ddd;
-    background:#1E2636;
+    background:#666666;
     line-height: 30px;
     font-size: 13px;
     font-weight: normal;
@@ -922,7 +973,7 @@ h1.redditname {display: none;}
     content: "";
     height: 40px;
     width: 40px;
-    background: #1E2636 url(%%extra-icons%%) no-repeat 0px 0;
+    background: #666666 url(%%extra-icons%%) no-repeat 0px 0;
     display: block;
     position: absolute;
     right: 0;
@@ -938,7 +989,7 @@ h1.redditname {display: none;}
     position: absolute;
     right: 40px;
     top:0;
-    background-color:#101828;
+    background-color:#494949;
 }
 
 .side .md > blockquote>blockquote>blockquote a[href*="#map-"]:before {
@@ -977,6 +1028,15 @@ body {overflow-x:hidden;background:#EDEDED;font-family: verdana,arial,helvetica,
 body .content {margin-right: 345px;margin-left:8px;}
 .sheets, p {margin:0;}
 .content .md p {font-size:13px;margin-bottom: 12px;}
+
+/* Fixes lists being really close to the bottom of a comment */
+.md ul:last-child, .md ol:last-child {
+    padding-bottom: 12px;
+}
+
+.md hr:last-child {
+    margin-bottom: 20px;
+}
 
 /* LINKS */
 .link.last-clicked {border:0!important;}
@@ -1034,7 +1094,7 @@ body:not(.subscriber) #siteTable:before {
     padding: 5px;
     margin-bottom:5px;
     font-size: 11px;
-    background: #101828;
+    background: #494949;
 }
 
 /* Removes downvoting from nonsubscribers */
@@ -1056,12 +1116,12 @@ ul.tabmenu.formtab {display: inline-block;}
 .submit-page .roundfield, .roundfield .usertext-edit {border-radius:0;background:#fff}
 .submit-page .roundfield-content textarea, .submit-page .roundfield-content input[type=url], .submit-page .roundfield-content input[type=text] {border: 1px solid lightgrey;}
 
-.submit-page .content.submit .info-notice {border:0;background:#1E2636;color:#fff}
+.submit-page .content.submit .info-notice {border:0;background:#666666;color:#fff}
 .submit-page .content.submit .info-notice a {color:#fff}
 .submit-page .formtabs-content {border:0;padding-top: 20px;}
 .submit-page .content h1 {display:none;}
 
-.infobar {background-color: #1E2636;border: 0;color: #fff;}
+.infobar {background-color: #666666;border: 0;color: #fff;}
 .markdownEditor-wrapper { width:100%!important; max-height: 30px!important; margin-bottom: 5px }
 
 /* Search bar arrow */
@@ -1142,6 +1202,7 @@ ul.tabmenu.formtab {display: inline-block;}
     outline: 0;
     display: block;
     clear: both;
+    margin-bottom: 10px;
 }
 .comments-page .usertext-edit div textarea:focus {
     background: #FFF !important;
@@ -1185,7 +1246,7 @@ overflow: hidden;
 .panestack-title {
     margin: 0;
     padding: 5px;
-    background: #1E2636!important;
+    background: #666666!important;
     margin-bottom: 5px;
     color: #fff;
     border:0;
@@ -1200,7 +1261,7 @@ overflow: hidden;
     width: 78px;
     font-weight: bold;
     cursor: pointer;
-    color: #1E2636!important;
+    color: #666666!important;
     border: 0!important;
     border-radius: 0px!important;
     background: #F1B853!important;
@@ -1237,37 +1298,21 @@ overflow: hidden;
 }
 .infobar a {color:#fff;font-weight:bold;margin-top:5px;}
 
-.expando h1, .comment h1 {
-    color: #101828!important;
-    margin: 5px 0!important;
-    padding: 5px;
-    border:0;
-    font-weight: bold!important;
-    font-size: 18px!important;
+.md h1, .md h2, .md h3, .md h4, .md h5, .md h6 {
+    color: #101828;
+    margin: 5px 0;
+    padding: 4px 5px;
+    border: 0;
+    font-weight: bold;
 }
 
-.expando h2, .comment h2 {
-    color: #101828!important;
-    margin: 5px 0!important;
-    padding: 4px 5px;
-    font-size: 14px!important;
-}
+.md h1 { font-size: 2em; }
+.md h2 { font-size: 1.5em; }
+.md h3 { font-size: 1.17em; }
+.md h4 { font-size: 1.12em; }
+.md h5 { font-size: .83em; }
+.md h6 { font-size: .75em; }
 
-.expando h3, .comment h3 {
-    color: #101828!important;
-    margin: 5px 0!important;
-    padding: 4px 5px;
-    font-size: 12px!important;
-}
-
-.expando h4, .comment h4
-{
-    color: #101828!important;
-    margin: 5px 0!important;
-    padding: 4px 5px;
-    font-size: 12px!important;
-    font-weight: normal;
-}
 .expando blockquote, .comment blockquote {border-left: 2px solid #3a4b55!important;}
 
 .expando code, .comment code {
@@ -1347,12 +1392,12 @@ a[href="/r/GlobalOffensive/w/rules"], a[href="/r/GlobalOffensive/w/faq"], a[href
  ************************************************************************************************************************************/
 
 .footer-parent {padding-top:20px;}
-.footer {color: #A0B6CA;padding: 10px 0;border: 0;display: inline-block;border-radius: 0!important;background: #010713;width: 100%;margin:0;margin-bottom: -2px;}
+.footer {color: #A0B6CA;padding: 10px 0;border: 0;display: inline-block;border-radius: 0!important;background: #2E2E2E;width: 100%;margin:0;margin-bottom: -2px;}
 .footer .col{border:0;}
 .footer .col:first-child {border: none;margin-left: 40%;}
 .flat-vert.title {color:#A0B6CA}
 .footer a {color:#A0B6CA;font-weight:normal;}
-.bottommenu {background:#101828;color: #A0B6CA;}
+.bottommenu {background:#494949;color: #A0B6CA;}
 .bottommenu a {color:#A0B6CA;text-decoration:none;font-weight:bold}
 .debuginfo {display:none;}
 
@@ -1376,16 +1421,16 @@ a[href$='#announce-icon'] { background:rgba(104,132,104,0.8) url(%%flair-icons%%
 a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-repeat 275px -420px; }
 
 /* BUTTON ICONS */
-.side .usertext a[href*='#mm-up'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -106px;}
-.side .usertext a[href*='#mm-down'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -140px;}
-.side .usertext a[href*='#irc'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -175px;}
-.side .usertext a[href*='#gathers'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -420px;}
-.side .usertext a[href*='vods'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -209px;}
-.side .usertext a[href*='demos'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -244px;}
-.side .usertext a[href*='#recruitcs'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -280px;}
-.side .usertext a[href*='#trade'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -315px;}
-.side .usertext a[href*='#csmapmakers'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -351px;}
-.side .usertext a[href*='#wiki'] {background:#101828 url(%%sidebar-icons%%) no-repeat 275px -385px;}
+.side .usertext a[href*='#mm-up'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -106px;}
+.side .usertext a[href*='#mm-down'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -140px;}
+.side .usertext a[href*='#irc'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -175px;}
+.side .usertext a[href*='#gathers'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -420px;}
+.side .usertext a[href*='vods'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -209px;}
+.side .usertext a[href*='demos'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -244px;}
+.side .usertext a[href*='#recruitcs'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -280px;}
+.side .usertext a[href*='#trade'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -315px;}
+.side .usertext a[href*='#csmapmakers'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -351px;}
+.side .usertext a[href*='#wiki'] {background:#494949 url(%%sidebar-icons%%) no-repeat 275px -385px;}
 
 
 /* FLAIR BOX */
@@ -1405,7 +1450,7 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
 /* All link flair labels */
 .linkflairlabel { position: relative; top: 1px; }
 
-.flairselection .linkflair, .flairsample-left .linkflair {background:#1E2636;text-align:left}
+.flairselection .linkflair, .flairsample-left .linkflair {background:#666666;text-align:left}
 .thumbnail, .thumbnail.self, .thumbnail.nsfw, .thumbnail.default {width:70px;height:45px;margin-right:10px;margin-left:10px;}
 .thumbnail:hover, .thumbnail.self:hover, .thumbnail.nsfw:hover, .thumbnail.default:hover {opacity:1.0;}
 .thumbnail.self, .thumbnail.default {background: url(%%legacy-icons%%) -8px -34px no-repeat;opacity: 0.4;}
@@ -1522,7 +1567,7 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
     height: 15px;
 }
 
-.flair-league, .flair-official, .flair-news, .flair-mod, .flair-modtext, .flair-modct, .flair-modt {
+.flair-league, .flair-official, .flair-news, .flair-mod, .flair-modtext, .flair-modhover, .flair-modct, .flair-modt, .flair-modtrial {
     line-height: 15px;
     text-indent: -9999px;
     background: url(%%flair-custom%%) top left no-repeat;
@@ -1530,10 +1575,72 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
     height: 15px;
 }
 
-.flair-mod {background-position:-157px -187px;width: 15px}
-.flair-modtext {background-position:-157px -187px;}
+.flair-mod, .flair-mod.flair-hover {background-position:-156px -187px;width: 16px}
+.flair-mod.flair-hover:hover {width: 50px}
+.flair-mod.flair-text {background-position:-157px -187px;}
+.flair-mod.flair-ct {background-position:-104px -187px;}
+.flair-mod.flair-t {background-position:-52px -187px;}
+.flair-mod.flair-trial {background-position:-156px -172px;}
+
+.flair-mod {background-position:-156px -187px;width: 15px}
+.flair-modtext {background-position:-156px -187px;}
+.flair-modtrial {background-position:-156px -172px;}
+/* eNzyy's moo flairs */
 .flair-modct {background-position:-104px -187px;}
 .flair-modt {background-position:-52px -187px;}
+
+/* WEAPON FLAIRS */
+.flair-weapon {
+    line-height: 15px;
+    text-indent: -9999px;
+    background: url(%%weapon-flairs%%) top left no-repeat;
+    width: 50px;
+    height: 15px;
+}
+
+/* Pistols */
+.flair-weapon.flair-glock { background-position: 0 -15px; }
+.flair-weapon.flair-p2000 { background-position: 0 -30px; }
+.flair-weapon.flair-usps { background-position: 0px -45px; }
+/* Heavy */
+.flair-weapon.flair-negev { background-position: -50px -75px; }
+/* SMGs */
+/* Rifles */
+.flair-weapon.flair-ak47 { background-position: -150px -30px; }
+.flair-weapon.flair-m4a4 { background-position: -150px -45px; }
+.flair-weapon.flair-m4a1s { background-position: -150px -60px; }
+.flair-weapon.flair-awp { background-position: -150px -120px; }
+/* Gear */
+/* Grenades */
+.flair-weapon.flair-hegrenade { background-position: -250px -60px; }
+/* Knives */
+.flair-weapon.flair-t-knife { background-position: -300px 0px; }
+.flair-weapon.flair-ct-knife { background-position: -300px -15px; }
+.flair-weapon.flair-bayonet { background-position: -300px -30px; }
+.flair-weapon.flair-butterfly { background-position: -300px -45px; }
+.flair-weapon.flair-flip { background-position: -300px -60px; }
+.flair-weapon.flair-gut { background-position: -300px -75px; }
+.flair-weapon.flair-huntsman { background-position: -300px -90px; }
+.flair-weapon.flair-karambit { background-position: -300px -105px; }
+.flair-weapon.flair-m9bayonet { background-position: -300px -120px; }
+
+/* TEAM FAN FLAIRS */
+.flair-fan {
+    line-height: 15px;
+    text-indent: -9999px;
+    background: url(%%team-fan-flairs%%) top left no-repeat;
+    width: 15px;
+    height: 15px;
+}
+
+.flair-fan.flair-vp { background-position: 0 0; }
+.flair-fan.flair-tsm { background-position: 0 -15px; }
+.flair-fan.flair-envyus { background-position: 0 -30px; }
+.flair-fan.flair-nip { background-position: 0 -45px; }
+.flair-fan.flair-penta { background-position: 0 -60px; }
+.flair-fan.flair-navi { background-position: 0 -75px; }
+.flair-fan.flair-hr { background-position: 0 -90px; }
+.flair-fan.flair-fnatic { background-position: 0 -105px; }
 
 /* RANK FLAIRS */
 .flair-rank.flair-silver-1 { background-position              : 0px 0px; }
@@ -1556,15 +1663,18 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
 .flair-rank.flair-global-elite { background-position          : -80px -75px; }
 
 .flair-league.flair-esea { background-position     :  0 -34px; }
+.flair-league.flair-esea-admin { background-position     : -52px -119px; }
 .flair-league.flair-esl { background-position      : -104px 0; }
 .flair-league.flair-faceit { background-position   : -156px -17px; }
 .flair-league.flair-gameface { background-position : -52px  -34px; }
 .flair-league.flair-cevo { background-position     : -104px -34px; }
+.flair-league.flair-gorgntv { background-position  : -156px -102px; }
 
 .flair-official.flair-valve { background-position    : -52px  0; }
 .flair-official.flair-irc { background-position      : -52px  -16px; }
 .flair-official.flair-eswc { background-position     : -104px -17px; }
 .flair-official.flair-verified { background-position :  0 -51px; }
+.flair-official.flair-roomonfire { background-position :  -156px -119px; }
 
 .flair-official.flair-nip { background-position       : -156px -51px; }
 .flair-official.flair-navi { background-position      : -156px -68px; }
@@ -1578,6 +1688,10 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
 .flair-official.flair-denial {background-position     : -104px -85px; }
 .flair-official.flair-ldlc { background-position      : -156px -85px; }
 .flair-official.flair-flipside { background-position  :  0 -102px; }
+.flair-official.flair-penta { background-position     : -52px -102px; }
+.flair-official.flair-liquid { background-position     : -104px -102px; }
+.flair-official.flair-envyus { background-position  :  0 -119px; }
+.flair-official.flair-vox { background-position  :  -52px -136px; } 
 
 .flair-news.flair-fragbite { background-position   :  0 -85px; }
 .flair-news.flair-gosugamers { background-position :  0 -17px; }
@@ -1626,7 +1740,7 @@ body:lang(nt), #search input[type=text]:lang(nt), .res-nightmode body {
 .res-nightmode .side .spacer .sidecontentbox ul.content ul.flat-vert a,
 .res-nightmode .side .md > blockquote,
 .res-nightmode .side .md > blockquote > blockquote {
-    background-color: #010713 !important;
+    background-color: #2E2E2E !important;
 }
 
 .res-nightmode .linklisting .link.odd,
@@ -1818,7 +1932,7 @@ background-color: rgb(0, 0, 0);
 }  
 .res-nightmode .comments-page .usertext-edit div textarea:focus {
     background: #171719 !important;
-color:#fff!important;
+    color:#fff!important;
 }
 
 .res-nightmode .commentarea {
@@ -1884,6 +1998,11 @@ color:#fff!important;
 .res-nightmode .wiki-page-content {background:#171719;}
 .res-nightmode .wiki-page .pageactions{background:#171719;}
 
+.res-nightmode .wiki-page ol li,
+.res-nightmode .wiki-page ul li {
+    color: #DDDDDD;
+}
+
 /* nightmode generic table text color fix */
 .res-nightmode .generic-table {color: #f0f0f0;}
 
@@ -1894,7 +2013,7 @@ color:#fff!important;
 .res-nightmode .listing-page .link:hover {background: #1F1F1F!important}
 
 /* nightmode header */
-.res-nightmode #header, .res-nightmode #header-bottom-left {background: #010713 url(%%header%%) center no-repeat !important;}
+.res-nightmode #header, .res-nightmode #header-bottom-left {background: #2E2E2E url(%%header%%) center no-repeat !important;}
 
 /* nightmode h1 to h4 fix */
 .res-nightmode .comment h1, .res-nightmode .expando h1,.res-nightmode .comment h2,.res-nightmode .expando h2,.res-nightmode .comment h3,.res-nightmode .expando h3,.res-nightmode .comment h4,.res-nightmode .expando h4 {color: #DDD!important;background: none;}

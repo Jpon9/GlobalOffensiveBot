@@ -103,3 +103,5 @@ flair/config/settings.json
 flair/cache/flairs.json
 flair/cache/flair-counts.json
 flair/cache/flair-counts.csv
+*.jpg
+*.php~

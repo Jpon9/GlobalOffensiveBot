@@ -14,7 +14,7 @@ testimages= os.getcwd() + "/images/debug/"
 
 from upcominggames import *
 from helperfuncs import *
-from redditlogin import r,target_subreddit
+from redditlogin import r
 import reddit
 from settings import getSettings
 from spritesheet_maker import GenerateSpritesheet
@@ -23,7 +23,6 @@ from spritesheet_maker import GenerateSpritesheet
 def BuildCurrentlyStreaming(currentlyStreaming, upcomingGames):
 	print("\tBuilding \"Currently Streaming\" section...")
 	global r
-	global target_subreddit
 	botSettings = getSettings()
 	count = reddit.count
 	currentTime2 = datetime.datetime.now()
@@ -36,7 +35,7 @@ def BuildCurrentlyStreaming(currentlyStreaming, upcomingGames):
 		spritesheetPath = GenerateSpritesheet(image_urls)
 		try:
 			# Upload spritesheet
-			r.upload_image(target_subreddit, spritesheetPath, botSettings['stream_thumbnail_css_name'])
+			r.upload_image(botSettings['target_subreddit'], spritesheetPath, botSettings['stream_thumbnail_css_name'])
 		except Exception as detail:
 			print "runtime error in BuildCurrentlyStreaming uploading to reddit :", detail
 			traceback.print_exc(file=sys.stdout)
@@ -45,7 +44,7 @@ def BuildCurrentlyStreaming(currentlyStreaming, upcomingGames):
 			time.sleep(60 * botSettings['update_timeout'])
 			print "Trying..."
 			try:
-				r.upload_image(target_subreddit, spritesheetPath, botSettings['stream_thumbnail_css_name'])
+				r.upload_image(botSettings['target_subreddit'], spritesheetPath, botSettings['stream_thumbnail_css_name'])
 			except Exception as detail:
 				print "\tRuntime error |again| in BuildCurrentlyStreaming() :", detail
 				traceback.print_exc(file=sys.stdout)

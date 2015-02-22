@@ -21,7 +21,8 @@
 					   $_POST['spotlight_rotation_timeout'],
 					   $_POST['google_api_key'],
 					   $_POST['gosugamers_api_key'],
-					   $_POST['steam_api_key']);
+					   $_POST['steam_api_key'],
+					   isset($_POST['minify_stylesheet']));
 		$displaySuccess = true;
 		unset($_POST);
 	}
@@ -74,6 +75,10 @@
 					<tr>
 						<td><label>Spotlight Rotation Timeout (mins)</label></td>
 						<td><input type="text" name="spotlight_rotation_timeout" value="<?php echo $settings['spotlight_rotation_timeout']; ?>"></td>
+					</tr>
+					<tr>
+						<td><label>Minify stylesheet?</label></td>
+						<td><input type="checkbox" name="minify_stylesheet"<?php echo ($settings['minify_stylesheet'] == true ? " checked" : ""); ?>></td>
 					</tr>
 					<tr id="final-row">
 						<td><input type="submit" value="Submit"><input type="reset"></td>

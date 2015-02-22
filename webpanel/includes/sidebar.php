@@ -17,6 +17,7 @@
 		<li><a href="/applications" <?php if ($title == "Mod Applications") { echo 'class="active"'; } ?>>Moderator Applications</a></li>
 		<li><a href="/giveaway" <?php if ($title == "Giveaway") { echo 'class="active"'; } ?>>Giveaway Winners</a></li>
 		<li><a href="/giveaway/items" <?php if ($title == "Giveaway Items") { echo 'class="active"'; } ?>>Giveaway Items</a></li>
+		<li><a href="/top-commenters" <?php if ($title == "Top Commenters") { echo 'class="active"'; } ?>>Top Commenters (January)</a></li>
 		<li><a href="/changelog" <?php if ($title == "Changelog") { echo 'class="active"'; } ?>>Changelog</a></li>
 		<li><a href="/error-log" <?php if ($title == "Error Log") { echo 'class="active"'; } ?>>Error Log</a></li>
 		<li><a href="/webpanel-log" <?php if ($title == "Webpanel Log") { echo 'class="active"'; } ?>>Webpanel Log</a></li>

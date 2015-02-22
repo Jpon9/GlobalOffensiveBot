@@ -8,7 +8,7 @@
 		return json_decode(file_get_contents($settingsPath), true)["settings"];
 	}
 
-	function updateSettings($targetSubreddit, $updateTimeout, $maxStreams, $maxGames, $thumbnail, $spotlightTimeout, $google, $gosu, $steam) {
+	function updateSettings($targetSubreddit, $updateTimeout, $maxStreams, $maxGames, $thumbnail, $spotlightTimeout, $google, $gosu, $steam, $minify) {
 		global $settingsPath;
 		$settings = [
 			"settings" => [
@@ -20,7 +20,8 @@
 				"spotlight_rotation_timeout" => $spotlightTimeout,
 				"google_api_key" => $google,
 				"gosugamers_api_key" => $gosu,
-				"steam_api_key" => $steam
+				"steam_api_key" => $steam,
+				"minify_stylesheet" => $minify
 			]
 		];
 		$output = fopen($settingsPath, 'w');
