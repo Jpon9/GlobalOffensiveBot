@@ -9,16 +9,18 @@
 		<link rel="stylesheet" type="text/css" href="/style/panel.css">
 		<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php"; ?>
 	</head>
-	<body>
+	<body class="pure-g">
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/nav.php"; ?>
-		<div id="body">
-			<h2>Giveaway Items</h2>
-			<table id="giveaway-winners">
-				<tr class="title-row">
-					<td>#</td>
-					<td>Item</td>
-				</tr>
-			</table>
+		<div id="main" class="pure-u-1 pure-u-lg-4-5">
+			<div class="inner">
+				<h2>Giveaway Items</h2>
+				<table id="giveaway-winners">
+					<tr class="title-row">
+						<td>#</td>
+						<td>Item</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/sidebar.php"; ?>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>

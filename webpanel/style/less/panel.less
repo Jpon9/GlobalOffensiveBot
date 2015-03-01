@@ -5,6 +5,11 @@
 	src: url('/fonts/Roboto/Regular.ttf');
 }
 
+@font-face {
+	font-family: sourcecodepro;
+	src: url('/fonts/SourceCodePro/Regular.ttf');
+}
+
 html {
 	overflow-y: scroll;
 }
@@ -64,183 +69,130 @@ nav {
 	}
 }
 
-div#body {
-	margin: 30px 360px 30px 50px;
-	position: absolute;
+#go-to-subreddit {
+	background-color: #a0b6ca;
+	color: #101828;
+	height: 100%;
+	position: fixed;
+	text-align: center;
 
-	h2 {
-		margin-bottom: 20px;
+	&:hover {
+		text-decoration: underline;
 	}
 
-	p {
-		max-width: 900px;
+	img {
+		height: 15px;
+		line-height: 25px;
+		margin-top: 40px;
+		padding-right: 10px;
 	}
 
-	div.success {
-		background-color: #ADDEAE;
-		border: 1px solid #101010;
-		padding: 20px 40px;
-		margin-bottom: 20px;
-		display: inline-block;
-
-		h3 {
-			font-size: 18px;
-			margin-bottom: 10px;
-		}
+	span {
+		font-size: 1.2em;
 	}
+}
 
-	table#webpanel-log, table#giveaway-winners, table#applications {
-		color: darken(@font-color-light, 20%);
+.inner		{ padding: 30px; }
+.inner-2	{ padding: 10px; }
 
-		a { color: @link-color-light; }
+div.success {
+	background-color: #ADDEAE;
+	border: 1px solid #101010;
+	padding: 20px 40px;
+	margin-bottom: 20px;
+	display: inline-block;
 
-		tr {
-			background-color: @header-bg-color;
-
-			&:nth-child(odd) {
-				background-color: darken(@header-bg-color, 3%);
-			}
-
-			&.title-row {
-				font-weight: bold;
-				background-color: @sidebar-bg-color;
-			}
-
-			td {
-				padding: 4px 10px;
-			}
-		}
-
-		&#applications {
-			display: block;
-			overflow: scroll;
-			vertical-align: top;
-			width: 1400px;
-
-			td:first-child a {
-				height: 100%;
-			}
-
-			td:nth-child(6) {
-				max-width: 550px;
-			}
-
-			td:nth-child(7) {
-				width: 250px;
-			}
-		}
-	}
-
-	form {
-		table {
-			tr {
-				td:first-child {
-					width: 300px;
-				}
-				&#final-row {
-					td, td.button-row {
-						column-span: all;
-						padding-top: 15px;
-					}
-				}
-			}
-
-			&.notice-edit {
-				background-color: darken(@body-bg-color, 5%);
-				border: 1px #101828 solid;
-				border-radius: 6px;
-				display: block;
-				margin-bottom: 10px;
-				margin-top: 10px;
-				padding: 20px 30px;
-
-				input {
-					width: 400px;
-
-					&[type="checkbox"] {
-						width: auto;
-					}
-
-					&.duration_hours {
-						width: 25px;
-					}
-				}
-
-				textarea {
-					height: 300px;
-					max-height: 1000px;
-					max-width: 1300px;
-					width: 400px;
-				}
-
-				span.local_time_msg {
-					font-size: 12px;
-					margin-left: 10px;
-				}
-			}
-		}
-
-		label:hover {
-			cursor: text;
-		}
-
-		input {
-			&.demonym {
-				margin-bottom: 5px;
-				width: 250px;
-			}
-
-			&[type="text"] {
-				padding: 3px 5px;
-			}
-
-			&[name="target_subreddit"] {
-				width: 129px;
-			}
-
-			&[type="submit"], &[type="reset"], &[type="button"] {
-				margin: 0px 10px 10px 0px;
-				padding: 5px 15px;
-			}
-		}
-
-		textarea {
-			height: 150px;
-			max-height: 300px;
-			max-width: 400px;
-			padding: 3px 6px;
-			width: 140px;
-
-			&.sidebar-chunk {
-				height: 400px;
-				max-height: 750px;
-				max-width: 1000px;
-				width: 500px;
-			}
-
-			&[name="stylesheet"] {
-				height: 700px;
-				max-height: 1000px;
-				max-width: 1300px;
-				width: 700px;
-			}
-		}
-	}
-
-	table.notice-help {
-		background-color: darken(@body-bg-color, 5%);
-		border: 1px #101828 solid;
-		border-radius: 6px;
-		display: block;
+	h3 {
+		font-size: 18px;
 		margin-bottom: 10px;
-		margin-top: 10px;
-		padding: 20px 30px;
-		width: 600px;
+	}
+}
 
-		td:first-child {
-			width: 150px;
-			padding-right: 30px;
+table#webpanel-log, table#giveaway-winners, table#applications {
+	color: darken(@font-color-light, 20%);
+
+	a { color: @link-color-light; }
+
+	tr {
+		background-color: @header-bg-color;
+
+		&:nth-child(odd) {
+			background-color: darken(@header-bg-color, 3%);
 		}
+
+		&.title-row {
+			font-weight: bold;
+			background-color: @sidebar-bg-color;
+		}
+
+		td {
+			padding: 4px 10px;
+		}
+	}
+
+	&#applications {
+		display: block;
+		overflow: scroll;
+		vertical-align: top;
+		width: 1400px;
+
+		td:first-child a {
+			height: 100%;
+		}
+
+		td:nth-child(6) {
+			max-width: 550px;
+		}
+
+		td:nth-child(7) {
+			width: 250px;
+		}
+	}
+}
+
+body.pure-g .pure-form fieldset {
+	button {
+		background-color: @header-bg-color;
+		color: #FFFFFF;
+	}
+}
+
+.notice {
+	.notice-title {
+		cursor: pointer;
+		
+		.arrow {
+			margin-right: 5px;
+			width: 10px;
+
+			&.uncollapsed {
+				transform: rotate(90deg);
+			}
+
+			&.collapsed {
+			
+			}
+		}
+	}
+
+	.collapsible {
+		display: none;
+	}
+}
+
+table.notice-help {
+	background-color: darken(@body-bg-color, 5%);
+	border: 1px #101828 solid;
+	border-radius: 6px;
+	display: block;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 20px 30px;
+	width: 600px;
+
+	td:first-child {
+		width: 150px;
+		padding-right: 30px;
 	}
 }
 
@@ -248,24 +200,15 @@ div#sidebar {
 	background-color: @sidebar-bg-color;
 	color: @font-color-light;
 	height: 100%;
-	overflow: hidden;
-	padding: 10px;
 	position: fixed;
-	right: 0px;
-	top: 0px;
-	width: 310px;
 
 	h2 {
 		margin: 20px;
-		position: relative;
-		top: 100px;
 	}
 
 	ul {
 		list-style: none;
 		margin-left: 25px;
-		position: relative;
-		top: 100px;
 
 		li {
 			a {

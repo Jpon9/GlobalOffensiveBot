@@ -23,6 +23,8 @@ def GetHeader():
 		# Grabs the new index for the active demonym
 		metadata["header_cycle"]["current_index"] = (metadata["header_cycle"]["current_index"] + 1) % numOfHeaders
 		metadata["header_cycle"]["last_updated"] = int(time.time())
+		# Write the metadata object
 		with io.open(base_path + "cache/metadata.json", 'w', encoding='utf-8') as f:
 			f.write(unicode(json.dumps(metadata, ensure_ascii=False, indent=4, separators=(',', ': '))))
+	# Returns the Reddit CSS %%variable%%
 	return "%%header" + str(metadata["header_cycle"]["current_index"] + 1) + "%%"

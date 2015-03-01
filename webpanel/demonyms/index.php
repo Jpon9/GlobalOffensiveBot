@@ -23,32 +23,33 @@
 <html>
 	<head>
 		<title><?php echo $title; ?> - /r/GlobalOffensive Bot Webpanel</title>
-		<link rel="stylesheet" type="text/css" href="/style/reset.css">
-		<link rel="stylesheet" type="text/css" href="/style/panel.css">
+		<link rel="stylesheet" type="text/css" href="/style/demonyms.css">
 		<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php"; ?>
 	</head>
-	<body>
+	<body class="pure-g">
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/nav.php"; ?>
-		<div id="body">
-			<?php
-				if ($displaySuccess) {
-					include $_SERVER['DOCUMENT_ROOT'] . "/includes/success.html";
-				}
-			?>
-			<h2>Demonyms</h2>
-			<form action="./" method="POST">
-				<table>
-					<tr>
-						<td class="button-row"><input id="plus-dn" type="button" value="Add Demonym"><input id="minus-dn" type="button" value="Subtract Demonym"></td>
-					</tr>
-					<tr>
-						<td>Subscribers</td>
-						<td>Online users</td>
-					</tr>
-					<!-- Demonyms will be inserted here -->
-					<tr id="final-row">
-						<td><input type="submit" value="Submit"><input type="reset"></td>
-					</tr>
+		<div id="main" class="pure-u-1 pure-u-lg-4-5">
+			<div class="inner">
+				<?php
+					if ($displaySuccess) {
+						include $_SERVER['DOCUMENT_ROOT'] . "/includes/success.html";
+					}
+				?>
+				<h2>Demonyms</h2>
+				<form class="pure-form pure-form-aligned" action="./" method="POST">
+					<fieldset>
+						<div class="control-group">
+							<button id="plus-dn" type="button" class="pure-button pure-button-secondary">Add Demonym</button>
+							<button id="minus-dn" type="button" class="pure-button pure-button-secondary">Remove Demonym</button>
+						</div>
+						<div class="label-group">
+							<label>Subscribers</label>
+							<label>Online users</label>
+						</div>
+						<div id="control-row" class="pure-controls">
+							<button type="submit" class="pure-button pure-button-primary">Submit</button>
+						</div>
+					</fieldset>
 					<script type="text/javascript">
 						var demonyms;
 						$.ajaxSetup({async:false});
@@ -56,7 +57,7 @@
 							demonyms = JSON.parse(data);
 						});
 						$.ajaxSetup({async:true});
-						target = document.getElementById("final-row");
+						target = document.getElementById("control-row");
 						var i = 0;
 						for (var demonym in demonyms) {
 							var dn = demonyms[demonym];
@@ -76,33 +77,30 @@
 						});
 
 						function addDemonym() {
-							var tr = document.createElement("TR");
-							var td = document.createElement("TD");
+							var div = document.createElement("DIV");
+							div.className = "pure-control-group";
 							var subs = document.createElement("INPUT");
 							subs.className = "demonym";
 							subs.type = "text";
 							subs.name = "demonym" + i + "[]";
-							td.appendChild(subs);
-							tr.appendChild(td);
-							var td2 = document.createElement("TD");
+							div.appendChild(subs);
 							var users = document.createElement("INPUT");
 							users.className = "demonym";
 							users.type = "text";
 							users.name = "demonym" + i + "[]";
-							td2.appendChild(users);
-							tr.appendChild(td2);
-							target.parentElement.insertBefore(tr, target);
+							div.appendChild(users);
+							target.parentElement.insertBefore(div, target);
 							i++;
 							return {"subs": subs, "users": users};
 						}
 
 						function subtractDemonym() {
-							target.parentElement.removeChild(target.parentElement.childNodes[i + 5]);
+							target.parentElement.removeChild(target.parentElement.childNodes[i + 4]);
 							i--;
 						}
 					</script>
-				</table>
-			</form>
+				</form>
+			</div>
 		</div>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/sidebar.php"; ?>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>

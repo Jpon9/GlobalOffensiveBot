@@ -1,0 +1,43 @@
+{
+	"notices": [
+		{
+			"type": "notice",
+			"category": "notice",
+			"title": "Valve Devs AMA",
+			"link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+			"start_time": [5, 12, 0],
+			"notice_duration": 6,
+			"frequency": "once",
+			"created": 1425148241,
+			"countdown_to": null
+		},
+		{
+			"type": "autopost",
+			"thread_title": "Newbie Thursday (%%day_with_oi%% of %%month%%, %%year%%) - Your weekly questions thread!",
+			"poster_account": "GlobalOffensiveBot",
+			"delete_after": 0,
+			"post_time": [5, 17, 0],
+			"frequency": "weekly",
+			"created": 1425148241,
+			"body": "body of the thread",
+			"sticky_duration": 24,
+			"url": ""
+		},
+		{
+			"type": "autopost+notice",
+			"category": "event",
+			"thread_title": "[In 4 hours] NA Community Night",
+			"poster_account": "csgocomnights",
+			"delete_after": 0,
+			"start_time": [5, 17, 0],
+			"notice_duration": 7,
+			"post_time": [5, 17, 0],
+			"frequency": "weekly",
+			"created": 1425148241,
+			"body": "body of the thread",
+			"sticky_duration": 6,
+			"url": "",
+			"countdown_to": 6
+		}
+	]
+}

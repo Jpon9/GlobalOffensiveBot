@@ -1,4 +1,4 @@
-<div id="sidebar">
+<div id="sidebar" class="pure-u-1 pure-u-lg-1-5">
 	<h2>Status</h2>
 	<ul>
 		<li>The bot is <span id="bot-status" class="status-indeterminate">Schr&ouml;dinger's bot</span></li>

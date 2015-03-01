@@ -10,18 +10,20 @@
 		<script type="text/javascript" src="/js/formatting.js"></script>
 		<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php"; ?>
 	</head>
-	<body>
+	<body class="pure-g">
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/nav.php"; ?>
-		<div id="body">
-			<h2>Webpanel Log</h2>
-			<table id="webpanel-log">
-				<tr class="title-row">
-					<td>Timestamp</td>
-					<td>User</td>
-					<td>Message</td>
-					<td>Relative Time</td>
-				</tr>
-			</table>
+		<div id="main" class="pure-u-1 pure-u-lg-4-5">
+			<div class="inner">
+				<h2>Webpanel Log</h2>
+				<table id="webpanel-log">
+					<tr class="title-row">
+						<td>Timestamp</td>
+						<td>User</td>
+						<td>Message</td>
+						<td>Relative Time</td>
+					</tr>
+				</table>
+			</div>
 		</div>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/sidebar.php"; ?>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
