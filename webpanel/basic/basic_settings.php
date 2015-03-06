@@ -8,7 +8,7 @@
 		return json_decode(file_get_contents($settingsPath), true)["settings"];
 	}
 
-	function updateSettings($targetSubreddit, $updateTimeout, $maxStreams, $maxGames, $thumbnail, $spotlightTimeout, $google, $gosu, $steam, $minify) {
+	function updateSettings($targetSubreddit, $updateTimeout, $maxStreams, $maxGames, $thumbnail, $spotlightTimeout, $numOfHeaders, $google, $gosu, $steam, $minify) {
 		global $settingsPath;
 		$settings = [
 			"settings" => [
@@ -18,6 +18,7 @@
 				"max_games_shown" => $maxGames,
 				"stream_thumbnail_css_name" => $thumbnail,
 				"spotlight_rotation_timeout" => $spotlightTimeout,
+				"num_of_headers" => $numOfHeaders,
 				"google_api_key" => $google,
 				"gosugamers_api_key" => $gosu,
 				"steam_api_key" => $steam,

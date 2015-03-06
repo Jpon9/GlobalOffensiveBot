@@ -10,6 +10,7 @@
 	    isset($_POST['max_games_shown']) &&
 	    isset($_POST['stream_thumbnail_css_name']) &&
 	    isset($_POST['spotlight_rotation_timeout']) &&
+	    isset($_POST['num_of_headers']) &&
 	    isset($_POST['google_api_key']) &&
 	    isset($_POST['gosugamers_api_key']) &&
 	    isset($_POST['steam_api_key'])) {
@@ -19,6 +20,7 @@
 					   $_POST['max_games_shown'],
 					   $_POST['stream_thumbnail_css_name'],
 					   $_POST['spotlight_rotation_timeout'],
+					   $_POST['num_of_headers'],
 					   $_POST['google_api_key'],
 					   $_POST['gosugamers_api_key'],
 					   $_POST['steam_api_key'],
@@ -75,6 +77,10 @@
 						<div class="pure-control-group">
 							<label>Spotlight Rotation (minutes)</label>
 							<input type="text" name="spotlight_rotation_timeout" value="<?php echo $settings['spotlight_rotation_timeout']; ?>">
+						</div>
+						<div class="pure-control-group">
+							<label>Number of Headers</label>
+							<input type="text" name="num_of_headers" value="<?php echo $settings['num_of_headers']; ?>">
 						</div>
 						<div class="pure-control-group">
 							<label>Minify stylesheet?</label>
