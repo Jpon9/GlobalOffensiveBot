@@ -1,7 +1,8 @@
 <?php
 	include_once $_SERVER['DOCUMENT_ROOT'] . "/includes/settings.php";
 	include_once $_SERVER['DOCUMENT_ROOT'] . "/logging/logger.php";
-	$noticesPath = $bot_path . "cache/stickies.json";
+	//$noticesPath = $bot_path . "/config/notices.json";
+	$noticesPath = $_SERVER['DOCUMENT_ROOT'] . "/notices/cache/notices.json";
 	//$noticesPath = $_SERVER['DOCUMENT_ROOT'] . "/notices/stickies.json";
 
 	function getNotices() {

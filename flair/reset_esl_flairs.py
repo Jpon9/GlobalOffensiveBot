@@ -14,10 +14,19 @@ flair_generator = r.get_flair_list(subreddit='GlobalOffensive', limit=None)
 
 flairs = []
 
-for flair in flair_generator:
-	flairs.append(flair)
-	print flair['user']
+num_removed = 0
 
-# Write the list of flairs to json for future use
-with io.open(base_path + "/cache/flairs.json", 'w+', encoding='utf-8') as f:
-	f.write(unicode(json.dumps(flairs, ensure_ascii=False, indent=4, separators=(',', ': '))))
+to_remove = ['fmesports','reason','ibp','denial','liquid','gorgntv','fragbite','gosugamers','vakarm','99damage']
+
+for flair in flair_generator:
+	if flair['flair_css_class'] == None:
+		continue
+
+	for tr in to_remove:
+		if tr in flair['flair_css_class']:
+			flairs.append({'user': flair['user'], 'flair_css_class': '', 'flair_text': ''})
+			num_removed += 1
+
+r.set_flair_csv('GlobalOffensive', flairs)
+
+print str(num_removed) + " flairs have been cleared."

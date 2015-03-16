@@ -1,0 +1,22 @@
+{
+    "notices": [
+        {
+            "type": "notice",
+            "category": "event",
+            "thread_title": "[In 4 hours] NA Community Night",
+            "notice_title": "NA Community Night",
+            "poster_account": "csgocomnights",
+            "notice_start_time": [5, 17, 0],
+            "notice_duration": 6,
+            "permanent_notice": false,
+            "post_time": [5, 17, 0],
+            "frequency": "weekly",
+            "created": 1425148241,
+            "body": "body of the thread",
+            "sticky_duration": 6,
+            "permanent_sticky": false,
+            "notice_link": "",
+            "self_post": false
+        }
+    ]
+}

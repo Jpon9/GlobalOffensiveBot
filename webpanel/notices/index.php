@@ -53,8 +53,8 @@
 <html>
 	<head>
 		<title><?php echo $title; ?> - /r/GlobalOffensive Bot Webpanel</title>
-		<link rel="stylesheet" type="text/css" href="/style/reset.css">
-		<link rel="stylesheet" type="text/css" href="/style/panel.css">
+		<link rel="stylesheet" type="text/css" href="/style/notices.css">
+		<script type="text/javascript" src="/js/notices.js"></script>
 		<?php include_once $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php"; ?>
 	</head>
 	<body class="pure-g">
@@ -67,230 +67,372 @@
 					}
 				?>
 				<h2>Notices</h2>
-				<p>
-					Documentation can be found on <a href="/notices/help/">this page.</a>
-				</p>
-				<form action="./" method="POST">
-					<input type="hidden" name="timezone" id="timezone" value="">
-					<table>
-						<tr>
-							<td class="button-row"><input id="plus-notice" type="button" value="Add Notice"><input id="minus-notice" type="button" value="Subtract Notice"></td>
-						</tr>
-					</table>
-					<table id="final-table">
-						<tr id="final-row">
-							<td><input type="submit" value="Submit"></td>
-						</tr>
-					</table>
-					<script type="text/javascript">
-						var notices;
-						$.ajaxSetup({async:false});
-						$.get("/notices/notices.php?verbose", function(data) {
-							notices = JSON.parse(data).stickies;
-						});
-						$.ajaxSetup({async:true});
-						console.log(notices);
-						target = document.getElementById("final-table");
-						var numOfNotices = 0;
-						for (var notice in notices) {
-							var dn = notices[notice];
-							var nodes = addNotice(notices[notice]);
-							// Fill in the nodes with the appropriate data
-						}
+				<p>Documentation can be found on <a href="/notices/help/">this page.</a></p>
+				<form class="pure-form pure-form-aligned">
+					<fieldset>
+						<div class="pure-control-group">
+							<button id="plus-notice" type="button" class="pure-button pure-button-secondary">Add Notice</button>
+						</div>
+						<div id="notices">
+							<h3>Edit Notices</h3>
+							<div id="notice-edit" class="pure-g">
 
-						// Remove text nodes
-						for (var i = 0; i < target.parentElement.childNodes.length; ++i) {
-							if (target.parentElement.childNodes[i].nodeType == 3) {
-								target.parentElement.removeChild(target.parentElement.childNodes[i]);
-							}
-						}
-
-						// Update the time zone field
-						document.getElementById("timezone").value = new Date().getTimezoneOffset() / 60;
-
-						// Bind the buttons
-						$("#plus-notice").on("click", function(ev) {
-							addNotice();
-						});
-						$("#minus-notice").on("click", function(ev) {
-							subtractNotice();
-						});
-
-						function generateInput(labelText, name, type, defaultValue, options) {
-							var tr = document.createElement("TR");
-							var td1 = document.createElement("TD");
-							var td2 = document.createElement("TD");
-							var label = document.createElement("LABEL");
-							label.innerHTML = labelText;
-							td1.appendChild(label);
-							var input;
-							if (type == "select") {
-								input = document.createElement("SELECT");
-								for (option in options) {
-									var opt = document.createElement("OPTION");
-									opt.innerHTML = options[option].text;
-									opt.value = options[option].value;
-									if (options[option].value === defaultValue) {
-										opt.selected = true;
-									}
-									input.appendChild(opt);
-								}
-							} else if (type == "textarea") {
-								input = document.createElement("TEXTAREA");
-								input.innerHTML = defaultValue;
-							} else if (type == "checkbox") {
-								input = document.createElement("INPUT");
-								if (defaultValue) {
-									input.checked = true;
-								}
-								input.type = type;
-							} else if (type == "hidden") {
-								var hiddenInput = document.createElement("INPUT");
-								hiddenInput.value = defaultValue;
-								hiddenInput.type = type;
-								hiddenInput.className = name;
-								hiddenInput.name = numOfNotices + "_" + name;
-								return hiddenInput;
-							} else {
-								input = document.createElement("INPUT");
-								input.value = defaultValue;
-								input.type = type;
-							}
-							input.name = numOfNotices + "_" + name;
-							input.className = name;
-							td2.appendChild(input);
-							tr.appendChild(td1);
-							tr.appendChild(td2);
-
-							return tr;
-						}
-
-						function addNotice(notice) {
-							if (notice === undefined) {
-								notice = {
-									"poster_account": "GlobalOffensiveBot",
-									"postedflag": false,
-									"notice_title": "Default Notice Title",
-									"type": "link",
-									"noticetype": "discussion",
-									"time": [
-										0,
-										0,
-										0
-									],
-									"duration_hours": 3,
-									"post_title": "Default Post Title",
-									"postlink": "#default-thread-link",
-									"body": "This is a default thread body.",
-									"hide_notice": false,
-									"master_disable": false
-								}
-							}
-
-							// Convert post time from UTC to local time
-							notice.time[1] -= new Date().getTimezoneOffset() / 60;
-							// Convert times to UTC based on the timezone we got from Javascript
-							if (notice.time[1] < 0) {
-								notice.time[1] += 24;
-								notice.time[0] -= 1;
-							} else if (notice.time[1] >= 24) {
-								notice.time[1] -= 24;
-								notice.time[0] += 1;
-							}
-
-							// Table for the notice
-							var table = document.createElement("TABLE");
-							table.className = "notice-edit";
-							table.appendChild(generateInput("Currently Posted", "postedflag", "hidden", notice.postedflag));
-							table.appendChild(generateInput("Poster Account", "poster_account", "select", notice.poster_account, [
-								{"text":"GlobalOffensiveBot","value":"GlobalOffensiveBot"},
-								{"text":"csgocomnights","value":"csgocomnights"}
-							]));
-							table.appendChild(generateInput("Notice Title", "notice_title", "text", notice.notice_title));
-							table.appendChild(generateInput("Notice Type", "type", "select", notice.type, [
-								{"text":"Recurring Weekly Post","value":"recurring_event"},
-								{"text":"Recurring Biweekly Post","value":"recurring_biweekly_event"},
-								{"text":"Nonrecurring Post","value":"post_non_recurring"},
-								{"text":"Nonrecurring Link","value":"link_non_recurring"},
-								{"text":"Non-Thread Link","value":"link"}
-							]));
-							table.appendChild(generateInput("Notice Category", "noticetype", "select", notice.noticetype, [
-								{"text":"Event","value":"event"},
-								{"text":"Discussion","value":"discussion"},
-								{"text":"Notice","value":"notice"}
-							]));
-							// POSTING DAY
-							var post_day = document.createElement("SELECT");
-							post_day.name = numOfNotices + "_post_day";
-							var j = 0;
-							var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
-							for (var day in days) {
-								var option = document.createElement("OPTION");
-								option.value = j;
-								option.innerHTML = days[day];
-								if (j === notice.time[0]) {
-									option.selected = true;
-								}
-								post_day.appendChild(option);
-								j++;
-							}
-							// POSTING HOUR
-							var post_hour = document.createElement("SELECT");
-							post_hour.name = numOfNotices + "_post_hour";
-							for (var i = 0; i < 24; ++i) {
-								var option = document.createElement("OPTION");
-								option.value = i;
-								option.innerHTML = (i < 10 ? "0" + i : i);
-								if (i === notice.time[1]) {
-									option.selected = true;
-								}
-								post_hour.appendChild(option);
-							}
-							// POSTING MINUTE
-							var post_minute = document.createElement("SELECT");
-							post_minute.name = numOfNotices + "_post_minute";
-							for (var i = 0; i < 60; ++i) {
-								var option = document.createElement("OPTION");
-								option.value = i;
-								option.innerHTML = (i < 10 ? "0" + i : i);
-								if (i === notice.time[2]) {
-									option.selected = true;
-								}
-								post_minute.appendChild(option);
-							}
-							var tr = document.createElement("TR");
-							var td1 = document.createElement("TD");
-							var td2 = document.createElement("TD");
-							var label = document.createElement("LABEL");
-							label.innerHTML = "Starting Time";
-							td1.appendChild(label);
-							td2.appendChild(post_day);
-							td2.appendChild(post_hour);
-							td2.appendChild(post_minute);
-							var localTimeMsg = document.createElement("SPAN");
-							localTimeMsg.className = "local_time_msg";
-							localTimeMsg.innerHTML = "(your local time)";
-							td2.appendChild(localTimeMsg);
-							tr.appendChild(td1);
-							tr.appendChild(td2);
-							table.appendChild(tr);
-							table.appendChild(generateInput("Duration (hrs)", "duration_hours", "text", notice.duration_hours));
-							table.appendChild(generateInput("Thread Title", "post_title", "text", notice.post_title));
-							table.appendChild(generateInput("Thread Link", "postlink", "text", notice.postlink));
-							table.appendChild(generateInput("Thread Body", "body", "textarea", notice.body));
-							table.appendChild(generateInput("Hide Notice", "hide_notice", "checkbox", notice.hide_notice));
-							table.appendChild(generateInput("Master Disable", "master_disable", "checkbox", notice.master_disable));
-							target.parentElement.insertBefore(table, target);
-							numOfNotices++;
-						}
-
-						function subtractNotice() {
-							if (numOfNotices < 1) { return; }
-							target.parentElement.removeChild(target.parentElement.childNodes[numOfNotices + 1]);
-							numOfNotices--;
-						}
-					</script>
+							</div>
+						</div>
+						<div id="pure-controls">
+							<button type="button" id="submit-notices" onclick="sendNotices()" class="pure-button pure-button-primary">Submit<img src="/images/loading.png" alt="loading"></button>
+							<p id="success" style="display:none">Success! Notices saved.</p>
+							<p id="failure" style="display:none">Error! Notices not saved.</p>
+						</div>
+					</fieldset>
 				</form>
+				<script type="text/javascript">
+					var notices;
+					$.ajaxSetup({async:false});
+					$.get("/notices/notices.php?verbose", function(data) {
+						notices = JSON.parse(data).notices;
+					});
+					$.ajaxSetup({async:true});
+					target = document.getElementById("notice-edit");
+					var numOfNotices = 0;
+					for (var notice in notices) {
+						var dn = notices[notice];
+						var nodes = addNotice(notices[notice]);
+						// Fill in the nodes with the appropriate data
+					}
+
+					// Remove text nodes
+					for (var i = 0; i < target.parentElement.childNodes.length; ++i) {
+						if (target.parentElement.childNodes[i].nodeType == 3) {
+							target.parentElement.removeChild(target.parentElement.childNodes[i]);
+						}
+					}
+
+					// Bind the buttons
+					$("#plus-notice").on("click", function(ev) {
+						addNotice();
+					});
+
+					function addNotice(notice) {
+						if (notice === undefined) {
+							// Default notice values
+							notice = {
+								"type": "autopost+notice",
+								"category": "notice",
+								"thread_title": "Default Thread Title",
+								"notice_title": "Default Notice Title",
+								"thread_link": "https://reddit.com/r/GlobalOffensive",
+								"poster_account": "GlobalOffensiveBot",
+								"notice_start_time": [0, 0, 0],
+								"post_time": [0, 0, 0],
+								"notice_duration": 6,
+								"permanent_notice": false,
+								"frequency": "once",
+								"created": parseInt(new Date().getTime() / 1000),
+								"body": "Default thread body.",
+								"sticky_duration": 6,
+								"permanent_sticky": false,
+								"notice_link": "#swag",
+								"self_post": true
+							}
+						}
+
+						var noticeContainer = document.createElement("DIV");
+						noticeContainer.className = "notice pure-u-1-2";
+						
+						var innerNoticeContainer = document.createElement("DIV");
+						innerNoticeContainer.className = "inner-2";
+
+						var deleteImage = document.createElement("IMG");
+						deleteImage.setAttribute("onclick", "deleteNotice(this)");
+						deleteImage.src = "/images/delete-hover.png";
+						deleteImage.className = "delete";
+						deleteImage.alt = "delete";
+						innerNoticeContainer.appendChild(deleteImage);
+
+						var noticeH4 = document.createElement("H4");
+						noticeH4.setAttribute("onclick", "collapse(this)");
+						noticeH4.setAttribute("data-collapsed", "true");
+						noticeH4.className = "notice-title";
+						var titleImage = document.createElement("IMG");
+						titleImage.src = "/images/collapse.png";
+						titleImage.className = "arrow collapsed";
+						titleImage.alt = "collapse";
+						noticeH4.appendChild(titleImage);
+						if (notice['notice_title'] !== "Default Notice Title") {
+							noticeH4.innerHTML += notice['notice_title'];
+						} else if (notice['thread_title'] !== "Default Thread Title") {
+							noticeH4.innerHTML += notice['thread_title'];
+						} else {
+							noticeH4.innerHTML += "New Scheduled Item";
+						}
+						innerNoticeContainer.appendChild(noticeH4);
+
+						var collapsible = document.createElement("DIV");
+						collapsible.className = "collapsible";
+
+						var innerCollapsible = document.createElement("DIV");
+						innerCollapsible.className = "inner-2";
+
+						type(innerCollapsible, notice['type']);
+
+						// Notice fields
+						var nF = document.createElement("DIV");
+						nF.className = "notice-fields";
+						// Thread fields
+						var tF = document.createElement("DIV");
+						tF.className = "thread-fields";
+
+						// Hides fields you don't care about
+						if (notice['type'] === 'autopost') {
+							nF.style.display = "none";
+						} else if (notice['type'] === 'notice') {
+							tF.style.display = "none";
+						}
+						
+						// Build the fields of the item
+						frequency(innerCollapsible, notice['frequency']);
+						category(nF, notice['category']);
+						noticeTitle(nF, notice['notice_title']);
+						noticeLink(nF, notice['notice_link'], notice['type'] !== 'notice');
+						noticeStartTime(nF, notice['notice_start_time']);
+						permanentNotice(nF, notice['permanent_notice']);
+						noticeDuration(nF, notice['notice_duration']);
+						threadTitle(tF, notice['thread_title']);
+						posterAccount(tF, notice['poster_account']);
+						postTime(tF, notice['post_time']);
+						textOrLinkPost(tF, notice['self_post'],
+							notice['sticky_duration'],
+							notice['permanent_sticky'],
+							notice['body'],
+							notice['thread_link']);
+
+						innerCollapsible.appendChild(nF);
+						innerCollapsible.appendChild(tF);
+
+						collapsible.appendChild(innerCollapsible);
+						innerNoticeContainer.appendChild(collapsible);
+						noticeContainer.appendChild(innerNoticeContainer);
+						target.appendChild(noticeContainer);
+
+						notice['notice_start_time'] = convertTzToLocal(notice['notice_start_time']);
+						notice['post_time'] = convertTzToLocal(notice['post_time']);
+					}
+
+					function convertTzToLocal(time) {
+						// Convert post time from UTC to local time
+						time[1] -= new Date().getTimezoneOffset() / 60;
+						// Convert times to UTC based on the timezone we got from Javascript
+						if (time[1] < 0) {
+							time[1] += 24;
+							time[0] -= 1;
+						} else if (time[1] >= 24) {
+							time[1] -= 24;
+							time[0] += 1;
+						}
+						return time;
+					}
+
+					function deleteNotice(trigger) {
+						var noticeContainerFound = false;
+						var suspect = trigger;
+						while (!noticeContainerFound) {
+							if (suspect.parentNode.className === "notice pure-u-1-2") {
+								noticeContainerFound = true;
+							}
+							suspect = suspect.parentNode;
+						}
+						$(suspect).fadeOut(function() {
+							suspect.parentNode.removeChild(suspect);
+						});
+					}
+
+					function collapse(elem) {
+						var isCollapsing = false;
+						if (elem.getAttribute("data-collapsed") === null) {
+							elem.setAttribute("data-collapsed", "false");
+						} else if (elem.getAttribute("data-collapsed") == "false") {
+							isCollapsing = true;
+							elem.setAttribute("data-collapsed", "true");
+						} else {
+							elem.setAttribute("data-collapsed", "false");
+						}
+
+						var index = 0;
+						for (e in elem.parentNode.childNodes) {
+							if (elem.parentNode.childNodes[e].className == "collapsible") {
+								index = e;
+							}
+						}
+
+						$(elem.parentNode.childNodes[index]).slideToggle();
+						elem.childNodes[0].className = "arrow " + (isCollapsing ? "" : "un") + "collapsed";
+					}
+
+					function lpExpand(elem) {
+						var indexes = getPostGroupIndexes(elem);
+
+						var sp = indexes[0];
+						var lp = indexes[1];
+						var spTrigger = indexes[2];
+
+						elem.parentNode.childNodes[spTrigger].className = "sp-trigger";
+						elem.className = "active lp-trigger";
+
+						animateGroupSwitch(elem.parentNode.childNodes[lp],
+							elem.parentNode.childNodes[sp]);
+					}
+
+					function spExpand(elem) {
+						var indexes = getPostGroupIndexes(elem);
+
+						var sp = indexes[0];
+						var lp = indexes[1];
+						var lpTrigger = indexes[2];
+
+						elem.parentNode.childNodes[lpTrigger].className = "lp-trigger";
+						elem.className = "active sp-trigger";
+
+						animateGroupSwitch(elem.parentNode.childNodes[sp],
+							elem.parentNode.childNodes[lp]);
+					}
+
+					function getPostGroupIndexes(elem) {
+						var sp = 0, lp = 0, otherTrigger = 0;
+						
+						for (e in elem.parentNode.childNodes) {
+							if (elem.parentNode.childNodes[e].className === "self-post post-type") {
+								sp = e;
+							} else if (elem.parentNode.childNodes[e].className === "link-post post-type") {
+								lp = e;
+							} else if (("" + elem.parentNode.childNodes[e].className).search("active") !== -1) {
+								otherTrigger = e;
+							}
+						}
+
+						return [sp, lp, otherTrigger];
+					}
+
+					function animateGroupSwitch(expanding, collapsing) {
+						$(collapsing).slideUp(250, function() {
+							$(expanding).slideDown(250);
+						});
+					}
+
+					function changeType(trigger) {
+						var newType = trigger.options[trigger.selectedIndex].value;
+						var nF = undefined, tF = undefined;
+						for (var node in trigger.parentNode.parentNode.childNodes) {
+							if (trigger.parentNode.parentNode.childNodes[node].className === "notice-fields") {
+								nF = trigger.parentNode.parentNode.childNodes[node];
+							} else if (trigger.parentNode.parentNode.childNodes[node].className === "thread-fields") {
+								tF = trigger.parentNode.parentNode.childNodes[node];
+							}
+							if (nF !== undefined && tF !== undefined) {
+								break;
+							}
+						}
+						if (nF === undefined || tF === undefined) {
+							console.error("Could not find both item type groupings");
+							return;
+						}
+						if (newType === "autopost+notice") {
+							nF.style.display = "block";
+							tF.style.display = "block";
+							$(nF).find("[name='notice_link']").parent().hide()
+						} else if (newType === "autopost") {
+							nF.style.display = "none";
+							tF.style.display = "block";
+						} else if (newType === "notice") {
+							nF.style.display = "block";
+							tF.style.display = "none";
+							$(nF).find("[name='notice_link']").parent().show()
+						}
+					}
+
+					function getChildByName(container, str) {
+						//console.log(container);
+						for (var i in container) {
+							if (container[i] === null) { continue; }
+							console.log(container[i]);
+							if (container[i].name === str) {
+								return container[i];
+							} else {
+								if (container[i].hasChildNodes) {
+									getChildByName(container[i].childNodes);
+								}
+							}
+						}
+					}
+
+					function getChildByAttr(parent, attr, value, searchType) {
+						searchType = searchType || "";
+						if (parent == undefined || parent == null || !parent.hasChildNodes) { return; }
+						return $(parent).find("[" + attr + searchType + "='" + value + "']")[0];
+					}
+
+					function sendNotices() {
+						var parent = document.getElementById("notice-edit");
+						var notices = [];
+						$("#submit-notices img").animate({width: '16px'}, 250);
+						for (var i in parent.childNodes) {
+							if (parent.childNodes[i] === undefined) { continue; }
+							if (!parent.childNodes[i].nodeType) { continue; }
+							if (parent.childNodes[i].nodeType != 1) { continue; }
+							var notice = {};
+							notice.type = getChildByAttr(parent.childNodes[i], 'name', 'type').value;
+							notice.frequency = getChildByAttr(parent.childNodes[i], 'name', 'frequency').value;
+							notice.category = getChildByAttr(parent.childNodes[i], 'name', 'category').value;
+							notice.notice_title = getChildByAttr(parent.childNodes[i], 'name', 'notice_title').value;
+							notice.notice_link = getChildByAttr(parent.childNodes[i], 'name', 'notice_link').value;
+							notice.notice_start_time = [
+								getChildByAttr(parent.childNodes[i], 'name', 'notice_start_day').value,
+								getChildByAttr(parent.childNodes[i], 'name', 'notice_start_hour').value,
+								getChildByAttr(parent.childNodes[i], 'name', 'notice_start_minute').value
+							];
+							notice.permanent_notice = getChildByAttr(parent.childNodes[i], 'name', 'permanent_notice').checked;
+							notice.notice_duration = getChildByAttr(parent.childNodes[i], 'name', 'notice_duration').value;
+							notice.thread_title = getChildByAttr(parent.childNodes[i], 'name', 'thread_title').value;
+							notice.poster_account = getChildByAttr(parent.childNodes[i], 'name', 'poster_account').value;
+							notice.post_time = [
+								getChildByAttr(parent.childNodes[i], 'name', 'post_day').value,
+								getChildByAttr(parent.childNodes[i], 'name', 'post_hour').value,
+								getChildByAttr(parent.childNodes[i], 'name', 'post_minute').value
+							];
+							notice.self_post = getChildByAttr(parent.childNodes[i], 'class', 'active', '*').innerHTML === "Self-Post";
+							notice.sticky_duration = getChildByAttr(parent.childNodes[i], 'name', 'sticky_duration').value;
+							notice.permanent_sticky = getChildByAttr(parent.childNodes[i], 'name', 'permanent_sticky').checked;
+							notice.body = getChildByAttr(parent.childNodes[i], 'name', 'body').value;
+							notice.thread_link = getChildByAttr(parent.childNodes[i], 'name', 'thread_link').value;
+							notice.created = parseInt(new Date().getTime() / 1000);
+							notices.push(notice);
+						}
+						$.ajax({
+							type: 'POST',
+							url: 'notices.php',
+							data: {'notices': JSON.stringify(notices)},
+							success: function() {
+								$("#submit-notices img").animate({width: '0'}, 250, function() {
+									$("#success").fadeIn(250, function() {
+										console.log("Scheduling fadeout");
+										setTimeout(function() {
+											$("#success").fadeOut(500);
+										}, 2500);
+									});
+								});
+							},
+							failure: function() {
+								$("#submit-notices img").animate({width: '0'}, 250, function() {
+									$("#failure").fadeIn(250, function() {
+										setTimeout(function() {
+											$("#failure").fadeOut(500);
+										}, 2500);
+									});
+								});
+							}
+						});
+					}
+				</script>
 			</div>
 		</div>
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/sidebar.php"; ?>

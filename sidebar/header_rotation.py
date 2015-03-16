@@ -19,7 +19,7 @@ def GetHeader():
 		metadata["header_cycle"]["current_index"] = 0
 		with io.open(base_path + "cache/metadata.json", 'w', encoding='utf-8') as f:
 			f.write(unicode(json.dumps(metadata, ensure_ascii=False, indent=4, separators=(',', ': '))))
-	if int(time.time()) - int(metadata["header_cycle"]["last_updated"]) > 60 * 30:
+	if int(time.time()) - int(metadata["header_cycle"]["last_updated"]) > 30 * 30:
 		# Grabs the new index for the active demonym
 		metadata["header_cycle"]["current_index"] = (metadata["header_cycle"]["current_index"] + 1) % numOfHeaders
 		metadata["header_cycle"]["last_updated"] = int(time.time())

@@ -9,7 +9,9 @@ logging.basicConfig(filename='logfile.log', level=logging.DEBUG, format='%(ascti
 
 from reddit import *
 from autoposter import autoposterfunc
+from flair_dump import FlairDump
 
 threading.Thread(target=main).start()
 time.sleep(5)
 threading.Thread(target=autoposterfunc).start()
+FlairDump()

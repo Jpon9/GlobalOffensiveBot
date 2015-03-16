@@ -57,9 +57,10 @@ def BuildStylesheet():
 	currentTime2 = datetime.datetime.now()
 	botSettings = getSettings()
 	print("\tBeginning stylesheet update...")
-	base_stylesheet = open(base_path + "/config/stylesheet/main_stylesheet.txt", 'r').read().replace('%%header%%', GetHeader())
+	base_stylesheet = open(base_path + "/config/stylesheet/main_stylesheet.txt", 'r').read()
+	if botSettings['num_of_headers'] > 1:
+		base_stylesheet = base_stylesheet.replace('%%header%%', GetHeader())
 	stylesheetRules = BuildDemonymRule() + "\n\n" + base_stylesheet
-	
 	stylesheet = open(base_path + "config/stylesheet.txt", 'w')
 	minifiedStylesheet = ""
 	if botSettings['minify_stylesheet'] == True:

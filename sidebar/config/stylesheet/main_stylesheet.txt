@@ -77,7 +77,7 @@ body #header-bottom-right {
 
 /* HEADER BACKGROUND */
 #header {
-    background: #2E2E2E url(%%header4%%) center no-repeat;
+    background: #2E2E2E url(%%header11%%) center no-repeat;
     background-size: cover;
 }
 
@@ -475,7 +475,7 @@ h1.redditname {display: none;}
 .side .flairselector.drop-choices.active form span.status {color: #000;}
 .side .flairselector.drop-choices.active .flairoptionpane {margin-bottom: 10px;margin-top: 10px;}
 .side .flairselector.drop-choices.active .flairoptionpane ul,
-.side .flairselector.drop-choices.active .flairoptionpane li {width: 120px!important;padding: 3px 0px;}
+.side .flairselector.drop-choices.active .flairoptionpane li {min-width: 120px;padding: 3px 3px;}
 
 .titlebox form.flairtoggle {
     padding: 5px 5px 5px 37px;
@@ -1049,7 +1049,10 @@ body .content {margin-right: 345px;margin-left:8px;}
 .res-nightmode .link {margin-bottom:2px!important}
 
 /* LINK TITLE */
-.stickied .title {color:#282;}
+.link .title {color:#3C5077;font-size:14px!important;padding:0!important;font-weight:bold!important;}
+.link .title:visited, .link.thing.visited .title {color:#B1B1B1;font-size:14px!important;padding:0!important;font-weight:bold!important;}       
+.comments-page .link .title:visited, .comments-page .link.thing.visited .title {color:#3C5077}      
+.stickied .title {color:#282!important;}  
 
 /* LINK DATE */
 .tagline {font-size: 11px;line-height: 8px;padding: 0;margin-top:4px;}
@@ -1074,9 +1077,6 @@ body .content {margin-right: 345px;margin-left:8px;}
 /* HIDE RANK & EDIT STAMP */
 .content .rank {display:none;}
 .listing-page .edited-timestamp {display:none;}
-
-/* Black Magic */
-#siteTable a[href*="enzy"].title:after { color: #fff!important; background:#ffb30f; margin-left:10px;padding:5px!important;content:"who spoke my name!"}
 
 /* RES HIGHLIGHTING */
 .res-nightmode .res .RES-keyNav-activeElement, .res .commentarea .RES-keyNav-activeElement .md, .res .commentarea .RES-keyNav-activeElement.entry .noncollapsed,.res .RES-keyNav-activeElement, .res .commentarea .RES-keyNav-activeElement .md, .res .commentarea .RES-keyNav-activeElement.entry .noncollapsed 
@@ -1109,11 +1109,13 @@ ul.tabmenu.formtab {display: inline-block;}
 
 .formtabs-content>div:first-child { background:white; color:black; font-weight:bold; padding:4px; border-radius:4px }
 .formtabs-content>div:first-child>* { display: none !important }
-.formtabs-content>div:first-child:before { content: "Please read the rules before submitting. Use a descriptive title and remember to add link flair after submitting.";font-size: medium; }
+.formtabs-content>div:first-child:before { content: "Please read the rules before submitting. Use a descriptive title and remember to add link flair after submitting. Use the search function or check the new section to see if your content is already posted. Duplicates will be removed.";font-size: medium; }
 
 
 .submit-page .roundfield, .roundfield .usertext-edit {border-radius:0;background:#fff}
 .submit-page .roundfield-content textarea, .submit-page .roundfield-content input[type=url], .submit-page .roundfield-content input[type=text] {border: 1px solid lightgrey;}
+.submit-page .roundfield .gray {visibility:hidden}      
+.submit-page .roundfield .gray:before {content:"(required)";visibility:visible;} 
 
 .submit-page .content.submit .info-notice {border:0;background:#666666;color:#fff}
 .submit-page .content.submit .info-notice a {color:#fff}
@@ -1339,6 +1341,39 @@ a[href*='#spoiler']:hover {
     color:#000;
 }
 
+/* Hover display bit for TimezoneSimplifier. Originally by /u/Dropping_fruits with modifications by /u/nijin22 */       
+.comment .md h5+h4+h6+p,
+.comment .md h5+h4+h6+p+p,
+.comment .md h5+h4+h6+p+p+table,
+.comment .md h5+h4+h6+p+p+table+hr,
+.comment .md h5+h4+h6+p+p+table+hr+p,
+.comment .md h5+h4+h6+p+p+table+hr+p+p,
+.comment .md h5+h4+h6+p+p+table+hr+p+p+p {      
+    display: none;      
+}       
+        
+.comment .md:hover h5+h4+h6+p,
+.comment .md:hover h5+h4+h6+p+p,
+.comment .md:hover h5+h4+h6+p+p+table,
+.comment .md:hover h5+h4+h6+p+p+table+hr,
+.comment .md:hover h5+h4+h6+p+p+table+hr+p,
+.comment .md:hover h5+h4+h6+p+p+table+hr+p+p,
+.comment .md:hover h5+h4+h6+p+p+table+hr+p+p+p {        
+    display: block;         
+}       
+        
+.comment .md h5+h4+h6:after {       
+    content: "Timezones converted. Hover to view";      
+    height:16px;        
+    width:16px;         
+    background: url(%%extra-icons%%) no-repeat -80px -9px;      
+    padding-left: 20px;         
+}       
+        
+.comment .md:hover h5+h4+h6:after {         
+    content: ""         
+} 
+
 /************************************************************************************************************************************
  * WIKI
  ************************************************************************************************************************************/
@@ -1385,6 +1420,11 @@ a[href="/r/GlobalOffensive/w/faq"]:hover:after      {background-position:0 -132p
 a[href="/r/GlobalOffensive/w/guides"]:hover:after           {background-position:0 0;}
 a[href="/r/GlobalOffensive/w/social"]:hover:after       {background-position:0 -396px;}
 a[href="/r/GlobalOffensive/w/rules"], a[href="/r/GlobalOffensive/w/faq"], a[href="/r/GlobalOffensive/w/guides"], a[href="/r/GlobalOffensive/w/social"] {display:block;width:132px;height:132px;}
+
+/* Flair regulation page */
+.wiki-page-flairs p, .wiki-page-flairs ul {
+    width: 700px;
+}
  
 /************************************************************************************************************************************
  * FOOTER
@@ -1587,41 +1627,6 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
 /* eNzyy's moo flairs */
 .flair-modct {background-position:-104px -187px;}
 .flair-modt {background-position:-52px -187px;}
-
-/* WEAPON FLAIRS */
-.flair-weapon {
-    line-height: 15px;
-    text-indent: -9999px;
-    background: url(%%weapon-flairs%%) top left no-repeat;
-    width: 50px;
-    height: 15px;
-}
-
-/* Pistols */
-.flair-weapon.flair-glock { background-position: 0 -15px; }
-.flair-weapon.flair-p2000 { background-position: 0 -30px; }
-.flair-weapon.flair-usps { background-position: 0px -45px; }
-/* Heavy */
-.flair-weapon.flair-negev { background-position: -50px -75px; }
-/* SMGs */
-/* Rifles */
-.flair-weapon.flair-ak47 { background-position: -150px -30px; }
-.flair-weapon.flair-m4a4 { background-position: -150px -45px; }
-.flair-weapon.flair-m4a1s { background-position: -150px -60px; }
-.flair-weapon.flair-awp { background-position: -150px -120px; }
-/* Gear */
-/* Grenades */
-.flair-weapon.flair-hegrenade { background-position: -250px -60px; }
-/* Knives */
-.flair-weapon.flair-t-knife { background-position: -300px 0px; }
-.flair-weapon.flair-ct-knife { background-position: -300px -15px; }
-.flair-weapon.flair-bayonet { background-position: -300px -30px; }
-.flair-weapon.flair-butterfly { background-position: -300px -45px; }
-.flair-weapon.flair-flip { background-position: -300px -60px; }
-.flair-weapon.flair-gut { background-position: -300px -75px; }
-.flair-weapon.flair-huntsman { background-position: -300px -90px; }
-.flair-weapon.flair-karambit { background-position: -300px -105px; }
-.flair-weapon.flair-m9bayonet { background-position: -300px -120px; }
 
 /* TEAM FAN FLAIRS */
 .flair-fan {
@@ -2022,7 +2027,7 @@ background-color: rgb(0, 0, 0);
 .res-nightmode .listing-page .link:hover {background: #1F1F1F!important}
 
 /* nightmode header */
-.res-nightmode #header, .res-nightmode #header-bottom-left {background: #2E2E2E url(%%header4%%) center no-repeat !important;}
+.res-nightmode #header, .res-nightmode #header-bottom-left {background: #2E2E2E url(%%header11%%) center no-repeat !important;}
 
 /* nightmode h1 to h4 fix */
 .res-nightmode .comment h1, .res-nightmode .expando h1,.res-nightmode .comment h2,.res-nightmode .expando h2,.res-nightmode .comment h3,.res-nightmode .expando h3,.res-nightmode .comment h4,.res-nightmode .expando h4 {color: #DDD!important;background: none;}
