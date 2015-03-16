@@ -1,52 +1,5 @@
 <?php
-	include_once("./notices.php");
-
 	$title = "Notices";
-	$displaySuccess = false;
-
-	// If at least one notice exists in POST, rewrite the stickies.json file
-	if (isset($_POST["0_notice_title"])) {
-		$i = 0;
-		$notices = ["stickies" => []];
-		$numOfNotices = intval(substr(array_keys($_POST)[count($_POST) - 1], 0, 1)) + 1;
-		for ($i = 0; $i < $numOfNotices; ++$i) {
-			$base = $i . "_";
-			$postDay = $_POST[$base . "post_day"];
-			$postHour = $_POST[$base . "post_hour"] + $_POST["timezone"];
-			// Convert times to UTC based on the timezone we got from Javascript
-			if ($postHour < 0) {
-				$postHour += 24;
-				$postDay -= 1;
-			} else if ($postHour >= 24) {
-				$postHour -= 24;
-				$postDay += 1;
-			}
-
-			// Build the notice
-			$notice = [
-				"poster_account" => $_POST[$base . "poster_account"],
-				"postedflag" => $_POST[$base . "postedflag"],
-				"notice_title" => $_POST[$base . "notice_title"],
-				"type" => $_POST[$base . "type"],
-				"noticetype" => $_POST[$base . "noticetype"],
-				"time" => [
-					$postDay,
-					$postHour,
-					$_POST[$base . "post_minute"]
-				],
-				"duration_hours" => $_POST[$base . "duration_hours"],
-				"post_title" => $_POST[$base . "post_title"],
-				"postlink" => $_POST[$base . "postlink"],
-				"body" => $_POST[$base . "body"],
-				"hide_notice" => isset($_POST[$base . "hide_notice"]),
-				"master_disable" => isset($_POST[$base . "master_disable"])
-			];
-			array_push($notices['stickies'], $notice);
-		}
-		updateNotices($notices);
-		$displaySuccess = true;
-		unset($_POST);
-	}
 ?>
 
 <!DOCTYPE html>
@@ -61,13 +14,7 @@
 		<?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/nav.php"; ?>
 		<div id="main" class="pure-u-1 pure-u-lg-4-5">
 			<div class="inner">
-				<?php
-					if ($displaySuccess) {
-						include $_SERVER['DOCUMENT_ROOT'] . "/includes/success.html";
-					}
-				?>
 				<h2>Notices</h2>
-				<p>Documentation can be found on <a href="/notices/help/">this page.</a></p>
 				<form class="pure-form pure-form-aligned">
 					<fieldset>
 						<div class="pure-control-group">
