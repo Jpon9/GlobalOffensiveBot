@@ -1,0 +1,23 @@
+{
+	"#r/GlobalOffensive IRCop": ["official irc"],
+	"FACEIT": ["league faceit"],
+	"Fragbite": ["news fragbite"],
+	"CEVO": ["league cevo"],
+	"/r/GlobalOffensive Moderator": ["modtrial", "sen", "modtext", "mod"],
+	"ESEA": ["league esea"],
+	"Professional CS:GO Team": [
+		"official nip",
+		"official cloud9",
+		"official flipside",
+		"official envyus",
+		"official navi",
+		"official fnatic",
+		"official vox",
+		"official penta"
+	],
+	"Valve Employee": ["official valve"],
+	"CS:GO Lounge": ["official csgolounge"],
+	"ESL": ["league esl"],
+	"ESWC": ["official eswc"],
+	"Verified Individual": ["official verified"]
+}

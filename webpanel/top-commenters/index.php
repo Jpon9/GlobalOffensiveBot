@@ -30,7 +30,6 @@
 			$.ajaxSetup({async:false});
 			$.get("./getCommenters.php?verbose", function(data) {
 				commenters = JSON.parse(data);
-				console.log(commenters);
 			});
 			$.ajaxSetup({async:true});
 			var target = document.getElementById("giveaway-winners");

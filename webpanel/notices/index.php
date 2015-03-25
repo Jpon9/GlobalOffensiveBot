@@ -43,7 +43,7 @@
 					target = document.getElementById("notice-edit");
 					var numOfNotices = 0;
 					for (var notice in notices) {
-						var dn = notices[notice];
+						notices[notice]['is_new_item'] = false;
 						var nodes = addNotice(notices[notice]);
 						// Fill in the nodes with the appropriate data
 					}
@@ -76,11 +76,18 @@
 								"permanent_notice": false,
 								"frequency": "once",
 								"created": parseInt(new Date().getTime() / 1000),
+								"edited": parseInt(new Date().getTime() / 1000),
 								"body": "Default thread body.",
 								"sticky_duration": 6,
 								"permanent_sticky": false,
 								"notice_link": "#swag",
-								"self_post": true
+								"self_post": true,
+								"disable_posting": false,
+								"last_posted": 0,
+								"last_posted_id": "",
+								"unique_notice_id": generateNoticeId(),
+								"is_stickied": 'false',
+								"is_new_item": true
 							}
 						}
 
@@ -136,8 +143,12 @@
 						} else if (notice['type'] === 'notice') {
 							tF.style.display = "none";
 						}
+
+						notice['notice_start_time'] = convertUTCToLocal(notice['notice_start_time']);
+						notice['post_time'] = convertUTCToLocal(notice['post_time']);
 						
 						// Build the fields of the item
+						resetNotice(innerCollapsible, false);
 						frequency(innerCollapsible, notice['frequency']);
 						category(nF, notice['category']);
 						noticeTitle(nF, notice['notice_title']);
@@ -145,14 +156,22 @@
 						noticeStartTime(nF, notice['notice_start_time']);
 						permanentNotice(nF, notice['permanent_notice']);
 						noticeDuration(nF, notice['notice_duration']);
+						hideNotice(nF, notice['hide_notice']);
 						threadTitle(tF, notice['thread_title']);
 						posterAccount(tF, notice['poster_account']);
 						postTime(tF, notice['post_time']);
+						disablePosting(tF, notice['disable_posting']);
 						textOrLinkPost(tF, notice['self_post'],
 							notice['sticky_duration'],
 							notice['permanent_sticky'],
 							notice['body'],
 							notice['thread_link']);
+						created(innerCollapsible, notice['created']);
+						lastPosted(innerCollapsible, notice['last_posted']);
+						lastPostedId(innerCollapsible, notice['last_posted_id']);
+						uniqueNoticeId(innerCollapsible, notice['unique_notice_id']);
+						isStickied(innerCollapsible, notice['is_stickied']);
+						isNewItem(innerCollapsible, notice['is_new_item']);
 
 						innerCollapsible.appendChild(nF);
 						innerCollapsible.appendChild(tF);
@@ -161,15 +180,35 @@
 						innerNoticeContainer.appendChild(collapsible);
 						noticeContainer.appendChild(innerNoticeContainer);
 						target.appendChild(noticeContainer);
-
-						notice['notice_start_time'] = convertTzToLocal(notice['notice_start_time']);
-						notice['post_time'] = convertTzToLocal(notice['post_time']);
 					}
 
-					function convertTzToLocal(time) {
+					function convertUTCToLocal(time) {
 						// Convert post time from UTC to local time
-						time[1] -= new Date().getTimezoneOffset() / 60;
-						// Convert times to UTC based on the timezone we got from Javascript
+						var tzOffset = new Date().getTimezoneOffset() / 60;
+						time[1] -= parseInt(tzOffset);
+						time[2] -= (tzOffset - parseInt(tzOffset)) * 60;
+						// Fix any issues caused by the timezone shift
+						return correctDayHourMin(time);
+					}
+
+					function convertLocalToUTC(time) {
+						// Convert post time from UTC to local time
+						var tzOffset = new Date().getTimezoneOffset() / 60;
+						time[1] += parseInt(tzOffset);
+						time[2] += (tzOffset - parseInt(tzOffset)) * 60;
+						// Fix any issues caused by the timezone shift
+						return correctDayHourMin(time);
+					}
+
+					function correctDayHourMin(time) {
+						if (time[2] < 0) {
+							time[2] += 60;
+							time[1] -= 1; 
+						} else if (time[2] >= 60) {
+							time[2] -= 60;
+							time[1] += 1;
+						}
+
 						if (time[1] < 0) {
 							time[1] += 24;
 							time[0] -= 1;
@@ -177,6 +216,13 @@
 							time[1] -= 24;
 							time[0] += 1;
 						}
+
+						if (time[0] < 0) {
+							time[0] += 7;
+						} else if (time[0] >= 7) {
+							time[0] -= 7;
+						}
+
 						return time;
 					}
 
@@ -321,39 +367,143 @@
 					function sendNotices() {
 						var parent = document.getElementById("notice-edit");
 						var notices = [];
+						var newNotices = [];
 						$("#submit-notices img").animate({width: '16px'}, 250);
+						console.log(parent.childNodes);
 						for (var i in parent.childNodes) {
-							if (parent.childNodes[i] === undefined) { continue; }
-							if (!parent.childNodes[i].nodeType) { continue; }
 							if (parent.childNodes[i].nodeType != 1) { continue; }
 							var notice = {};
-							notice.type = getChildByAttr(parent.childNodes[i], 'name', 'type').value;
-							notice.frequency = getChildByAttr(parent.childNodes[i], 'name', 'frequency').value;
-							notice.category = getChildByAttr(parent.childNodes[i], 'name', 'category').value;
-							notice.notice_title = getChildByAttr(parent.childNodes[i], 'name', 'notice_title').value;
-							notice.notice_link = getChildByAttr(parent.childNodes[i], 'name', 'notice_link').value;
-							notice.notice_start_time = [
-								getChildByAttr(parent.childNodes[i], 'name', 'notice_start_day').value,
-								getChildByAttr(parent.childNodes[i], 'name', 'notice_start_hour').value,
-								getChildByAttr(parent.childNodes[i], 'name', 'notice_start_minute').value
-							];
-							notice.permanent_notice = getChildByAttr(parent.childNodes[i], 'name', 'permanent_notice').checked;
-							notice.notice_duration = getChildByAttr(parent.childNodes[i], 'name', 'notice_duration').value;
-							notice.thread_title = getChildByAttr(parent.childNodes[i], 'name', 'thread_title').value;
-							notice.poster_account = getChildByAttr(parent.childNodes[i], 'name', 'poster_account').value;
-							notice.post_time = [
-								getChildByAttr(parent.childNodes[i], 'name', 'post_day').value,
-								getChildByAttr(parent.childNodes[i], 'name', 'post_hour').value,
-								getChildByAttr(parent.childNodes[i], 'name', 'post_minute').value
-							];
-							notice.self_post = getChildByAttr(parent.childNodes[i], 'class', 'active', '*').innerHTML === "Self-Post";
-							notice.sticky_duration = getChildByAttr(parent.childNodes[i], 'name', 'sticky_duration').value;
-							notice.permanent_sticky = getChildByAttr(parent.childNodes[i], 'name', 'permanent_sticky').checked;
-							notice.body = getChildByAttr(parent.childNodes[i], 'name', 'body').value;
-							notice.thread_link = getChildByAttr(parent.childNodes[i], 'name', 'thread_link').value;
-							notice.created = parseInt(new Date().getTime() / 1000);
+							var n_type = getChildByAttr(parent.childNodes[i], 'name', 'type');
+							var n_frequency = getChildByAttr(parent.childNodes[i], 'name', 'frequency');
+							var n_category = getChildByAttr(parent.childNodes[i], 'name', 'category');
+							var n_notice_title = getChildByAttr(parent.childNodes[i], 'name', 'notice_title');
+							var n_notice_link = getChildByAttr(parent.childNodes[i], 'name', 'notice_link');
+							var n_notice_start_time_day = getChildByAttr(parent.childNodes[i], 'name', 'notice_start_day');
+							var n_notice_start_time_hour = getChildByAttr(parent.childNodes[i], 'name', 'notice_start_hour');
+							var n_notice_start_time_minute = getChildByAttr(parent.childNodes[i], 'name', 'notice_start_minute');
+							var n_permanent_notice = getChildByAttr(parent.childNodes[i], 'name', 'permanent_notice');
+							var n_notice_duration = getChildByAttr(parent.childNodes[i], 'name', 'notice_duration');
+							var n_hide_notice = getChildByAttr(parent.childNodes[i], 'name', 'hide_notice');
+							var n_thread_title = getChildByAttr(parent.childNodes[i], 'name', 'thread_title');
+							var n_poster_account = getChildByAttr(parent.childNodes[i], 'name', 'poster_account');
+							var n_post_time_day = getChildByAttr(parent.childNodes[i], 'name', 'post_day')
+							var n_post_time_hour = getChildByAttr(parent.childNodes[i], 'name', 'post_hour')
+							var n_post_time_minute = getChildByAttr(parent.childNodes[i], 'name', 'post_minute')
+							var n_disable_posting = getChildByAttr(parent.childNodes[i], 'name', 'disable_posting');
+							var n_self_post = getChildByAttr(parent.childNodes[i], 'class', 'active', '*');
+							var n_sticky_duration = getChildByAttr(parent.childNodes[i], 'name', 'sticky_duration');
+							var n_permanent_sticky = getChildByAttr(parent.childNodes[i], 'name', 'permanent_sticky');
+							var n_body = getChildByAttr(parent.childNodes[i], 'name', 'body');
+							var n_thread_link = getChildByAttr(parent.childNodes[i], 'name', 'thread_link');
+							var n_created = getChildByAttr(parent.childNodes[i], 'name', 'created');
+							var n_last_posted = getChildByAttr(parent.childNodes[i], 'name', 'last_posted');
+							var n_last_posted_id = getChildByAttr(parent.childNodes[i], 'name', 'last_posted_id');
+							var n_is_stickied = getChildByAttr(parent.childNodes[i], 'name', 'is_stickied');
+
+							var n = getChildByAttr(parent.childNodes[i], 'name', 'is_new_item').value === 'true';
+
+							// oV = originalValue, used to condense at least *some* of this monstrosity
+							function oV(e) { return e.getAttribute('data-original-value'); }
+
+							var notice = {};
+							if (n_type.value !== oV(n_type) || n) { notice.type = n_type.value; }
+							if (n_frequency.value !== oV(n_frequency) || n) { notice.frequency = n_frequency.value; }
+							if (n_category.value !== oV(n_category) || n) { notice.category = n_category.value; }
+							if (n_notice_title.value !== oV(n_notice_title) || n) { notice.notice_title = n_notice_title.value; }
+							if (n_notice_link.value !== oV(n_notice_link) || n) { notice.notice_link = n_notice_link.value; }
+							// Notice start time
+							if (n_notice_start_time_day.value !== oV(n_notice_start_time_day) ||
+								n_notice_start_time_hour.value !== oV(n_notice_start_time_hour) ||
+								n_notice_start_time_minute.value !== oV(n_notice_start_time_minute) || n) {
+								notice.notice_start_time = convertLocalToUTC([
+									parseInt(n_notice_start_time_day.value),
+									parseInt(n_notice_start_time_hour.value),
+									parseInt(n_notice_start_time_minute.value)
+								]);
+							}
+							if (n_permanent_notice.checked !== (oV(n_permanent_notice) === 'true') || n) { notice.permanent_notice = n_permanent_notice.checked; }
+							if (n_notice_duration.value !== oV(n_notice_duration) || n) { notice.notice_duration = n_notice_duration.value; }
+							if (n_hide_notice.checked !== (oV(n_hide_notice) === 'true') || n) { notice.hide_notice = n_hide_notice.checked; }
+							if (n_thread_title.value !== oV(n_thread_title) || n) { notice.thread_title = n_thread_title.value; }
+							if (n_poster_account.value !== oV(n_poster_account) || n) { notice.poster_account = n_poster_account.value; }
+							// Thread post time
+							if (n_post_time_day.value !== oV(n_post_time_day) ||
+								n_post_time_hour.value !== oV(n_post_time_hour) || 
+								n_post_time_minute.value !== oV(n_post_time_minute) || n) {
+								notice.post_time = convertLocalToUTC([
+									parseInt(n_post_time_day.value),
+									parseInt(n_post_time_hour.value),
+									parseInt(n_post_time_minute.value)
+								]);
+							}
+							if (n_disable_posting.checked !== (oV(n_disable_posting) === 'true') || n) { notice.disable_posting = n_disable_posting.checked; }
+							if ((n_self_post.innerHTML === "Self-Post") !== (oV(n_self_post) === 'true') || n) { notice.self_post = n_self_post.innerHTML === "Self-Post"; }
+							if (n_sticky_duration.value !== oV(n_sticky_duration) || n) { notice.sticky_duration = n_sticky_duration.value; }
+							if (n_permanent_sticky.checked !== (oV(n_permanent_sticky) === 'true') || n) { notice.permanent_sticky = n_permanent_sticky.checked; }
+							if (n_body.value !== oV(n_body) || n) { notice.body = n_body.value; }
+							if (n_thread_link.value !== oV(n_thread_link) || n) { notice.thread_link = n_thread_link.value; }
+							if (n_created.value !== oV(n_created) || n) { notice.created = n_created.value; }
+							if (n_last_posted.value !== oV(n_last_posted) || n) { notice.last_posted = n_last_posted.value; }
+							if (n_last_posted_id.value !== oV(n_last_posted_id) || n) { notice.last_posted_id = n_last_posted_id.value; }
+							if (n_is_stickied.value !== oV(n_is_stickied) || n) { notice.is_stickied = (n_is_stickied.value === 'true'); }
+							notice.edited = parseInt(new Date().getTime() / 1000);
+							notice.unique_notice_id = oV(getChildByAttr(parent.childNodes[i], 'name', 'unique_notice_id'));
+
+							var resetTiming = getChildByAttr(parent.childNodes[i], 'name', 'reset_timing').checked;
+							if (resetTiming) {
+								notice.created = notice.edited;
+								notice.last_posted = 0;
+								notice.last_posted_id = "";
+							}
 							notices.push(notice);
+							newNotices.push({
+								type: n_type.value,
+								frequency: n_frequency.value,
+								category: n_category.value,
+								notice_title: n_notice_title.value,
+								notice_link: n_notice_link.value,
+								notice_start_time: convertLocalToUTC([
+									parseInt(n_notice_start_time_day.value),
+									parseInt(n_notice_start_time_hour.value),
+									parseInt(n_notice_start_time_minute.value)
+								]),
+								permanent_notice: n_permanent_notice.checked,
+								notice_duration: n_notice_duration.value,
+								hide_notice: n_hide_notice.checked,
+								thread_title: n_thread_title.value,
+								poster_account: n_poster_account.value,
+								post_time: convertLocalToUTC([
+									parseInt(n_post_time_day.value),
+									parseInt(n_post_time_hour.value),
+									parseInt(n_post_time_minute.value)
+								]),
+								disable_posting: n_disable_posting.checked,
+								self_post: n_self_post.innerHTML === "Self-Post",
+								sticky_duration: n_sticky_duration.value,
+								permanent_sticky: n_permanent_sticky.checked,
+								body: n_body.value,
+								thread_link: n_thread_link.value,
+								created: n_created.value,
+								last_posted: n_last_posted.value,
+								last_posted_id: n_last_posted_id.value,
+								is_stickied: n_is_stickied.value === 'true',
+								unique_notice_id: notice.unique_notice_id,
+								edited: notice.edited,
+								is_new_item: false
+							});
 						}
+
+						console.log(newNotices);
+						console.log(notices);
+
+						while (parent.hasChildNodes()) {
+							parent.removeChild(parent.lastChild);
+						}
+
+						for (var i in newNotices) {
+							addNotice(newNotices[i]);
+						}
+
 						$.ajax({
 							type: 'POST',
 							url: 'notices.php',
@@ -361,7 +511,6 @@
 							success: function() {
 								$("#submit-notices img").animate({width: '0'}, 250, function() {
 									$("#success").fadeIn(250, function() {
-										console.log("Scheduling fadeout");
 										setTimeout(function() {
 											$("#success").fadeOut(500);
 										}, 2500);
@@ -378,6 +527,10 @@
 								});
 							}
 						});
+					}
+
+					function generateNoticeId() {
+						return Math.random().toString(36).substr(2, 8);
 					}
 				</script>
 			</div>

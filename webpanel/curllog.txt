@@ -1,0 +1,5 @@
+* Hostname was NOT found in DNS cache
+*   Trying 198.41.208.139...
+* Connected to ssl.reddit.com (198.41.208.139) port 443 (#306)
+* Operation timed out after 0 milliseconds with 0 out of 0 bytes received
+* Closing connection 306

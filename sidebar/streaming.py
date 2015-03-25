@@ -154,8 +154,10 @@ def GetCurrentlyStreamingOnMLG():
 	# mlg432 = gaminglive (French)
 	# mlg46  = mlgtv1 (Russian)
 	# mlg199 = mlg-brasil (Portuguese)
+	# mlg4   = gfinity
 	# MLG told me we will be picking from only a group of streams until they filter their streams by game
-	mlgChannelsToPull = ["mlg279", "mlg436", "mlg396", "mlg310", "mlg432", "mlg46", "mlg199"]
+	# CS:GO's game_id is 13 (?)
+	mlgChannelsToPull = ["mlg279", "mlg436", "mlg396", "mlg310", "mlg432", "mlg46", "mlg199", "mlg4"]
 	mlgChannelsToPullStr = ""
 	mlgChannels = {} # Holds the top MLG streams
 	print("\tRetrieving MLG TV API data...")

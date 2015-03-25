@@ -56,7 +56,6 @@ function resetTarget(target, lastUpdateEpoch) {
 	while (target.hasChildNodes()) {
 		target.removeChild(target.lastChild);
 	}
-	console.log(lastUpdateEpoch);
 	var secondsToNextUpdate = (lastUpdateEpoch + 60 * 5) - Math.floor(new Date().getTime() / 1000);
     target.appendChild(document.createTextNode(formatSeconds(secondsToNextUpdate)));
 }

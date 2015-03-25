@@ -107,3 +107,6 @@ flair/cache/flair-counts.csv
 *.php~
 flair/cache/verified-flairs.json
 *.png
+flair/cache/verified-flairs-markdown.txt
+flair/cache/verified-flairs-grouped.json
+flair/cache/flairs-to-purge.json

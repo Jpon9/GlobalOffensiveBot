@@ -24,7 +24,6 @@ from streaming import GetCurrentlyStreaming,BuildCurrentlyStreaming
 from upcominggames import GetUpcomingGames,BuildUpcomingGames
 from helperfuncs import GetMatchmakingStatus,reset,updateMetadata
 from redditlogin import r
-from notices import BuildNotices
 from header_rotation import GetHeader
 
 # Builds the sidebar and writes it to description.txt after retrieving necessary API data.
@@ -45,8 +44,6 @@ def BuildSidebar():
 		elif chunk['name'] == 'resources':
 			chunk['body'] = chunk['body'].replace("{MM_STATUS}", GetMatchmakingStatus())
 			chunk['body'] = chunk['body'].replace("{MM_STATUS_TAG}", "#mm-up" if GetMatchmakingStatus() == "ONLINE" else "#mm-down")
-		elif chunk['name'] == 'notices':
-			chunk['body'] = BuildNotices()
 		sidebar = sidebar.replace(chunk['name'], "\n\n" + chunk['body'])
 
 	description = open(base_path + "config/description.txt", 'w')
@@ -177,4 +174,3 @@ def loadposts():
 	global sticky
 	global poster_accounts
 	poster_accounts = json.loads(open(base_path + "config/accounts.json", 'r').read())['accounts']
-	sticky = json.loads(open(base_path + "cache/stickies.json", 'r').read())

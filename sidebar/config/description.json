@@ -1,45 +1,45 @@
 {
-	"template": "header\r\nkatowice\r\ncurrently_streaming\r\nupcoming_games\r\nresources\r\nsubreddits\r\nnotices",
-	"chunks": [
-		{
-			"name": "header",
-			"body": "[*New? Questions? Click here!*](/r/GlobalOffensive/wiki/index#heading#intro)\r\n\r\n[Subreddit Rules](/r/GlobalOffensive/wiki/rules#rules#button)\r\n[Message Moderators](http://goo.gl/oEG7Pb#mods#button)\r\n\r\n* [Filters](http://goo.gl/3Zc2H0)\r\n* [Unfiltered](http://goo.gl/8v5H25#noflair-icon)\r\n* [Gameplay](http://goo.gl/rWRCmd#gameplay-icon)\r\n* [Fluff](http://goo.gl/K9Xe2D#fluff-icon)\r\n* [Feedback](http://goo.gl/LdV5yD#feedback-icon)\r\n* [User Generated Content](http://goo.gl/JstweH#ugc-icon)\r\n* [News & Events](http://goo.gl/YideTb#news-icon)\r\n* [Game Update](http://goo.gl/DN2zAZ#update-icon)\r\n* [Discussion](http://goo.gl/Y9AjI5#discussion-icon)\r\n* [Tips & Guides](http://goo.gl/XXUpJ0#guides-icon)\r\n* [Help](http://goo.gl/g4N0OS#help-icon)\r\n* [AMA](http://goo.gl/rqe2ei#ama-icon)\r\n* [Announcement](http://goo.gl/xtlHIQ#announce-icon)\r\n* [Scheduled Sticky](http://goo.gl/52O6tM#sticky-icon)"
-		},
-		{
-			"name": "currently_streaming",
-			"body": "[*Live Streams*](#heading)\r\n\r\n>>>#[Giveaways after every game!! ~...](http://www.twitch.tv/TheOriginalWeed#profile-0)\r\n>##   \r\n>###6237 @ TheOriginalWeed\r\n\r\n>>[](#separator)\r\n\r\n>>>#[Team Prac - Astro headset give...](http://www.twitch.tv/adren_tv#profile-1)\r\n>##   \r\n>###2479 @ adren_tv\r\n\r\n>>[](#separator)\r\n\r\n>>>#[Giveaways after every game! M4...](http://www.twitch.tv/DizzyKitten#profile-2)\r\n>##   \r\n>###1486 @ DizzyKitten\r\n\r\n>>[](#separator)\r\n\r\n>>>#[RECAST | ESWC 2014 Day 1 ...](http://www.twitch.tv/starladder5#profile-3)\r\n>##   \r\n>###503 @ starladder5\r\n\r\n>>[](#separator)\r\n\r\n>>>#[S17 CS:GO Main Playoffs - Anim...](http://www.twitch.tv/ESEA#profile-4)\r\n>##   \r\n>###230 @ ESEA\r\n\r\n>>[](#separator)\r\n\r\n**[See all](http://bit.ly/1rXZ9v3#button#slim)**"
-		},
-		{
-			"name": "upcoming_games",
-			"body": "[*Match Ticker*](#heading)\r\n\r\n>>>[~~RGN Summers End~~\r\n~~9m~~\r\n~~Mythic~~\r\n~~NGT.CS~~](http://bit.ly/13of54s#info)\r\n[](#lang-us)\r\n[](#lang-us)\r\n\r\n>>[](#separator)\r\n\r\n>>>[~~Electronic Sports Wor...~~\r\n~~6h~~\r\n~~TitanCS~~\r\n~~KaBuM~~](http://bit.ly/13ofaFd#info)\r\n[](#lang-fr)\r\n[](#lang-br)\r\n\r\n>>[](#separator)\r\n\r\n>>>[~~Electronic Sports Wor...~~\r\n~~6h~~\r\n~~Platinium~~\r\n~~HR.CS~~](http://bit.ly/13ofaFg#info)\r\n[](#lang-fr)\r\n[](#lang-ua)\r\n\r\n>>[](#separator)\r\n\r\n>>>[~~Electronic Sports Wor...~~\r\n~~6h~~\r\n~~dig.CS~~\r\n~~3DMAX.CS~~](http://bit.ly/13ofa89#info)\r\n[](#lang-dk)\r\n[](#lang-fi)\r\n\r\n>>[](#separator)\r\n\r\n>>>[~~Electronic Sports Wor...~~\r\n~~7h~~\r\n~~CPH Wolves~~\r\n~~NiP~~](http://bit.ly/13ofaVW#info)\r\n[](#lang-dk)\r\n[](#lang-se)\r\n\r\n**[See all](http://bit.ly/1xGEuiJ#button#slim)**"
-		},
-		{
-			"name": "showmatch_participants",
-			"body": ">>Showmatch Participants \r\n\r\n[ ](#db)  \r\n\r\n#### **Thanks to [our first ever showmatch](http://www.reddit.com/r/GlobalOffensive/comments/2hu7e6/feedback_first_rglobaloffensive_showmatch_wrapup/) players!**\r\n\r\n[Team Skeezksindi](#teamname)\r\n\r\nPlayer| Affiliation | Stream\r\n---|---|----|----\r\nSkadoodle| iBUYPOWER | [link](http://www.twitch.tv/Skadoodle)\r\nSteel | iBUYPOWER | [link](http://www.twitch.tv/steel_tv)\r\nAZK | iBUYPOWER | [link](http://twitch.tv/AZKcs)\r\nDesi | eLevate | [link](http://twitch.tv/desi_tv)\r\nHandi | - | [link](http://www.twitch.tv/therealhandi)\r\n\r\n[Denial eSports](#teamname)\r\n\r\nPlayer| Affiliation | Stream\r\n---|---|----|----\r\njuv3nile | Denial | [link](http://www.twitch.tv/juv3niletv)\r\ndaps | Denial | [link](http://www.twitch.tv/dapscsgo)\r\nShahZaM | Denial  | [link](http://www.twitch.tv/Shahzam)\r\nFugLy | Denial  | [link](http://www.twitch.tv/fuglyy)\r\nOcean | SKDC (Ringer) | -\r\n\r\n>[ ](#db)\r\n\r\n>[ ](#goup)  \r\n\r\n[ ](#db)"
-		},
-		{
-			"name": "community",
-			"body": ">>Community\r\n\r\n[ ](#db)  \r\n\r\n>>>#[SPOTLIGHT:](http://www.youtube.com/user/csgoworldorg#ytspotlight)  \r\n##CSGOWORLD\r\n###A reliable source of PoV and strat videos from major events\r\n\r\n\r\n>>>#[WORKSHOP:](http://steamcommunity.com/sharedfiles/filedetails/?id=163589843&searchtext=?workshop)\r\n##de_cache\r\n###An upgraded, revamped version of the new competitive classic by Volcano and FMPONE\r\n\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Steam Forums](http://forums.steampowered.com/forums/forumdisplay.php?f=1188)\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Reddit Steam Group!](http://steamcommunity.com/groups/redditcommunitynights#RDDT)\r\n\r\n>>[ ](#db) \r\n\r\n\r\n>[ ](#goup) \r\n\r\n\r\n[ ](#db)"
-		},
-		{
-			"name": "improving_your_play",
-			"body": ">>Improving Your Play \r\n\r\n[ ](#db)  \r\n\r\n>>>#[PRO TIP:](http://steamcommunity.com/sharedfiles/filedetails/?id=142687770#protips)  \r\n##Curse \r\n###A brand new set of video guides created by the players from Curse to help you improve your game \r\n\r\n\r\n>>>#[PERSONALIZE:](http://www.krisskarbo.com/csgocrosshair?crosshair)\r\n##Crosshair \r\n###Create a custom crosshair with this easy-to-use web app  \r\n\r\n\r\n>>>#[AUTOEXEC:](http://csgohelp.com/autoexec/#autoexec)\r\n##Getting Started  \r\n###What is it, and how do I use it? \r\n\r\n>>>#[PRACTICE:](http://www.reddit.com/r/GlobalOffensive/comments/19t57a/im_having_trouble_transferring_my_aim_from/c8ra3yn)\r\n##Deathmatch \r\n###How to get the most out of your deathmatch sessions\r\n\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Kniferound.net Guides](http://kniferound.net/wiki/Category:Guides)  \r\n\r\n>>[ ](#db)\r\n\r\n>>>[Spreadsheet with weapon data](https://docs.google.com/spreadsheet/ccc?key=0AuOy-5I1VcBMdGZmYndxUjctc1VNUDZHTXJFUE9Dbmc#gid=0)  \r\n\r\n>>[ ](#db)\r\n\r\n\r\n>[ ](#goup) \r\n\r\n\r\n[ ](#db)"
-		},
-		{
-			"name": "resources",
-			"body": "[*Resources*](#heading)\r\n\r\n[Matchmaking: {MM_STATUS}](http://steamstat.us#button{MM_STATUS_TAG})\r\n\r\n[Wiki](/r/GlobalOffensive/wiki/index#wiki#button)\r\n\r\n[Chat (IRC)](/r/GlobalOffensive/wiki/irc#irc#button)\r\n\r\n[Gathers (IRC)](/r/GlobalOffensive/wiki/irc-gathers#gathers#button)\r\n\r\n[VODs](http://bit.ly/1tnDX4K#vods#button)\r\n\r\n[Demos](http://bit.ly/1wLGhVx#demos#button)"
-		},
-		{
-			"name": "subreddits",
-			"body": "[*Subreddits*](#heading)\r\n\r\n[RecruitCS](/r/recruitcs#recruitcs#button)\r\n\r\n[GlobalOffensiveTrade](/r/globaloffensivetrade#trade#button)\r\n\r\n[CSmapmakers](/r/csmapmakers#csmapmakers#button)"
-		},
-		{
-			"name": "notices",
-			"body": "1. [Notices may not be working](#notice)"
-		},
-		{
-			"name": "katowice",
-			"body": "[*Katowice 2015*](#heading)\n\n[](http://www.esl-one.com/csgo/katowice-2015/)  \n[](https://www.reddit.com/r/GlobalOffensive/wiki/mumble)\n[](http://www.reddit.com/r/GlobalOffensive/wiki/irc)"
-		}
-	]
+    "chunks": [
+        {
+            "body": "[*New? Questions? Click here!*](/r/GlobalOffensive/wiki/index#heading#intro)\r\n\r\n[Subreddit Rules](/r/GlobalOffensive/wiki/rules#rules#button)\r\n[Message Moderators](http://goo.gl/oEG7Pb#mods#button)\r\n\r\n* [Filters](http://goo.gl/3Zc2H0)\r\n* [Unfiltered](http://goo.gl/8v5H25#noflair-icon)\r\n* [Gameplay](http://goo.gl/rWRCmd#gameplay-icon)\r\n* [Fluff](http://goo.gl/K9Xe2D#fluff-icon)\r\n* [Feedback](http://goo.gl/LdV5yD#feedback-icon)\r\n* [User Generated Content](http://goo.gl/JstweH#ugc-icon)\r\n* [News & Events](http://goo.gl/YideTb#news-icon)\r\n* [Game Update](http://goo.gl/DN2zAZ#update-icon)\r\n* [Discussion](http://goo.gl/Y9AjI5#discussion-icon)\r\n* [Tips & Guides](http://goo.gl/XXUpJ0#guides-icon)\r\n* [Help](http://goo.gl/g4N0OS#help-icon)\r\n* [AMA](http://goo.gl/rqe2ei#ama-icon)\r\n* [Announcement](http://goo.gl/xtlHIQ#announce-icon)\r\n* [Scheduled Sticky](http://goo.gl/52O6tM#sticky-icon)",
+            "name": "header"
+        },
+        {
+            "body": "[*Live Streams*](#heading)\r\n\r\n>>>#[Giveaways after every game!! ~...](http://www.twitch.tv/TheOriginalWeed#profile-0)\r\n>##   \r\n>###6237 @ TheOriginalWeed\r\n\r\n>>[](#separator)\r\n\r\n>>>#[Team Prac - Astro headset give...](http://www.twitch.tv/adren_tv#profile-1)\r\n>##   \r\n>###2479 @ adren_tv\r\n\r\n>>[](#separator)\r\n\r\n>>>#[Giveaways after every game! M4...](http://www.twitch.tv/DizzyKitten#profile-2)\r\n>##   \r\n>###1486 @ DizzyKitten\r\n\r\n>>[](#separator)\r\n\r\n>>>#[RECAST | ESWC 2014 Day 1 ...](http://www.twitch.tv/starladder5#profile-3)\r\n>##   \r\n>###503 @ starladder5\r\n\r\n>>[](#separator)\r\n\r\n>>>#[S17 CS:GO Main Playoffs - Anim...](http://www.twitch.tv/ESEA#profile-4)\r\n>##   \r\n>###230 @ ESEA\r\n\r\n>>[](#separator)\r\n\r\n**[See all](http://bit.ly/1rXZ9v3#button#slim)**",
+            "name": "currently_streaming"
+        },
+        {
+            "body": "[*Match Ticker*](#heading)\r\n\r\n>>>[~~RGN Summers End~~\r\n~~9m~~\r\n~~Mythic~~\r\n~~NGT.CS~~](http://bit.ly/13of54s#info)\r\n[](#lang-us)\r\n[](#lang-us)\r\n\r\n>>[](#separator)\r\n\r\n>>>[~~Electronic Sports Wor...~~\r\n~~6h~~\r\n~~TitanCS~~\r\n~~KaBuM~~](http://bit.ly/13ofaFd#info)\r\n[](#lang-fr)\r\n[](#lang-br)\r\n\r\n>>[](#separator)\r\n\r\n>>>[~~Electronic Sports Wor...~~\r\n~~6h~~\r\n~~Platinium~~\r\n~~HR.CS~~](http://bit.ly/13ofaFg#info)\r\n[](#lang-fr)\r\n[](#lang-ua)\r\n\r\n>>[](#separator)\r\n\r\n>>>[~~Electronic Sports Wor...~~\r\n~~6h~~\r\n~~dig.CS~~\r\n~~3DMAX.CS~~](http://bit.ly/13ofa89#info)\r\n[](#lang-dk)\r\n[](#lang-fi)\r\n\r\n>>[](#separator)\r\n\r\n>>>[~~Electronic Sports Wor...~~\r\n~~7h~~\r\n~~CPH Wolves~~\r\n~~NiP~~](http://bit.ly/13ofaVW#info)\r\n[](#lang-dk)\r\n[](#lang-se)\r\n\r\n**[See all](http://bit.ly/1xGEuiJ#button#slim)**",
+            "name": "upcoming_games"
+        },
+        {
+            "body": ">>Showmatch Participants \r\n\r\n[ ](#db)  \r\n\r\n#### **Thanks to [our first ever showmatch](http://www.reddit.com/r/GlobalOffensive/comments/2hu7e6/feedback_first_rglobaloffensive_showmatch_wrapup/) players!**\r\n\r\n[Team Skeezksindi](#teamname)\r\n\r\nPlayer| Affiliation | Stream\r\n---|---|----|----\r\nSkadoodle| iBUYPOWER | [link](http://www.twitch.tv/Skadoodle)\r\nSteel | iBUYPOWER | [link](http://www.twitch.tv/steel_tv)\r\nAZK | iBUYPOWER | [link](http://twitch.tv/AZKcs)\r\nDesi | eLevate | [link](http://twitch.tv/desi_tv)\r\nHandi | - | [link](http://www.twitch.tv/therealhandi)\r\n\r\n[Denial eSports](#teamname)\r\n\r\nPlayer| Affiliation | Stream\r\n---|---|----|----\r\njuv3nile | Denial | [link](http://www.twitch.tv/juv3niletv)\r\ndaps | Denial | [link](http://www.twitch.tv/dapscsgo)\r\nShahZaM | Denial  | [link](http://www.twitch.tv/Shahzam)\r\nFugLy | Denial  | [link](http://www.twitch.tv/fuglyy)\r\nOcean | SKDC (Ringer) | -\r\n\r\n>[ ](#db)\r\n\r\n>[ ](#goup)  \r\n\r\n[ ](#db)",
+            "name": "showmatch_participants"
+        },
+        {
+            "body": ">>Community\r\n\r\n[ ](#db)  \r\n\r\n>>>#[SPOTLIGHT:](http://www.youtube.com/user/csgoworldorg#ytspotlight)  \r\n##CSGOWORLD\r\n###A reliable source of PoV and strat videos from major events\r\n\r\n\r\n>>>#[WORKSHOP:](http://steamcommunity.com/sharedfiles/filedetails/?id=163589843&searchtext=?workshop)\r\n##de_cache\r\n###An upgraded, revamped version of the new competitive classic by Volcano and FMPONE\r\n\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Steam Forums](http://forums.steampowered.com/forums/forumdisplay.php?f=1188)\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Reddit Steam Group!](http://steamcommunity.com/groups/redditcommunitynights#RDDT)\r\n\r\n>>[ ](#db) \r\n\r\n\r\n>[ ](#goup) \r\n\r\n\r\n[ ](#db)",
+            "name": "community"
+        },
+        {
+            "body": ">>Improving Your Play \r\n\r\n[ ](#db)  \r\n\r\n>>>#[PRO TIP:](http://steamcommunity.com/sharedfiles/filedetails/?id=142687770#protips)  \r\n##Curse \r\n###A brand new set of video guides created by the players from Curse to help you improve your game \r\n\r\n\r\n>>>#[PERSONALIZE:](http://www.krisskarbo.com/csgocrosshair?crosshair)\r\n##Crosshair \r\n###Create a custom crosshair with this easy-to-use web app  \r\n\r\n\r\n>>>#[AUTOEXEC:](http://csgohelp.com/autoexec/#autoexec)\r\n##Getting Started  \r\n###What is it, and how do I use it? \r\n\r\n>>>#[PRACTICE:](http://www.reddit.com/r/GlobalOffensive/comments/19t57a/im_having_trouble_transferring_my_aim_from/c8ra3yn)\r\n##Deathmatch \r\n###How to get the most out of your deathmatch sessions\r\n\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Kniferound.net Guides](http://kniferound.net/wiki/Category:Guides)  \r\n\r\n>>[ ](#db)\r\n\r\n>>>[Spreadsheet with weapon data](https://docs.google.com/spreadsheet/ccc?key=0AuOy-5I1VcBMdGZmYndxUjctc1VNUDZHTXJFUE9Dbmc#gid=0)  \r\n\r\n>>[ ](#db)\r\n\r\n\r\n>[ ](#goup) \r\n\r\n\r\n[ ](#db)",
+            "name": "improving_your_play"
+        },
+        {
+            "body": "[*Resources*](#heading)\r\n\r\n[Matchmaking: {MM_STATUS}](http://steamstat.us#button{MM_STATUS_TAG})\r\n\r\n[Wiki](/r/GlobalOffensive/wiki/index#wiki#button)\r\n\r\n[Chat (IRC)](/r/GlobalOffensive/wiki/irc#irc#button)\r\n\r\n[Gathers (IRC)](/r/GlobalOffensive/wiki/irc-gathers#gathers#button)\r\n\r\n[VODs](http://bit.ly/1tnDX4K#vods#button)\r\n\r\n[Demos](http://bit.ly/1wLGhVx#demos#button)",
+            "name": "resources"
+        },
+        {
+            "body": "[*Subreddits*](#heading)\r\n\r\n[RecruitCS](/r/recruitcs#recruitcs#button)\r\n\r\n[GlobalOffensiveTrade](/r/globaloffensivetrade#trade#button)\r\n\r\n[CSmapmakers](/r/csmapmakers#csmapmakers#button)",
+            "name": "subreddits"
+        },
+        {
+            "body": "1. [Gfinity Spring Major #1 Schedule & Links and Discussion](http://redd.it/2zp8yq#event)\n1. [Latest Newbie Thursday - Weekly Q/A Thread](http://redd.it/2zkdgw#discussion)\n",
+            "name": "notices"
+        },
+        {
+            "body": "[*Katowice 2015*](#heading)\n\n[](http://www.esl-one.com/csgo/katowice-2015/)  \n[](https://www.reddit.com/r/GlobalOffensive/wiki/mumble)\n[](http://www.reddit.com/r/GlobalOffensive/wiki/irc)",
+            "name": "katowice"
+        }
+    ],
+    "template": "header\r\ncurrently_streaming\r\nupcoming_games\r\nresources\r\nsubreddits\r\nnotices"
 }

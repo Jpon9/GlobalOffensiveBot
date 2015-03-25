@@ -28,6 +28,7 @@ for (var i = 0; i < 60; i++) { minutes[i] = padNumber(i); }
 function select(target, name, options, selected) {
 	var select = document.createElement("SELECT");
 	select.name = name;
+	select.setAttribute("data-original-value", selected);
 	for (var i in options) {
 		var option = document.createElement("OPTION");
 		option.value = i;
@@ -43,8 +44,8 @@ function select(target, name, options, selected) {
 
 function textInput(target, name, value) {
 	value = value || "";
-
 	var input = document.createElement("INPUT");
+	input.setAttribute("data-original-value", value);
 	input.type = "text";
 	input.name = name;
 	input.value = value;
@@ -61,6 +62,7 @@ function label(target, text) {
 
 function textarea(target, name, value) {
 	var textarea = document.createElement("TEXTAREA");
+	textarea.setAttribute("data-original-value", value);
 	textarea.name = name;
 	textarea.value = value;
 	target.appendChild(textarea);
@@ -69,11 +71,22 @@ function textarea(target, name, value) {
 
 function checkbox(target, name, checked) {
 	var checkbox = document.createElement("INPUT");
+	checkbox.setAttribute("data-original-value", checked);
 	checkbox.type = "checkbox";
 	checkbox.name = name;
 	checkbox.checked = checked;
 	target.appendChild(checkbox);
 	return checkbox;
+}
+
+function hidden(target, name, value) {
+	var hidden = document.createElement("INPUT");
+	hidden.setAttribute("data-original-value", value);
+	hidden.type = "hidden";
+	hidden.name = name;
+	hidden.value = value;
+	target.appendChild(hidden);
+	return hidden;
 }
 
 /* Individual Fields */
@@ -189,6 +202,15 @@ function permanentNotice(target, value) {
 	target.appendChild(div);
 }
 
+function hideNotice(target, value) {
+	value = value || false;
+	var div = document.createElement("DIV");
+	div.className = "pure-control-group";
+	label(div, "Hide notice?");
+	checkbox(div, "hide_notice", value);
+	target.appendChild(div);
+}
+
 function noticeLink(target, value, hidden) {
 	var noticeLink = document.createElement("DIV");
 	noticeLink.className = "pure-control-group";
@@ -217,6 +239,15 @@ function frequency(target, value) {
 	target.appendChild(div);
 }
 
+function disablePosting(target, value) {
+	value = value || false;
+	var div = document.createElement("DIV");
+	div.className = "pure-control-group";
+	label(div, "Disable posting?");
+	checkbox(div, "disable_posting", value);
+	target.appendChild(div);
+}
+
 function textOrLinkPost(target, isSelfPost, spStickyDuration, spPermSticky, spBody, lpLink) {
 	spStickyDuration = spStickyDuration || 6;
 	spBody = spBody || "Default self-post body.";
@@ -229,6 +260,7 @@ function textOrLinkPost(target, isSelfPost, spStickyDuration, spPermSticky, spBo
 	spt.setAttribute("onclick", "spExpand(this)");
 	spt.className = (isSelfPost ? "active " : "") + "sp-trigger";
 	spt.innerHTML = "Self-Post";
+	spt.setAttribute("data-original-value", isSelfPost);
 	postTypeSelection.appendChild(spt);
 	
 	// Link post trigger
@@ -236,6 +268,7 @@ function textOrLinkPost(target, isSelfPost, spStickyDuration, spPermSticky, spBo
 	lpt.setAttribute("onclick", "lpExpand(this)");
 	lpt.className = (!isSelfPost ? "active " : "") + "lp-trigger";
 	lpt.innerHTML = "Link Post";
+	lpt.setAttribute("data-original-value", isSelfPost);
 	postTypeSelection.appendChild(lpt);
 
 	// Self post
@@ -276,4 +309,37 @@ function textOrLinkPost(target, isSelfPost, spStickyDuration, spPermSticky, spBo
 
 	postTypeSelection.appendChild(linkPost);
 	target.appendChild(postTypeSelection);
+}
+
+function created(target, value) {
+	hidden(target, "created", value);
+}
+
+function lastPosted(target, value) {
+	hidden(target, "last_posted", value);
+}
+
+function lastPostedId(target, value) {
+	hidden(target, "last_posted_id", value);
+}
+
+function uniqueNoticeId(target, value) {
+	hidden(target, "unique_notice_id", value);
+}
+
+function isStickied(target, value) {
+	hidden(target, "is_stickied", value);
+}
+
+function isNewItem(target, value) {
+	hidden(target, "is_new_item", value);
+}
+
+function resetNotice(target, value) {
+	value = value || false;
+	var div = document.createElement("DIV");
+	div.className = "pure-control-group";
+	label(div, "Reset timing?");
+	checkbox(div, "reset_timing", value);
+	target.appendChild(div);
 }

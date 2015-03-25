@@ -8,10 +8,10 @@ import logging
 logging.basicConfig(filename='logfile.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%B %d, %Y at %I:%M:%S %p -')	
 
 from reddit import *
-from autoposter import autoposterfunc
+from autoposter import autoposter
 from flair_dump import FlairDump
 
 threading.Thread(target=main).start()
 time.sleep(5)
-threading.Thread(target=autoposterfunc).start()
-FlairDump()
+threading.Thread(target=autoposter).start()
+#FlairDump()
