@@ -92,7 +92,7 @@
 						}
 
 						var noticeContainer = document.createElement("DIV");
-						noticeContainer.className = "notice pure-u-1-2";
+						noticeContainer.className = "notice pure-u-3-4";
 						
 						var innerNoticeContainer = document.createElement("DIV");
 						innerNoticeContainer.className = "inner-2";
@@ -343,33 +343,11 @@
 						}
 					}
 
-					function getChildByName(container, str) {
-						//console.log(container);
-						for (var i in container) {
-							if (container[i] === null) { continue; }
-							console.log(container[i]);
-							if (container[i].name === str) {
-								return container[i];
-							} else {
-								if (container[i].hasChildNodes) {
-									getChildByName(container[i].childNodes);
-								}
-							}
-						}
-					}
-
-					function getChildByAttr(parent, attr, value, searchType) {
-						searchType = searchType || "";
-						if (parent == undefined || parent == null || !parent.hasChildNodes) { return; }
-						return $(parent).find("[" + attr + searchType + "='" + value + "']")[0];
-					}
-
 					function sendNotices() {
 						var parent = document.getElementById("notice-edit");
 						var notices = [];
 						var newNotices = [];
 						$("#submit-notices img").animate({width: '16px'}, 250);
-						console.log(parent.childNodes);
 						for (var i in parent.childNodes) {
 							if (parent.childNodes[i].nodeType != 1) { continue; }
 							var notice = {};
@@ -492,9 +470,6 @@
 								is_new_item: false
 							});
 						}
-
-						console.log(newNotices);
-						console.log(notices);
 
 						while (parent.hasChildNodes()) {
 							parent.removeChild(parent.lastChild);

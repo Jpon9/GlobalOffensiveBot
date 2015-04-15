@@ -41,7 +41,7 @@
 					}
 				?>
 				<h2>Sidebar</h2>
-				<form class="pure-form pure-form-aligned">
+				<form class="pure-form pure-form-aligned" method="POST" action="./">
 					<fieldset>
 						<div class="pure-control-group">
 							<label for="template">Sidebar Section Order</label>

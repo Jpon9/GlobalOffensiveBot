@@ -115,7 +115,7 @@ def autoposter():
                     if notice['permanent_notice']:
                         if first_start_time < now:
                             if notice['type'] == 'autopost+notice':
-                                noticesToBuild.append([notice['category'], notice['notice_title'], notice['last_posted_id']])
+                                noticesToBuild.append([notice['category'], notice['notice_title'], "http://redd.it/" + notice['last_posted_id']])
                             else:
                                 noticesToBuild.append([notice['category'], notice['notice_title'], notice['notice_link']])
                             continue

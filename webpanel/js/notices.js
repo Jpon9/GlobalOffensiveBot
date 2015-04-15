@@ -23,6 +23,25 @@ var minutes = {};
 for (var i = 0; i < 24; i++) { hours[i] = padNumber(i); }
 for (var i = 0; i < 60; i++) { minutes[i] = padNumber(i); }
 
+function getChildByAttr(parent, attr, value, searchType) {
+	searchType = searchType || "";
+	if (parent == undefined || parent == null || !parent.hasChildNodes) { return; }
+	return $(parent).find("[" + attr + searchType + "='" + value + "']")[0];
+}
+
+function getChildByName(container, str) {
+	for (var i in container) {
+		if (container[i] === null) { continue; }
+		if (container[i].name === str) {
+			return container[i];
+		} else {
+			if (container[i].hasChildNodes) {
+				getChildByName(container[i].childNodes);
+			}
+		}
+	}
+}
+
 /* Generic Field Types */
 
 function select(target, name, options, selected) {
@@ -168,6 +187,8 @@ function postTime(target, value) {
 	select(div, "post_hour", hours, value[1]);
 	div.innerHTML += " ";
 	select(div, "post_minute", minutes, value[2]);
+	div.innerHTML += " ";
+	nowButton(div);
 	target.appendChild(div);
 }
 
@@ -181,7 +202,38 @@ function noticeStartTime(target, value) {
 	select(div, "notice_start_hour", hours, value[1]);
 	div.innerHTML += " ";
 	select(div, "notice_start_minute", minutes, value[2]);
+	div.innerHTML += " ";
+	nowButton(div);
 	target.appendChild(div);
+}
+
+function nowButton(target) {
+	var button = document.createElement("BUTTON");
+	button.type = "button";
+	button.name = "set_time_to_now";
+	button.className = "pure-button pure-button-secondary";
+	button.innerHTML += "Now";
+	button.setAttribute("onclick", "setTimeToNow(this)");
+	target.appendChild(button);
+}
+
+function setTimeToNow(btn) {
+	var now = new Date();
+	var day = now.getDay() - 1; // JS returns Sunday = 0, we need Monday = 0
+	var hour = now.getHours();
+	var mins = now.getMinutes() + 5; // Add 5 for padding
+	var nDay = getChildByName(btn.parentNode.childNodes, "notice_start_day");
+	var nHour = getChildByName(btn.parentNode.childNodes, "notice_start_hour");
+	var nMin = getChildByName(btn.parentNode.childNodes, "notice_start_minute");
+	var pDay = getChildByName(btn.parentNode.childNodes, "post_day");
+	var pHour = getChildByName(btn.parentNode.childNodes, "post_hour");
+	var pMin = getChildByName(btn.parentNode.childNodes, "post_minute");
+	if (nDay) { nDay.value = day; }
+	if (pDay) { pDay.value = day; }
+	if (nHour) { nHour.value = hour; }
+	if (pHour) { pHour.value = hour; }
+	if (nMin) { nMin.value = mins; }
+	if (pMin) { pMin.value = mins; }
 }
 
 function noticeDuration(target, value) {

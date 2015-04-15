@@ -1,5 +1,4 @@
 body.pure-g {
-	display: block;
 	height: 75em;
 
 	#notices {
@@ -8,7 +7,7 @@ body.pure-g {
 
 	.pure-form fieldset {
 		#notices {
-			width: 50%;
+			width: 75%;
 		}
 
 		.notice {
@@ -52,9 +51,16 @@ body.pure-g {
 				color: #000000;
 			}
 
-			input[name="title"]			{ width: 25em; }
-			input[name="url"]			{ width: 25em; }
-			input[name$="_duration"]	{ width: 3em; }
+			input[name$="_title"],
+			input[name$="_link"] {
+				width: 60%;
+			}
+			input[name="url"] {
+				width: 25em;
+			}
+			input[name$="_duration"] {
+				width: 3em;
+			}
 
 			.post-type-selection {
 				background-color: #BBBBBB;
@@ -88,6 +94,11 @@ body.pure-g {
 		}
 
 		textarea {
+			width: 50%;
+			height: 700px;
+		}
+
+		/*textarea {
 			max-width: 400px;
 			max-height: 800px;
 
@@ -98,7 +109,7 @@ body.pure-g {
 				width: 500px;
 				height: 400px;
 			}
-		}
+		}*/
 
 		button#submit-notices {
 			img {

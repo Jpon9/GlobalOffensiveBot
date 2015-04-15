@@ -307,7 +307,7 @@ def GetCurrentlyStreamingOnAzubu():
 			ViewersRaw = int(stream['view_count'])
 			Viewers = '{:,}'.format(ViewersRaw)
 			Streamer = stream['user']['display_name']
-			Title = Streamer + " playing CS:GO"
+			Title = stream['user']['alt_name']
 			Link = stream['url_channel']
 			Thumbnail = stream['url_thumbnail']
 			Language = "en"
