@@ -1,14 +1,14 @@
 import praw,pymongo,sys
 from pymongo import MongoClient
 
-client = MongoClient('192.168.0.115',27017)
+client = MongoClient('host',27017)
 db = client.modmail
 collection = db.mail
 
-r = praw.Reddit("DeliriumTremensTest")
-r.login("DeliriumTremens", "7hzV2y^$U^q%")
+r = praw.Reddit("useragent")
+r.login("username", "password")
 
-subreddit = r.get_subreddit("globaloffensive")
+subreddit = r.get_subreddit("subreddit")
 
 modmail = r.get_mod_mail(subreddit,limit=1000)
 count = 0
