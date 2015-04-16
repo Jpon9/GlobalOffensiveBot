@@ -19,7 +19,7 @@ for mail in modmail:
         count+=1
         after = mail.id
         for reply in mail.replies:
-                collection.update_one({'_id':mail.id}, {'$push' : {'replies': {'_id':reply.id,'utc':reply.created_utc,'user':str(reply.author),'subject':reply.subject,'body':reply.body}}}, up$
+                collection.update_one({'_id':mail.id}, {'$push' : {'replies': {'_id':reply.id,'utc':reply.created_utc,'time':datetime.fromtimestamp(mail.created_utc).isoformat()'user':str(reply.author),'subject':reply.subject,'body':reply.body}}}, up$
         sys.stdout.write(" Modmails found: %d...    \r" % (count))
 
 while True:
@@ -29,7 +29,7 @@ while True:
                 count+=1
                 after = mail.id
                 for reply in mail.replies:
-                        collection.update_one({'_id':mail.id}, {'$push': {'replies': {'_id':reply.id,'utc':reply.created_utc,'user':str(reply.author),'subject':reply.subject,'body':reply.body$
+                        collection.update_one({'_id':mail.id}, {'$push': {'replies': {'_id':reply.id,'utc':reply.created_utc,'time':datetime.fromtimestamp(mail.created_utc).isoformat()'user':str(reply.author),'subject':reply.subject,'body':reply.body$
                 sys.stdout.write(" Modmails found: %d...    \r" % (count))
         if count % 1000 > 0:
                 sys.stdout.write(" Modmails found: %d...    \r" % (count))
