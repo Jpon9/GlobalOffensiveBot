@@ -1,4 +1,4 @@
-import praw,pymongo,sys
+import praw,pymongo,sys,datetime
 from pymongo import MongoClient
 
 client = MongoClient('host',27017)
@@ -15,7 +15,7 @@ count = 0
 after = ''
 
 for mail in modmail:
-        insertmail = collection.insert_one({'_id':mail.id,'utc':mail.created_utc,'user':str(mail.author),'subject':mail.subject,'body':mail.body,'replies':[]})
+        insertmail = collection.insert_one({'_id':mail.id,'utc':mail.created_utc,'time':datetime.fromtimestamp(mail.created_utc).isoformat(),'user':str(mail.author),'subject':mail.subject,'body':mail.body,'replies':[]})
         count+=1
         after = mail.id
         for reply in mail.replies:
