@@ -3,12 +3,12 @@ import time
 import datetime
 import sys
 import traceback
-import os
+import os, sys
 import logging
 import io
 from settings import getSettings
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 
 # Builds the entire community section
 def BuildCommunitySection():

@@ -1,14 +1,14 @@
 import datetime
 import io
 import json
-import os
+import os, sys
 import praw
 import random
 import re
 import time
 import urllib2
 
-base_path = os.getcwd()
+base_path = os.path.dirname(os.path.abspath(sys.argv[0]))
 settings = json.loads(open(base_path + "/settings.json", 'r').read())
 items = json.loads(open(base_path + "/items.json", 'r').read())
 redditAndSteamProfileDict = {}

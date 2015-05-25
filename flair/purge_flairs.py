@@ -1,9 +1,9 @@
 import io
 import json
-import os
+import os, sys
 import praw
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 settings = json.loads(open(base_path + "config/settings.json", 'r').read())
 
 user_agent = ("Flair Purger 1.0 by /u/Jpon9")

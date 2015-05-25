@@ -17,6 +17,70 @@
  * c4-3: #405141
  ***************/
 
+/****************
+ * Konami Code
+ ****************/
+
+#baconBit { background: url(%%flashbang%%) top left no-repeat; }
+
+/********************************
+ * SOCIAL MEDIA
+ ********************************/
+.side blockquote > ul {
+    height: 35px;
+    padding: 0 0 10px 7px !important;
+}
+ 
+.side blockquote > ul > li:first-child {
+    background-color: transparent;
+    line-height: 40px;
+    padding-right: 10px;
+    width: 104px;
+}
+
+.side blockquote > ul > li {
+    color: #bdc3c7;
+    display: inline;
+    float: left;
+}
+
+.side blockquote > ul > li > a {
+    background-color: #101828;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 7px 12px 5px 12px;
+}
+
+.side blockquote > ul > li:last-child > a {
+    margin-right: 0;
+}
+
+.side blockquote > ul > li > a:hover {
+    background-color: #1E2636;
+}
+
+.side blockquote > ul > li > a:before {
+    background: url(%%social-media%%) no-repeat;
+    content: '';
+    display: inline-block;
+    height: 25px;
+}
+
+.side blockquote > ul > li > a[href="http://goo.gl/Yrc6kr"]:before {
+    background-position: 0 0;
+    width: 31px;
+}
+
+.side blockquote > ul > li > a[href="http://goo.gl/fwu1eP"]:before {
+    background-position: -36px 0;
+    width: 52px;
+}
+
+.side blockquote > ul > li > a[href="http://goo.gl/bHoLLk"]:before {
+    background-position: -93px 0;
+    width: 24px;
+}
+
 /********************************
  * CALENDAR
  ********************************/
@@ -58,7 +122,7 @@
  ************************************************************************************************************************************/
 
 /* HEADER BACKGROUND */
-#header{background: #010713 url(%%header%%) center no-repeat;}
+#header{background: #010713 url(%%header%%) center no-repeat;background-size:cover;}
 #header-bottom-left{height: 154px;}
 
 /* HEADER SUBREDDITS */
@@ -70,6 +134,13 @@
     border-bottom: 0;
     position: relative;
     z-index: 9;
+}
+
+/* BANNER CREATOR */
+.side .md > ul:last-child {
+    position: absolute;
+    top: -22px;
+    right: 20px;
 }
 
 #sr-header-area:hover {opacity: 90;}
@@ -127,25 +198,30 @@
     z-index: 1;
 }
 
-/* USER NOTIFICATION AREA */
-#header-bottom-right {
-    top: 18px!important;
-    bottom: auto!important;
-    background-color: transparent !important;
-    color: #abc1bd!important;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 7px;
-    padding: 6px 8px 9px;
+/* Userbar */
+div#header-bottom-right {
+    background-color: #000;
+    opacity: 0.75;
+    z-index: 10;
+    position: absolute;
+    top: 25px;
+    right: 4px;
+    height: 15px;
+    border-radius: 7px;
 }
 
-#header-bottom-right a {color: #fcfcfc!important;opacity:0.9;}
-#header-bottom-right a:hover {color: #fff!important;opacity:1;}
-.user {color: #e6e6e6!important;}
+.res div#header-bottom-right .beta-hint.help.help-hoverable {
+    position: relative;
+    display: inline-block;
+    height: 10px;
+    right: 15px;
+}
 
-#userbarToggle {
-    color: #e6e6e6!important;
-    background-color: rgb(21, 32, 43) !important;
-    border-right: 1px solid #000 !important;
+div#header-bottom-right:hover {opacity: 0.9}
+div#header-bottom-right a {color: #FCFCFC}
+
+div#userbarToggle {
+    padding-left: 3px;
 }
 
 /* MAIL ICON */
@@ -447,15 +523,21 @@ h1.redditname {display: none;}
 .side .flairselector.drop-choices.active .flairoptionpane ul,
 .side .flairselector.drop-choices.active .flairoptionpane li {min-width: 120px;padding: 3px 3px;}
 
-.titlebox form.flairtoggle {
+.titlebox form.flairtoggle,
+.titlebox form.sr_style_toggle {
     padding: 5px 5px 5px 37px;
     margin-top: 3px;
     position: relative;
     background: #101828!important;
-    height:10px;
+    height: 10px;
 }
 
-.titlebox form.flairtoggle:before { /* checkbox background */
+.titlebox form.sr_style_toggle {
+    margin-bottom: 5px;
+}
+
+.titlebox form.flairtoggle:before,
+.titlebox form.sr_style_toggle:before { /* checkbox background */
     content: "";
     width: 30px;
     height: 40px;
@@ -466,8 +548,30 @@ h1.redditname {display: none;}
     background: #1E2636;
 }
 
-.titlebox form.flairtoggle input {position: absolute;top: 12px;left: 9px;}
-.titlebox form.flairtoggle label {height: 12px;display: block;}
+.titlebox form.sr_style_toggle:before {
+    height: 20px;
+}
+
+.titlebox form.flairtoggle input,
+.titlebox form.sr_style_toggle input {
+    position: absolute;
+    top: 12px;
+    left: 9px;
+}
+.titlebox form.flairtoggle label,
+.titlebox form.sr_style_toggle input {
+    height: 12px;
+    display: block;
+}
+
+.titlebox form.sr_style_toggle input {
+    top: 3px;
+}
+
+.titlebox form.sr_style_toggle label {
+    position: relative;
+    bottom: 1px;
+}
 
 .titlebox .tagline {
     height: 20px;
@@ -505,7 +609,8 @@ h1.redditname {display: none;}
 
 .side .usertext-body .md ol a:hover {opacity:1;}
 .side .usertext-body .md ol a[href$='#event'] {border: 2px solid #e29b1e;}
-.side .usertext-body .md ol a[href$='#notice'] {border: 2px solid #101828;}
+/*.side .usertext-body .md ol a[href$='#notice'] {border: 2px solid #228822;}*/
+.side .usertext-body .md ol a[href$='#notice'] {border: 2px solid #228822;}
 .side .usertext-body .md ol a[href$='#discussion'] {border: 2px solid #101828;}
 
 .side .usertext-body .md ol a[href$='#event'],
@@ -515,7 +620,22 @@ h1.redditname {display: none;}
     text-align: left;*/
 }
 
-.side .usertext-body .md ol a[href$='#event']:after, .side .md>ol li a[href$='#notice']:after, .side .md>ol li a[href$='#discussion']:after {
+.side .usertext-body .md ol a[href$='#notice'] {
+    /*-webkit-animation: pulsate 1s ease-out infinite;
+    -moz-animation: pulsate 1s ease-out infinite;
+    animation: pulsate 1s ease-out infinite;*/
+}
+
+.side .usertext-body .md ol a[href$='#notice']:visited,
+.side .usertext-body .md ol a[href$='#notice']:hover {
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+}
+
+.side .usertext-body .md ol a[href$='#event']:after,
+.side .md>ol li a[href$='#notice']:after,
+.side .md>ol li a[href$='#discussion']:after {
     margin: 0;
     font-weight: bold;
     margin-left:5px;
@@ -529,15 +649,33 @@ h1.redditname {display: none;}
 }
 
 .side .usertext-body .md ol a[href$='#notice']:after {
-    background-color: #101828;
+    background-color: #228822;
     content: "NOTICE";
-    color: #a9bbab;
+    color: #abeaab;
 }
 
 .side .usertext-body .md ol a[href$='#discussion']:after {
     background-color: #101828;
     content: "DISCUSSION";
     color: #a9bbab;
+}
+
+@-webkit-keyframes pulsate {
+    0% { opacity: 0.7;}
+    50% {opacity: 1.0;}
+    100% { opacity: 0.7;}
+}
+
+@-moz-keyframes pulsate {
+    0% { opacity: 0.7;}
+    50% {opacity: 1.0;}
+    100% { opacity: 0.7;}
+}
+
+@keyframes pulsate {
+    0% { opacity: 0.7;}
+    50% {opacity: 1.0;}
+    100% { opacity: 0.7;}
 }
 
 /* HEADINGS */
@@ -783,7 +921,7 @@ h1.redditname {display: none;}
 .side .md blockquote > blockquote > blockquote h5,
 .side .md blockquote > blockquote > blockquote h6 {
     padding: 0;
-	color: #A0B6CA;
+    color: #A0B6CA;
 }
 
 /* LIVE STREAMS */
@@ -862,7 +1000,6 @@ h1.redditname {display: none;}
 .side .md>blockquote>blockquote>blockquote h3 {font-size: 10px;line-height: 12px;margin:0 0 0 15px;font-weight:normal;color:rgb(194,194,194);}
 .side a[href*='#separator'] { font-size:0;margin-bottom:3px;display:block;}
 .side a[href*='#eye-icon'] { width:5px;}
-.side .md>blockquote:nth-of-type(2) > blockquote>blockquote {padding: 5px;}
 
 /* UPCOMING GAMES 
 .side .md > blockquote>blockquote>blockquote a:hover { 
@@ -926,8 +1063,8 @@ h1.redditname {display: none;}
     z-index: 3;
 }
 
-.side .md > blockquote>blockquote>blockquote p a[href*="#lang-"]:before,
-.sitetable.linklisting .entry a[href*="#lang-"]:before {
+.side .md > blockquote>blockquote>blockquote p a[href*="#lang-"],
+.sitetable.linklisting .entry a[href*="#lang-"] {
     content: '';
     display: inline-block;
     position: absolute;
@@ -939,10 +1076,16 @@ h1.redditname {display: none;}
 
 .sitetable.linklisting .entry a[href*="#lang-"] {
     border: none;
-    position: static;
+    cursor: default;
+    position: relative;
+    display: inline-block;
+    width: 16px;
+}
+.sitetable.linklisting .entry p a[href*="#lang-"] {
+    bottom: 10px;
 }
  
-.sitetable.linklisting .entry td a[href*="#lang-"]:before {
+.sitetable.linklisting .entry td a[href*="#lang-"] {
     text-align: center;
     position: relative;
     left: 2px;
@@ -950,8 +1093,8 @@ h1.redditname {display: none;}
     border: 1px solid #AAAAAA;
 }
 
-.side .md > blockquote>blockquote>blockquote p a:nth-child(2):before {top: 5px;left: 40px;z-index:2;}
-.side .md > blockquote>blockquote>blockquote p a:nth-child(3):before {top: 24px;left: 40px;z-index:2;}
+.side .md > blockquote>blockquote>blockquote p a:nth-child(2) {top: 5px;left: 40px;z-index:2;}
+.side .md > blockquote>blockquote>blockquote p a:nth-child(3) {top: 24px;left: 40px;z-index:2;}
 .side .md > blockquote>blockquote>blockquote p del {color: #fff;text-shadow: 1px 1px #000;}
 
 .side .md > blockquote>blockquote>blockquote a[href*="#info"]:after, .side .md > blockquote>blockquote>blockquote a[href*="#map-"]:after {
@@ -1084,6 +1227,39 @@ body:not(.subscriber) #siteTable:before {
 
 /* Removes downvoting from nonsubscribers */
 body:not(.subscriber) .down {visibility: hidden !important;}
+
+/* Hover-notice for downvote arrows */
+.commentarea .arrow.down:hover:before {
+     position: absolute;
+     display: block;
+     z-index: 1000;
+     width: 210px;
+     padding: 5px;
+     border: 0px solid #010713;
+     background: #101828;
+     content: " Downvote only if off-topic or factually wrong, NOT if you disagree.";
+     text-align: center;
+     font-size: 10px;
+     color: #FAFAFA;
+     margin-left: 25px;
+     margin-top: 5px;
+}
+.link .arrow.down:hover:before {
+     position: absolute;
+     display: block;
+     z-index: 1000;
+     width: 210px;
+     padding: 5px;
+     font-weight: normal;
+     border: 0px solid #020202;
+     background: #101010;
+     content: " Downvote only if you think the post doesn't add value to the subreddit.";
+     text-align: center;
+     font-size: 10px;
+     color: #FAFAFA;
+     margin-left: 25px;
+     margin-top: 5px;
+}
 
 /* RES IMAGES ABOVE SIDEBAR */
 .madeVisible img {z-index: 9999!important;}
@@ -1275,6 +1451,12 @@ overflow: hidden;
 /* author */
 .comment .author {border-radius: 0!important;padding: 2px!important;margin: 0!important;}
 
+/* Contest mode */
+
+div.contest-mode.infobar.mellow {
+    color: #000;
+}
+
 /* view all comments */
 .infobar {
     background-color: #F1B853;
@@ -1299,6 +1481,16 @@ overflow: hidden;
 .md h4 { font-size: 1.12em; }
 .md h5 { font-size: .83em; }
 .md h6 { font-size: .75em; }
+
+.comment .md h1 {
+    color: #222222;
+    font-size: 13px;
+    font-weight: 400;
+    margin: 0 0 12px 0;
+    padding: 0;
+}
+
+.comment .md h1:before { content: "#"; }
 
 .expando blockquote, .comment blockquote {border-left: 2px solid #3a4b55!important;}
 
@@ -1407,24 +1599,38 @@ a[href="/r/GlobalOffensive/w/guides"]:hover:after           {background-position
 a[href="/r/GlobalOffensive/w/social"]:hover:after       {background-position:0 -396px;}
 a[href="/r/GlobalOffensive/w/rules"], a[href="/r/GlobalOffensive/w/faq"], a[href="/r/GlobalOffensive/w/guides"], a[href="/r/GlobalOffensive/w/social"] {display:block;width:132px;height:132px;}
 
-/* Flair regulation page */
-.wiki-page-flairs p, .wiki-page-flairs ul {
+/* Flair regulation page, meta FAQ page */
+.wiki-page-flairs p, .wiki-page-flairs ul,
+.wiki-page-meta-faq p, .wiki-age-meta-faq ul {
     width: 700px;
 }
+
+.wiki-page-meta-faq .wiki-page-content .wiki.md ul { margin: 0; }
+.wiki-page-meta-faq .wiki-page-content .wiki.md h1 { font-size: 3em; }
+.wiki-page-meta-faq .wiki-page-content .wiki.md h2 { font-size: 2em; }
+.wiki-page-meta-faq .wiki-page-content .wiki.md h3 { font-size: 1.5em; }
 
 /************************************************************************************************************************************
  * FOOTER
  ************************************************************************************************************************************/
 
-.footer-parent {padding-top:20px;}
-.footer {color: #A0B6CA;padding: 10px 0;border: 0;display: inline-block;border-radius: 0!important;background: #010713;width: 100%;margin:0;margin-bottom: -2px;}
-.footer .col{border:0;}
-.footer .col:first-child {border: none;margin-left: 40%;}
-.flat-vert.title {color:#A0B6CA}
-.footer a {color:#A0B6CA;font-weight:normal;}
-.bottommenu {background:#101828;color: #A0B6CA;}
-.bottommenu a {color:#A0B6CA;text-decoration:none;font-weight:bold}
-.debuginfo {display:none;}
+.footer div.col { position: relative; margin: 0; padding: 0; width: 176px; height: auto; font-family: Arial, sans-serif; }
+.footer div.col .title { font-size: 16px; font-weight: bold; padding: 8px; color: #fff; background-color: #101828; }
+.footer div.col a { display: block; margin: 5px; padding: 3px 4px 3px 7px; color: #000; }
+.footer div.col a:hover { color: #000; text-decoration: none; background: #fff; }
+.footer p.bottommenu { clear: left; color: #FFF; padding: 6px; font-weight: bold; }
+.footer p.bottommenu a { font-weight: bold; color: #FFF; }
+.debuginfo { background: #F6F6F6; }
+.footer {
+    padding: 0px;
+    border: 1px solid #101828;
+    display: flex !important;
+    display: -webkit-flex;
+    max-width: 600px;
+}
+.rounded {
+    border-radius: 0px;
+}
 
 /************************************************************************************************************************************
  * FLAIR
@@ -1512,61 +1718,64 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
 }
 
 /* FLAG ICONS */
-.side a[href*='#lang-ad']:before, .sitetable.linklisting .entry a[href*='#lang-ad']:before {background-position: -16px 0 !important}
-.side a[href*='#lang-al']:before, .sitetable.linklisting .entry a[href*='#lang-al']:before {background-position: -32px 0 !important}
-.side a[href*='#lang-at']:before, .sitetable.linklisting .entry a[href*='#lang-at']:before {background-position: -48px 0 !important}
-.side a[href*='#lang-ba']:before, .sitetable.linklisting .entry a[href*='#lang-ba']:before {background-position: -64px 0 !important}
-.side a[href*='#lang-be']:before, .sitetable.linklisting .entry a[href*='#lang-be']:before {background-position: -80px 0 !important}
-.side a[href*='#lang-bg']:before, .sitetable.linklisting .entry a[href*='#lang-bg']:before {background-position: -96px 0 !important}
-.side a[href*='#lang-by']:before, .sitetable.linklisting .entry a[href*='#lang-by']:before {background-position: -112px 0 !important}
-.side a[href*='#lang-ca']:before, .sitetable.linklisting .entry a[href*='#lang-ca']:before {background-position: 0 -11px !important}
-.side a[href*='#lang-ch']:before, .sitetable.linklisting .entry a[href*='#lang-ch']:before {background-position: -16px -11px !important}
-.side a[href*='#lang-cz']:before, .sitetable.linklisting .entry a[href*='#lang-cz']:before {background-position: -32px -11px !important}
-.side a[href*='#lang-da']:before, .sitetable.linklisting .entry a[href*='#lang-da']:before {background-position: -64px -11px !important}
-.side a[href*='#lang-dk']:before, .sitetable.linklisting .entry a[href*='#lang-dk']:before {background-position: -64px -11px !important}
-.side a[href*='#lang-de']:before, .sitetable.linklisting .entry a[href*='#lang-de']:before {background-position: -48px -11px !important}
-.side a[href*='#lang-ec']:before, .sitetable.linklisting .entry a[href*='#lang-ec']:before {background-position: -80px -11px !important}
-.side a[href*='#lang-ee']:before, .sitetable.linklisting .entry a[href*='#lang-ee']:before {background-position: -96px -11px !important}
-.side a[href*='#lang-en']:before, .sitetable.linklisting .entry a[href*='#lang-en']:before {background-position: -48px -22px !important}
-.side a[href*='#lang-es']:before, .sitetable.linklisting .entry a[href*='#lang-es']:before {background-position: -112px -11px !important}
-.side a[href*='#lang-fi']:before, .sitetable.linklisting .entry a[href*='#lang-fi']:before {background-position: 0 -22px !important}
-.side a[href*='#lang-fo']:before, .sitetable.linklisting .entry a[href*='#lang-fo']:before {background-position: -16px -22px !important}
-.side a[href*='#lang-fr']:before, .sitetable.linklisting .entry a[href*='#lang-fr']:before {background-position: -32px -22px !important}
-.side a[href*='#lang-gb']:before, .sitetable.linklisting .entry a[href*='#lang-gb']:before {background-position: -48px -22px !important}
-.side a[href*='#lang-gf']:before, .sitetable.linklisting .entry a[href*='#lang-gf']:before {background-position: -64px -22px !important}
-.side a[href*='#lang-gi']:before, .sitetable.linklisting .entry a[href*='#lang-gi']:before {background-position: -80px -22px !important}
-.side a[href*='#lang-gr']:before, .sitetable.linklisting .entry a[href*='#lang-gr']:before {background-position: -96px -22px !important}
-.side a[href*='#lang-hr']:before, .sitetable.linklisting .entry a[href*='#lang-hr']:before {background-position: -112px -22px !important}
-.side a[href*='#lang-hu']:before, .sitetable.linklisting .entry a[href*='#lang-hu']:before {background-position: 0 -33px !important}
-.side a[href*='#lang-ie']:before, .sitetable.linklisting .entry a[href*='#lang-ie']:before {background-position: -16px -33px !important}
-.side a[href*='#lang-is']:before, .sitetable.linklisting .entry a[href*='#lang-is']:before {background-position: -32px -33px !important}
-.side a[href*='#lang-it']:before, .sitetable.linklisting .entry a[href*='#lang-it']:before {background-position: -48px -33px !important}
-.side a[href*='#lang-li']:before, .sitetable.linklisting .entry a[href*='#lang-li']:before {background-position: -64px -33px !important}
-.side a[href*='#lang-lt']:before, .sitetable.linklisting .entry a[href*='#lang-lt']:before {background-position: -80px -33px !important}
-.side a[href*='#lang-lu']:before, .sitetable.linklisting .entry a[href*='#lang-lu']:before {background-position: -96px -33px !important}
-.side a[href*='#lang-lv']:before, .sitetable.linklisting .entry a[href*='#lang-lv']:before {background-position: -112px -33px !important}
-.side a[href*='#lang-mc']:before, .sitetable.linklisting .entry a[href*='#lang-mc']:before {background-position: 0 -44px !important}
-.side a[href*='#lang-md']:before, .sitetable.linklisting .entry a[href*='#lang-md']:before {background-position: -16px -44px !important}
-.side a[href*='#lang-me']:before, .sitetable.linklisting .entry a[href*='#lang-me']:before {background-position: -32px -44px !important}
-.side a[href*='#lang-mk']:before, .sitetable.linklisting .entry a[href*='#lang-mk']:before {background-position: -48px -44px !important}
-.side a[href*='#lang-mt']:before, .sitetable.linklisting .entry a[href*='#lang-mt']:before {background-position: -64px -44px !important}
-.side a[href*='#lang-mx']:before, .sitetable.linklisting .entry a[href*='#lang-mx']:before {background-position: -80px -44px !important}
-.side a[href*='#lang-nl']:before, .sitetable.linklisting .entry a[href*='#lang-nl']:before {background-position: -96px -44px !important}
-.side a[href*='#lang-no']:before, .sitetable.linklisting .entry a[href*='#lang-no']:before {background-position: -112px -44px !important}
-.side a[href*='#lang-pl']:before, .sitetable.linklisting .entry a[href*='#lang-pl']:before {background-position: 0 -55px !important}
-.side a[href*='#lang-pt']:before, .sitetable.linklisting .entry a[href*='#lang-pt']:before {background-position: -16px -55px !important}
-.side a[href*='#lang-ro']:before, .sitetable.linklisting .entry a[href*='#lang-ro']:before {background-position: -32px -55px !important}
-.side a[href*='#lang-rs']:before, .sitetable.linklisting .entry a[href*='#lang-rs']:before {background-position: -48px -55px !important}
-.side a[href*='#lang-ru']:before, .sitetable.linklisting .entry a[href*='#lang-ru']:before {background-position: -64px -55px !important}
-.side a[href*='#lang-si']:before, .sitetable.linklisting .entry a[href*='#lang-si']:before {background-position: -96px -55px !important}
-.side a[href*='#lang-sk']:before, .sitetable.linklisting .entry a[href*='#lang-sk']:before {background-position: -112px -55px !important}
-.side a[href*='#lang-sm']:before, .sitetable.linklisting .entry a[href*='#lang-sm']:before {background-position: 0 -66px !important}
-.side a[href*='#lang-se']:before, .sitetable.linklisting .entry a[href*='#lang-se']:before {background-position: -80px -55px !important}
-.side a[href*='#lang-sv']:before, .sitetable.linklisting .entry a[href*='#lang-sv']:before {background-position: -80px -55px !important}
-.side a[href*='#lang-tr']:before, .sitetable.linklisting .entry a[href*='#lang-tr']:before {background-position: -16px -66px !important}
-.side a[href*='#lang-ua']:before, .sitetable.linklisting .entry a[href*='#lang-ua']:before {background-position: -32px -66px !important}
-.side a[href*='#lang-us']:before, .sitetable.linklisting .entry a[href*='#lang-us']:before {background-position: -48px -66px !important}
-.side a[href*='#lang-va']:before, .sitetable.linklisting .entry a[href*='#lang-va']:before {background-position: -64px -66px !important}
+.side a[href*='#lang-ad'], .sitetable.linklisting .entry a[href*='#lang-ad'] {background-position: -16px 0 !important}
+.side a[href*='#lang-al'], .sitetable.linklisting .entry a[href*='#lang-al'] {background-position: -32px 0 !important}
+.side a[href*='#lang-at'], .sitetable.linklisting .entry a[href*='#lang-at'] {background-position: -48px 0 !important}
+.side a[href*='#lang-au'], .sitetable.linklisting .entry a[href*='#lang-au'] {background-position: -80px -66px !important}
+.side a[href*='#lang-ba'], .sitetable.linklisting .entry a[href*='#lang-ba'] {background-position: -64px 0 !important}
+.side a[href*='#lang-be'], .sitetable.linklisting .entry a[href*='#lang-be'] {background-position: -80px 0 !important}
+.side a[href*='#lang-bg'], .sitetable.linklisting .entry a[href*='#lang-bg'] {background-position: -96px 0 !important}
+.side a[href*='#lang-br'], .sitetable.linklisting .entry a[href*='#lang-br'] {background-position: -112px -66px !important}
+.side a[href*='#lang-by'], .sitetable.linklisting .entry a[href*='#lang-by'] {background-position: -112px 0 !important}
+.side a[href*='#lang-ca'], .sitetable.linklisting .entry a[href*='#lang-ca'] {background-position: 0 -11px !important}
+.side a[href*='#lang-ch'], .sitetable.linklisting .entry a[href*='#lang-ch'] {background-position: -16px -11px !important}
+.side a[href*='#lang-cz'], .sitetable.linklisting .entry a[href*='#lang-cz'] {background-position: -32px -11px !important}
+.side a[href*='#lang-da'], .sitetable.linklisting .entry a[href*='#lang-da'] {background-position: -64px -11px !important}
+.side a[href*='#lang-dk'], .sitetable.linklisting .entry a[href*='#lang-dk'] {background-position: -64px -11px !important}
+.side a[href*='#lang-de'], .sitetable.linklisting .entry a[href*='#lang-de'] {background-position: -48px -11px !important}
+.side a[href*='#lang-ec'], .sitetable.linklisting .entry a[href*='#lang-ec'] {background-position: -80px -11px !important}
+.side a[href*='#lang-ee'], .sitetable.linklisting .entry a[href*='#lang-ee'] {background-position: -96px -11px !important}
+.side a[href*='#lang-en'], .sitetable.linklisting .entry a[href*='#lang-en'] {background-position: -48px -22px !important}
+.side a[href*='#lang-es'], .sitetable.linklisting .entry a[href*='#lang-es'] {background-position: -112px -11px !important}
+.side a[href*='#lang-fi'], .sitetable.linklisting .entry a[href*='#lang-fi'] {background-position: 0 -22px !important}
+.side a[href*='#lang-fo'], .sitetable.linklisting .entry a[href*='#lang-fo'] {background-position: -16px -22px !important}
+.side a[href*='#lang-fr'], .sitetable.linklisting .entry a[href*='#lang-fr'] {background-position: -32px -22px !important}
+.side a[href*='#lang-gb'], .sitetable.linklisting .entry a[href*='#lang-gb'] {background-position: -48px -22px !important}
+.side a[href*='#lang-gf'], .sitetable.linklisting .entry a[href*='#lang-gf'] {background-position: -64px -22px !important}
+.side a[href*='#lang-gi'], .sitetable.linklisting .entry a[href*='#lang-gi'] {background-position: -80px -22px !important}
+.side a[href*='#lang-gr'], .sitetable.linklisting .entry a[href*='#lang-gr'] {background-position: -96px -22px !important}
+.side a[href*='#lang-hr'], .sitetable.linklisting .entry a[href*='#lang-hr'] {background-position: -112px -22px !important}
+.side a[href*='#lang-hu'], .sitetable.linklisting .entry a[href*='#lang-hu'] {background-position: 0 -33px !important}
+.side a[href*='#lang-ie'], .sitetable.linklisting .entry a[href*='#lang-ie'] {background-position: -16px -33px !important}
+.side a[href*='#lang-is'], .sitetable.linklisting .entry a[href*='#lang-is'] {background-position: -32px -33px !important}
+.side a[href*='#lang-it'], .sitetable.linklisting .entry a[href*='#lang-it'] {background-position: -48px -33px !important}
+.side a[href*='#lang-kz'], .sitetable.linklisting .entry a[href*='#lang-kz'] {background-position: -96px -66px !important}
+.side a[href*='#lang-li'], .sitetable.linklisting .entry a[href*='#lang-li'] {background-position: -64px -33px !important}
+.side a[href*='#lang-lt'], .sitetable.linklisting .entry a[href*='#lang-lt'] {background-position: -80px -33px !important}
+.side a[href*='#lang-lu'], .sitetable.linklisting .entry a[href*='#lang-lu'] {background-position: -96px -33px !important}
+.side a[href*='#lang-lv'], .sitetable.linklisting .entry a[href*='#lang-lv'] {background-position: -112px -33px !important}
+.side a[href*='#lang-mc'], .sitetable.linklisting .entry a[href*='#lang-mc'] {background-position: 0 -44px !important}
+.side a[href*='#lang-md'], .sitetable.linklisting .entry a[href*='#lang-md'] {background-position: -16px -44px !important}
+.side a[href*='#lang-me'], .sitetable.linklisting .entry a[href*='#lang-me'] {background-position: -32px -44px !important}
+.side a[href*='#lang-mk'], .sitetable.linklisting .entry a[href*='#lang-mk'] {background-position: -48px -44px !important}
+.side a[href*='#lang-mt'], .sitetable.linklisting .entry a[href*='#lang-mt'] {background-position: -64px -44px !important}
+.side a[href*='#lang-mx'], .sitetable.linklisting .entry a[href*='#lang-mx'] {background-position: -80px -44px !important}
+.side a[href*='#lang-nl'], .sitetable.linklisting .entry a[href*='#lang-nl'] {background-position: -96px -44px !important}
+.side a[href*='#lang-no'], .sitetable.linklisting .entry a[href*='#lang-no'] {background-position: -112px -44px !important}
+.side a[href*='#lang-pl'], .sitetable.linklisting .entry a[href*='#lang-pl'] {background-position: 0 -55px !important}
+.side a[href*='#lang-pt'], .sitetable.linklisting .entry a[href*='#lang-pt'] {background-position: -16px -55px !important}
+.side a[href*='#lang-ro'], .sitetable.linklisting .entry a[href*='#lang-ro'] {background-position: -32px -55px !important}
+.side a[href*='#lang-rs'], .sitetable.linklisting .entry a[href*='#lang-rs'] {background-position: -48px -55px !important}
+.side a[href*='#lang-ru'], .sitetable.linklisting .entry a[href*='#lang-ru'] {background-position: -64px -55px !important}
+.side a[href*='#lang-si'], .sitetable.linklisting .entry a[href*='#lang-si'] {background-position: -96px -55px !important}
+.side a[href*='#lang-sk'], .sitetable.linklisting .entry a[href*='#lang-sk'] {background-position: -112px -55px !important}
+.side a[href*='#lang-sm'], .sitetable.linklisting .entry a[href*='#lang-sm'] {background-position: 0 -66px !important}
+.side a[href*='#lang-se'], .sitetable.linklisting .entry a[href*='#lang-se'] {background-position: -80px -55px !important}
+.side a[href*='#lang-sv'], .sitetable.linklisting .entry a[href*='#lang-sv'] {background-position: -80px -55px !important}
+.side a[href*='#lang-tr'], .sitetable.linklisting .entry a[href*='#lang-tr'] {background-position: -16px -66px !important}
+.side a[href*='#lang-ua'], .sitetable.linklisting .entry a[href*='#lang-ua'] {background-position: -32px -66px !important}
+.side a[href*='#lang-us'], .sitetable.linklisting .entry a[href*='#lang-us'] {background-position: -48px -66px !important}
+.side a[href*='#lang-va'], .sitetable.linklisting .entry a[href*='#lang-va'] {background-position: -64px -66px !important}
 
 /* USER FLAIRS */
 .flair {
@@ -1615,18 +1824,6 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
 .flair-mod {background-position:-156px -187px;width: 15px}
 .flair-modtext {background-position:-156px -187px;}
 .flair-modtrial {background-position:-156px -172px;}
-/* eNzyy's moo flairs */
-.flair-modct {background-position:-104px -187px;}
-.flair-modt {background-position:-52px -187px;}
-
-.flair-sen {
-    width: 72px;
-    height: 20px;
-    line-height: 20px;
-    text-indent: -9999px;
-    background: url(%%flair-custom%%) top left no-repeat;
-    background-position: -62px -152px;
-}
  
 /* TEAM FAN FLAIRS */
 .flair-fan {
@@ -1636,25 +1833,29 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
     width: auto;
     height: 20px;
 }
+
+.hot-page .linklisting .flair-fan {
+    display: none;
+}
  
 /* Legends */
-.flair-fan.flair-envyus { background-position: -21px 0;  width: 20px; }
-.flair-fan.flair-fnatic { background-position: -41px 0;  width: 24px; }
-.flair-fan.flair-hr     { background-position: -65px 0;  width: 23px; }
-.flair-fan.flair-navi   { background-position: -88px 0;  width: 23px; }
-.flair-fan.flair-nip    { background-position: -111px 0; width: 20px; }
-.flair-fan.flair-penta  { background-position: -131px 0; width: 15px; }
-.flair-fan.flair-tsm    { background-position: -146px 0; width: 20px; }
-.flair-fan.flair-vp     { background-position: -166px 0; width: 19px; }
+.flair-fan.flair-envyus { background-position: -26px 0;  width: 20px; }
+.flair-fan.flair-fnatic { background-position: -51px 0;  width: 24px; }
+.flair-fan.flair-hr     { background-position: -80px 0;  width: 23px; }
+.flair-fan.flair-navi   { background-position: -108px 0; width: 23px; }
+.flair-fan.flair-nip    { background-position: -136px 0; width: 20px; }
+.flair-fan.flair-penta  { background-position: -161px 0; width: 15px; }
+.flair-fan.flair-tsm    { background-position: -181px 0; width: 20px; }
+.flair-fan.flair-vp     { background-position: -206px 0; width: 19px; }
 /* Challengers */
-.flair-fan.flair-3dmax  { background-position: -0px -20px;   width: 15px; }
-.flair-fan.flair-cloud9 { background-position: -14px -20px;  width: 29px; }
-.flair-fan.flair-clg    { background-position: -43px -20px;  width: 28px; }
-.flair-fan.flair-f3     { background-position: -71px -20px;  width: 19px; }
-.flair-fan.flair-keyd   { background-position: -90px -20px;  width: 14px; }
-.flair-fan.flair-lgb    { background-position: -104px -20px; width: 17px; }
-.flair-fan.flair-titan  { background-position: -121px -20px; width: 14px; }
-.flair-fan.flair-vox    { background-position: -135px -20px; width: 35px; }
+.flair-fan.flair-3dmax  { background-position: -0px -25px;   width: 15px; }
+.flair-fan.flair-cloud9 { background-position: -19px -25px;  width: 29px; }
+.flair-fan.flair-clg    { background-position: -53px -25px;  width: 28px; }
+.flair-fan.flair-f3     { background-position: -86px -25px;  width: 19px; }
+.flair-fan.flair-keyd   { background-position: -110px -25px; width: 14px; }
+.flair-fan.flair-lgb    { background-position: -129px -25px; width: 17px; }
+.flair-fan.flair-titan  { background-position: -151px -25px; width: 14px; }
+.flair-fan.flair-vox    { background-position: -170px -25px; width: 35px; }
  
 /* Inline team logos for leafeator */
 .sitetable.linklisting .entry a[href$="-logo"] {
@@ -1672,23 +1873,30 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
 }
  
 /* Legends */
-.sitetable.linklisting .entry a[href$="#envyus-logo"] { background-position: -21px 0;  width: 20px; }
-.sitetable.linklisting .entry a[href$="#fnatic-logo"] { background-position: -41px 0;  width: 24px; }
-.sitetable.linklisting .entry a[href$="#hr-logo"]     { background-position: -65px 0;  width: 23px; }
-.sitetable.linklisting .entry a[href$="#navi-logo"]   { background-position: -88px 0;  width: 23px; }
-.sitetable.linklisting .entry a[href$="#nip-logo"]    { background-position: -111px 0; width: 20px; }
-.sitetable.linklisting .entry a[href$="#penta-logo"]  { background-position: -131px 0; width: 15px; }
-.sitetable.linklisting .entry a[href$="#tsm-logo"]    { background-position: -146px 0; width: 20px; }
-.sitetable.linklisting .entry a[href$="#vp-logo"]     { background-position: -166px 0; width: 19px; }
+.sitetable.linklisting .entry a[href$="#envyus-logo"] { background-position: -26px 0;  width: 20px; }
+.sitetable.linklisting .entry a[href$="#fnatic-logo"] { background-position: -51px 0;  width: 24px; }
+.sitetable.linklisting .entry a[href$="#hr-logo"]     { background-position: -80px 0;  width: 23px; }
+.sitetable.linklisting .entry a[href$="#navi-logo"]   { background-position: -108px 0;  width: 23px; }
+.sitetable.linklisting .entry a[href$="#nip-logo"]    { background-position: -136px 0; width: 20px; }
+.sitetable.linklisting .entry a[href$="#penta-logo"]  { background-position: -161px 0; width: 15px; }
+.sitetable.linklisting .entry a[href$="#tsm-logo"]    { background-position: -181px 0; width: 20px; }
+.sitetable.linklisting .entry a[href$="#vp-logo"]     { background-position: -206px 0; width: 19px; }
 /* Challengers */
-.sitetable.linklisting .entry a[href$="#3dmax-logo"]  { background-position: -0px -20px;   width: 15px; }
-.sitetable.linklisting .entry a[href$="#cloud9-logo"] { background-position: -14px -20px;  width: 29px; }
-.sitetable.linklisting .entry a[href$="#clg-logo"]    { background-position: -43px -20px;  width: 28px; }
-.sitetable.linklisting .entry a[href$="#f3-logo"]     { background-position: -71px -20px;  width: 19px; }
-.sitetable.linklisting .entry a[href$="#keyd-logo"]   { background-position: -90px -20px;  width: 14px; }
-.sitetable.linklisting .entry a[href$="#lgb-logo"]    { background-position: -104px -20px; width: 17px; }
-.sitetable.linklisting .entry a[href$="#titan-logo"]  { background-position: -121px -20px; width: 14px; }
-.sitetable.linklisting .entry a[href$="#vox-logo"]    { background-position: -135px -20px; width: 35px; }
+.sitetable.linklisting .entry a[href$="#3dmax-logo"]  { background-position: -0px -25px;   width: 15px; }
+.sitetable.linklisting .entry a[href$="#cloud9-logo"] { background-position: -19px -25px;  width: 29px; }
+.sitetable.linklisting .entry a[href$="#clg-logo"]    { background-position: -53px -25px;  width: 28px; }
+.sitetable.linklisting .entry a[href$="#f3-logo"]     { background-position: -86px -25px;  width: 19px; }
+.sitetable.linklisting .entry a[href$="#keyd-logo"]   { background-position: -110px -25px;  width: 14px; }
+.sitetable.linklisting .entry a[href$="#lgb-logo"]    { background-position: -129px -25px; width: 17px; }
+.sitetable.linklisting .entry a[href$="#titan-logo"]  { background-position: -151px -25px; width: 14px; }
+.sitetable.linklisting .entry a[href$="#vox-logo"]    { background-position: -170px -25px; width: 35px; }
+/* Match Thread Poster Requests */
+.sitetable.linklisting .entry a[href$="#ace-logo"]    { background-position: -91px -50px; width: 40px; }
+.sitetable.linklisting .entry a[href$="#dig-logo"]    { background-position: -136px -50px; width: 17px; }
+.sitetable.linklisting .entry a[href$="#ele-logo"]    { background-position: 0 -50px; width: 20px; }
+.sitetable.linklisting .entry a[href$="#msports-logo"]    { background-position: -50px -50px; width: 36px; }
+.sitetable.linklisting .entry a[href$="#syn-logo"]    { background-position: -158px -50px; width: 23px; }
+.sitetable.linklisting .entry a[href$="#tl-logo"]    { background-position: -25px -50px; width: 20px; }
 
 /* RANK FLAIRS */
 .flair-rank.flair-silver-1 { background-position              : 0px 0px; }
@@ -1740,11 +1948,77 @@ a[href$='#sticky-icon'] { background:rgba(64,79,65,0.8) url(%%flair-icons%%) no-
 .flair-official.flair-liquid { background-position     : -104px -102px; }
 .flair-official.flair-envyus { background-position  :  0 -119px; }
 .flair-official.flair-vox { background-position  :  -52px -136px; } 
+.flair-official.flair-clg { background-position  :  -104px -136px; }
 
 .flair-news.flair-fragbite { background-position   :  0 -85px; }
 .flair-news.flair-gosugamers { background-position :  0 -17px; }
 .flair-news.flair-vakarm { background-position     : -104px -51px; }
 .flair-news.flair-99damage { background-position   : 0 -136px; }
+
+/* VERIFIED FLAIR WIKI PAGE */
+
+.wiki-page-verified-flairs a[href*="#official-"]:before,
+.wiki-page-verified-flairs a[href*="#league-"]:before,
+.wiki-page-verified-flairs a[href*="#news-"]:before,
+.wiki-page-verified-flairs a[href$="#mod"]:before,
+.wiki-page-verified-flairs a[href*="#modt"]:before {
+    content: '';
+    cursor: default;
+    display: inline-block;
+    width: 50px;
+    height: 15px;
+    line-height: 20px;
+    background: url(%%flair-custom%%) top left no-repeat;
+    position: relative;
+    top: 3px;
+}
+
+.wiki-page-verified-flairs a[href$="#mod"]:before { background-position:-156px -187px; width: 15px }
+.wiki-page-verified-flairs a[href*="#modtext"]:before { background-position:-156px -187px; }
+.wiki-page-verified-flairs a[href*="#modtrial"]:before { background-position:-156px -172px; }
+
+.wiki-page-verified-flairs a[href*="#league-esea"]:before { background-position     :  0 -34px; }
+.wiki-page-verified-flairs a[href*="#league-esea-admin"]:before { background-position     : -52px -119px; }
+.wiki-page-verified-flairs a[href*="#league-esl"]:before { background-position      : -104px 0; }
+.wiki-page-verified-flairs a[href*="#league-faceit"]:before { background-position   : -156px -17px; }
+.wiki-page-verified-flairs a[href*="#league-gameface"]:before { background-position : -52px  -34px; }
+.wiki-page-verified-flairs a[href*="#league-cevo"]:before { background-position     : -104px -34px; }
+.wiki-page-verified-flairs a[href*="#league-gorgntv"]:before { background-position  : -156px -102px; }
+
+.wiki-page-verified-flairs a[href*="#official-valve"]:before { background-position    : -52px  0; }
+.wiki-page-verified-flairs a[href*="#official-irc"]:before { background-position      : -52px  -16px; }
+.wiki-page-verified-flairs a[href*="#official-eswc"]:before { background-position     : -104px -17px; }
+.wiki-page-verified-flairs a[href*="#official-verified"]:before { background-position :  0 -51px; }
+.wiki-page-verified-flairs a[href*="#official-csgolounge"]:before { background-position : -104px -119px; }
+
+.wiki-page-verified-flairs a[href*="#official-nip"]:before { background-position       : -156px -51px; }
+.wiki-page-verified-flairs a[href*="#official-navi"]:before { background-position      : -156px -68px; }
+.wiki-page-verified-flairs a[href*="#official-fmesports"]:before { background-position : -52px  -68px; }
+.wiki-page-verified-flairs a[href*="#official-fnatic"]:before { background-position    : -156px -34px; }
+.wiki-page-verified-flairs a[href*="#official-cloud9"]:before { background-position    :  0 -68px; }
+.wiki-page-verified-flairs a[href*="#official-titan"]:before { background-position     : -156px 0; }
+.wiki-page-verified-flairs a[href*="#official-reason"]:before { background-position    : -52px  -51px; }
+.wiki-page-verified-flairs a[href*="#official-dignitas"]:before { background-position  : -104px -68px; }
+.wiki-page-verified-flairs a[href*="#official-ibp"]:before { background-position       : -52px  -85px; }
+.wiki-page-verified-flairs a[href*="#official-denial"]:before {background-position     : -104px -85px; }
+.wiki-page-verified-flairs a[href*="#official-ldlc"]:before { background-position      : -156px -85px; }
+.wiki-page-verified-flairs a[href*="#official-flipside"]:before { background-position  :  0 -102px; }
+.wiki-page-verified-flairs a[href*="#official-penta"]:before { background-position     : -52px -102px; }
+.wiki-page-verified-flairs a[href*="#official-liquid"]:before { background-position     : -104px -102px; }
+.wiki-page-verified-flairs a[href*="#official-envyus"]:before { background-position  :  0 -119px; }
+.wiki-page-verified-flairs a[href*="#official-vox"]:before { background-position  :  -52px -136px; } 
+
+.wiki-page-verified-flairs a[href*="#news-fragbite"]:before { background-position   :  0 -85px; }
+
+
+/* Nightmode flair stuff */
+
+.res-nightmode .flair-official.flair-valve,
+.res-nightmode .flair-league.flair-esea,
+.res-nightmode .wiki-page-verified-flairs a[href*="#official-valve"]:before,
+.res-nightmode .wiki-page-verified-flairs a[href*="#league-esea"]:before {
+    background-color: #FAFAFA;
+}
 
 /* TODO: COMMUNITY SPOTLIGHT */
 
@@ -2044,7 +2318,7 @@ color:#fff!important;
 /* nightmode code background color */
 .res-nightmode .expando code,.res-nightmode .comment code, .res-nightmode .wiki-page code {
     background-color: #555555;
-	color: #DDDDDD;
+    color: #DDDDDD;
     padding: 1px 4px;
 }
 

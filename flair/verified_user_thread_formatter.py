@@ -1,6 +1,6 @@
 import io
 import json
-import os
+import os, sys
 
 	
 # Enter a string, get a markdown-escaped/sanitized string in return
@@ -15,7 +15,7 @@ def SanitizeMarkdown(str):
 	sanitized = sanitized.replace("    ", "")
 	return sanitized
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 flairs = json.loads(open(base_path + "cache/flairs.json", 'r').read())
 flair_mappings = json.loads(open(base_path + "config/flair_mappings.json", 'r').read())
 

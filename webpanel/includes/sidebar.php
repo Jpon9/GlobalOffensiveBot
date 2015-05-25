@@ -3,6 +3,7 @@
 	<ul>
 		<li>The bot is <span id="bot-status" class="status-indeterminate">Schr&ouml;dinger's bot</span></li>
 		<li>Updates in <span id="bot-updates-in">...</span></li>
+		<!--<li><a href="#" id="restart-bot">Restart Bot</a></li>-->
 	</ul>
 	<h2>Configurations</h2>
 	<ul>
@@ -47,7 +48,7 @@
 		}
 	});
 
-	$("#scroll-top").on("click", function() {
+	$("#scroll-top").click(function() {
 		isScrolling = true;
 		var target = document.getElementById("scroll-top");
 		$(target).animate({opacity:0}, 200, function() {
@@ -56,5 +57,22 @@
 		$("html, body").animate({scrollTop: 0}, 1000, function() {
 			isScrolling = false;
 		});
+	});
+
+	$("#restart-bot").click(function() {
+		var status = "";
+		$.ajaxSetup({async:false});
+		$.get("/includes/restartBot.php?verbose=restartBot", function(data) {
+			status = JSON.parse(data).status;
+		});
+		$.ajaxSetup({async:true});
+		var target = document.getElementById("bot-updates-in");
+		if (status === "success") {
+			killTimers();
+			target.innerHTML = "restarting...";
+		} else {
+			killTimers();
+			target.innerHTML = "failed to restart...";
+		}
 	});
 </script>

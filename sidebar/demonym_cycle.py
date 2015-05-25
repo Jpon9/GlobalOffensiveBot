@@ -3,11 +3,11 @@ import time
 import datetime
 import sys
 import traceback
-import os
+import os, sys
 import logging
 import io
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 
 # Updates the "Users online..." and "Subscribers..." fields on the sidebar via the CSS
 def GetDemonym():

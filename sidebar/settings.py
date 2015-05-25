@@ -1,11 +1,11 @@
 import json
-import os
+import os, sys
 import praw
 
 user_agent = ("GlobalOffensiveBot 1.0 by /u/Jpon9 and /u/Tremaux")
 r = praw.Reddit(user_agent=user_agent)
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 settings = None
 
 def refreshSettings():

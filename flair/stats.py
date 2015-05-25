@@ -1,8 +1,8 @@
 import io
 import json
-import os
+import os, sys
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 flairs = json.loads(open(base_path + "cache/flairs.json", 'r').read())
 
 verified_flairs = {}

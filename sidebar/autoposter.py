@@ -1,5 +1,5 @@
 # Reddit weekly post scheduler.
-import praw, time, datetime, dateutil, json, os, io, reddit, random
+import praw, time, datetime, dateutil, json, os, sys, io, reddit, random
 
 from settings import getSettings, refreshSettings
 from accounts import getAccounts, refreshAccounts
@@ -13,7 +13,7 @@ r = praw.Reddit(user_agent=user_agent)
 
 bot_accounts = getAccounts()
 bot_settings = getSettings()
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 notice_path = base_path + "config/notices.json"
 
 # Reference values
@@ -137,13 +137,14 @@ def autoposter():
         #saveJson(notice_path, {'notices': notices})
         saveNotices(notice_path, notices)
         # Write notices to notices section of the sidebar
-        #print "Num notices to build: " + str(len(noticesToBuild))
+        print "Num notices to build: " + str(len(noticesToBuild))
         sidebarConfig = json.loads(open(base_path + "config/description.json", 'r').read())
         for chunk in sidebarConfig['chunks']:
-            if chunk['name'] == 'notices':
+            if chunk['name'] == '__notices__':
                 chunk['body'] = ''
                 if len(noticesToBuild) > 3:
                     random.shuffle(noticesToBuild)
+                    noticesToBuild = noticesToBuild[:3]
                 for notice in noticesToBuild:
                     chunk['body'] += "1. [" + notice[1] + "](" + notice[2] + "#" + notice[0] + ")\n"
                 break

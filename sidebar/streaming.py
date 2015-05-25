@@ -5,12 +5,12 @@ import datetime
 import urllib2
 import sys
 import traceback
-import os
+import os, sys
 import logging
 
 logging.basicConfig(filename='logfile.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%B %d, %Y at %I:%M:%S %p -')
-base_path = os.getcwd() + "/"
-testimages= os.getcwd() + "/images/debug/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
+testimages= os.path.dirname(os.path.abspath(sys.argv[0])) + "/images/debug/"
 
 from upcominggames import *
 from helperfuncs import *

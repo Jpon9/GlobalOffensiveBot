@@ -1,9 +1,9 @@
-import os
+import os, sys
 from PIL import Image
 import urllib2
 import cStringIO
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 
 # Our sprites by default are 45 x 30
 def GenerateSpritesheet(imageURLs, width=45, height=30):

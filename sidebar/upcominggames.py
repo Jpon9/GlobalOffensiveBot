@@ -4,7 +4,7 @@ import datetime
 import urllib2
 import sys
 import traceback
-import os
+import os, sys
 import logging
 import io
 from settings import getSettings
@@ -12,7 +12,7 @@ from settings import getSettings
 logging.basicConfig(filename='logfile.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%B %d, %Y at %I:%M:%S %p -')	
 gosucache = {}
 gosucache["matches"] = []
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 
 from helperfuncs import GetShortenedUrl,GetTimeUntilGameStart
 import reddit

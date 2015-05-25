@@ -1,7 +1,7 @@
 import json
-import os
+import os, sys
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 accounts = json.loads(open(base_path + "config/accounts.json", 'r').read())['accounts']
 
 # Not in use currently since the accounts file is currently static

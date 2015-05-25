@@ -3,7 +3,7 @@ import threading
 import time
 import io
 import json
-import os
+import os, sys
 import praw
 from redditlogin import r
 from settings import getSettings, refreshSettings
@@ -19,7 +19,7 @@ def FlairDump():
 	# Get the settings again
 	refreshSettings()
 	botSettings = getSettings()
-	base_path = os.getcwd() + "/"
+	base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 
 	# Grab the flair generator
 	flair_generator = r.get_flair_list(subreddit=botSettings['target_subreddit'], limit=None)

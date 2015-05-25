@@ -1,9 +1,6 @@
 /*********************************************************************
- * Version:  1.1 - Katowice 2015 Edition
+ * Version:  1.2 - Post-Katowice 2015 Edition
  * Client:   /r/GlobalOffensive
  * Authors:  /u/eNzyy, /u/Jpon9, /u/JovialFeline, /u/BrokN9
  * Website:  http://reddit.com/r/GlobalOffensive/about/moderators
- *
- * License: GNU General Public License v2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  *********************************************************************/

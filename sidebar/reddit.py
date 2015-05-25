@@ -5,14 +5,14 @@ import datetime
 import urllib2
 import sys
 import traceback
-import os
+import os, sys
 import logging
 from cssmin import cssmin # thirdparty, pip install cssmin
 from settings import getSettings,refreshSettings
 from accounts import getAccounts,refreshAccounts
 
 logging.basicConfig(filename='logfile.log', level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%B %d, %Y at %I:%M:%S %p -')	
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 count = 0
 sticky = {}
 sticky["stickies"] = []
@@ -35,13 +35,13 @@ def BuildSidebar():
 	upcomingGames = GetUpcomingGames()
 	for chunk in sidebarJson['chunks']:
 		# Dynamic sections
-		if chunk['name'] == 'currently_streaming':
+		if chunk['name'] == '__currently_streaming__':
 			chunk['body'] = BuildCurrentlyStreaming(currentlyStreaming, upcomingGames)
-		elif chunk['name'] == 'upcoming_games':
+		elif chunk['name'] == '__upcoming_games__':
 			chunk['body'] = BuildUpcomingGames(upcomingGames)
-		elif chunk['name'] == 'community':
+		elif chunk['name'] == '__community__':
 			chunk['body'] = BuildCommunitySection()
-		elif chunk['name'] == 'resources':
+		elif chunk['name'] == '__resources__':
 			chunk['body'] = chunk['body'].replace("{MM_STATUS}", GetMatchmakingStatus())
 			chunk['body'] = chunk['body'].replace("{MM_STATUS_TAG}", "#mm-up" if GetMatchmakingStatus() == "ONLINE" else "#mm-down")
 		sidebar = sidebar.replace(chunk['name'], "\n\n" + chunk['body'])

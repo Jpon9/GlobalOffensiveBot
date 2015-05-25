@@ -1,14 +1,14 @@
 # Python std imports
 import io
 import json
-import os
+import os, sys
 import time
 # Third part imports
 import praw
 # Project imports
 from settings import getSettings
 
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 
 # Updates the "Users online..." and "Subscribers..." fields on the sidebar via the CSS
 def GetHeader():

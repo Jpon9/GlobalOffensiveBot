@@ -18,14 +18,22 @@
 
 	// Get bot metadata
 	function updateMetadata() {
-		$.get("/includes/getBotMetadata.php?verbose", function(data) {
+		$.get("/includes/getBotMetadata.php?verbose=getBotMetadata", function(data) {
 			metadata = JSON.parse(data);
 
 			var target = document.getElementById("bot-updates-in");
 
 			updateBotStatus();
 
-			if (botStatus === "online") {
+			console.log(metadata.last_webpanel_restart > metadata.last_update_completed);
+			
+			if (botStatus === "offline") {
+				killTimers();
+				target.innerHTML = "...";
+			} else if (metadata.last_webpanel_restart > metadata.last_update_completed) {
+				killTimers();
+				target.innerHTML = "restarting...";
+			} else if (botStatus === "online") {
 				timer(target, metadata.last_update_completed);
 			} else {
 				killTimers();

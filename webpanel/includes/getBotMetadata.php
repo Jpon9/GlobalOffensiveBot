@@ -7,7 +7,7 @@
 		return json_decode(file_get_contents($metadataPath), true);
 	}
 
-	if (isset($_GET['verbose'])) {
+	if (isset($_GET['verbose']) && $_GET['verbose'] == 'getBotMetadata') {
 		echo json_encode(getMetadata(), JSON_NUMERIC_CHECK);
 	}
 ?>

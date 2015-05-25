@@ -3,18 +3,16 @@ import threading
 import time
 import io
 import json
-import os
+import os, sys
 import praw
 
 # Get the settings
-base_path = os.getcwd() + "/"
+base_path = os.path.dirname(os.path.abspath(sys.argv[0])) + "/"
 settings = json.loads(open(base_path + "config/settings.json", 'r').read())
 
 user_agent = ("Flair Grabber 1.0 by /u/Jpon9")
 r = praw.Reddit(user_agent=user_agent)
 r.login(settings['login']['username'], settings['login']['password'])
-
-base_path = os.getcwd() + "/"
 
 # Grab the flair generator
 flair_generator = r.get_flair_list(subreddit='GlobalOffensive', limit=None)
