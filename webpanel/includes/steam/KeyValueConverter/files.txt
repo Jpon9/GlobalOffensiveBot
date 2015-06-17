@@ -1,0 +1,13 @@
+SOURCE
+C:\Program Files (x86)\Steam\SteamApps\common\Counter-Strike Global Offensive\csgo\scripts\items\items_game.txt
+C:\Program Files (x86)\Steam\SteamApps\common\Counter-Strike Global Offensive\csgo\resource\csgo_english.txt
+
+DESTINATION
+C:\Users\Jake\Documents\GitHub\GlobalOffensiveBot\webpanel\includes\steam\scripts.json
+C:\Users\Jake\Documents\GitHub\GlobalOffensiveBot\webpanel\includes\steam\csgo_english.json
+
+TARGET
+all
+
+INDENT
+false

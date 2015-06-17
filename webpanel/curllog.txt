@@ -1,5 +1,44 @@
-* Hostname was NOT found in DNS cache
-*   Trying 198.41.208.139...
-* Connected to ssl.reddit.com (198.41.208.139) port 443 (#306)
-* Operation timed out after 0 milliseconds with 0 out of 0 bytes received
-* Closing connection 306
+* Hostname was found in DNS cache
+* Hostname in DNS cache was stale, zapped
+*   Trying 198.41.209.137...
+* Connected to oauth.reddit.com (198.41.209.137) port 443 (#329)
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* Server certificate:
+* 	 subject: OU=Domain Control Validated; OU=Gandi Standard Wildcard SSL; CN=*.reddit.com
+* 	 start date: 2015-04-06 00:00:00 GMT
+* 	 expire date: 2016-04-10 23:59:59 GMT
+* 	 subjectAltName: oauth.reddit.com matched
+* 	 issuer: C=FR; O=GANDI SAS; CN=Gandi Standard SSL CA
+* 	 SSL certificate verify result: unable to get local issuer certificate (20), continuing anyway.
+> POST /r/GlobalOffensiveTest/api/flair HTTP/1.1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.124 Safari/537.36
+Host: oauth.reddit.com
+Accept: */*
+Authorization: bearer 31329175-585lDbUpq5q5ufcNbog_9JpAF4U
+Content-Length: 111
+Content-Type: application/x-www-form-urlencoded
+
+* upload completely sent off: 111 out of 111 bytes
+< HTTP/1.1 200 OK
+* Server cloudflare-nginx is not blacklisted
+< Server: cloudflare-nginx
+< Date: Fri, 12 Jun 2015 20:39:34 GMT
+< Content-Type: application/json; charset=UTF-8
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Set-Cookie: __cfduid=d00bab4557f9a4825b00a31a73c3ce7311434141572; expires=Sat, 11-Jun-16 20:39:32 GMT; path=/; domain=.reddit.com; HttpOnly
+< x-ua-compatible: IE=edge
+< x-frame-options: SAMEORIGIN
+< x-content-type-options: nosniff
+< x-xss-protection: 1; mode=block
+< cache-control: private, no-cache
+< pragma: no-cache
+< x-ratelimit-remaining: 599.0
+< x-ratelimit-used: 1
+< x-ratelimit-reset: 27
+< Vary: accept-encoding
+< cache-control: no-cache
+< X-Moose: majestic
+< CF-RAY: 1f585d9b37540eeb-EWR
+< 
+* Connection #329 to host oauth.reddit.com left intact

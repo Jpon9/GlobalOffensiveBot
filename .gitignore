@@ -110,3 +110,5 @@ flair/cache/verified-flairs.json
 flair/cache/verified-flairs-markdown.txt
 flair/cache/verified-flairs-grouped.json
 flair/cache/flairs-to-purge.json
+select-flair/cache.json
+select-flair/curllog.txt

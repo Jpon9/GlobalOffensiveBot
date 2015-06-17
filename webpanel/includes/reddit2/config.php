@@ -14,6 +14,6 @@ class redditConfig{
     
     //access token request scopes
     //full list at http://www.reddit.com/dev/api/oauth
-    static $SCOPES = 'identity';//,flair,modconfig,modflair,modlog,modposts,modwiki,mysubreddits,read,report,submit,wikiedit,wikiread
+    static $SCOPES = 'identity,modflair';
 }
 ?>

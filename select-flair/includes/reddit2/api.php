@@ -1,6 +1,6 @@
 <?php
-require_once("config.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "includes/database.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/reddit/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/database.php");
 
 /**
 * Reddit PHP SDK
@@ -10,7 +10,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "includes/database.php");
 *   $reddit = new reddit();
 *   $user = $reddit->getUser();
 */
-class reddit{
+class reddit2 {
     private $access_token;
     private $token_type;
     private $auth_mode = 'basic';
@@ -38,14 +38,16 @@ class reddit{
     
     public function init_oauth(){
         $userInfo = array();
-        if(isset($_COOKIE['reddit_token'])){
-            $token_info = explode(":", $_COOKIE['reddit_token']); 
+        $cachedData = $this->database->getUser("GlobalOffensiveBot");
+        $redditToken = "bearer:" . $cachedData['current_access_token'];
+        if($redditToken) {
+            $token_info = explode(":", $redditToken);
             $this->token_type = $token_info[0];
             $this->access_token = $token_info[1];
 
             // If the token is expired, refresh it
-            if ($this->database->isTokenExpired($token_info[1])) {
-                $refreshToken = $this->database->getRefreshToken($token_info[1]);
+            if ($cachedData['access_token_expires'] < time()) {
+                $refreshToken = $cachedData['refresh_token'];
                 
                 if (!$refreshToken) {
                     setcookie('reddit_token', '', time() - 3600);
@@ -58,67 +60,22 @@ class reddit{
                 //get JSON access token object (with refresh_token parameter)
                 $token = self::runCurl(redditConfig::$ENDPOINT_OAUTH_TOKEN, $postvals, null, true);
 
+                var_dump($token);
+
                 $this->token_type = $token->token_type;
                 $this->access_token = $token->access_token;
 
                 if (isset($token->access_token)) {
-                    $cookie_time = 60 * 60;
-
                     $userInfo = [
                         'access_token' => $token->access_token,
                         'refresh_token' => $refreshToken,
-                        'expires' => $cookie_time + time(),
+                        'expires' => time() + $token->expires_in,
                         'scope' => $token->scope
                     ];
-
-                    $cookie_time = $cookie_time * 24 * 30 + time(); // Forget it in a month
-                    setcookie('reddit_token', "{$this->token_type}:{$this->access_token}", $cookie_time, '/');
                 }
             }
         } else { 
-            if (isset($_GET['code'])){
-                //capture code from auth
-                $code = $_GET["code"];
-                
-                //construct POST object for access token fetch request
-                $postvals = sprintf("code=%s&redirect_uri=%s&grant_type=authorization_code&client_id=%s",
-                                    $code,
-                                    redditConfig::$ENDPOINT_OAUTH_REDIRECT,
-                                    redditConfig::$CLIENT_ID);
-                
-                //get JSON access token object (with refresh_token parameter)
-                $token = self::runCurl(redditConfig::$ENDPOINT_OAUTH_TOKEN, $postvals, null, true);
-                
-                //store token and type
-                if (isset($token->access_token)){
-                    $this->access_token = $token->access_token;
-                    $this->token_type = $token->token_type;
-                    
-                    //set token cookie for later use
-                    $cookie_time = 60 * 60;
-                    $userInfo = [
-                        'access_token' => $token->access_token,
-                        'refresh_token' => $token->refresh_token,
-                        'expires' => $cookie_time + time(),
-                        'scope' => $token->scope
-                    ];
-                    $cookie_time = $cookie_time * 24 * 30 + time();  // Forget the auth token in a month
-                    setcookie('reddit_token', "{$this->token_type}:{$this->access_token}", $cookie_time, '/');
-                }
-            } else {
-                $state = rand();
-                $urlAuth = sprintf("%s?response_type=code&client_id=%s&redirect_uri=%s&scope=%s&state=%s&duration=permanent",
-                                   redditConfig::$ENDPOINT_OAUTH_AUTHORIZE,
-                                   redditConfig::$CLIENT_ID,
-                                   redditConfig::$ENDPOINT_OAUTH_REDIRECT,
-                                   redditConfig::$SCOPES,
-                                   $state);
-
-                //forward user to Reddit auth page
-                header("Location: $urlAuth");
-
-                die("This fixes things, not sure why.");
-            }
+            die("Something went horribly wrong.");
         }
 
         //set API endpoint
@@ -127,8 +84,6 @@ class reddit{
         //set auth mode for requests
         $this->auth_mode = 'oauth';
 
-        //make this object global to the site
-        $_SESSION['reddit'] = $this;
 
         if (isset($userInfo['access_token'])) {
             $this->database->updateUser(self::getUser()->name,
@@ -137,6 +92,9 @@ class reddit{
                 $userInfo['expires'],
                 $userInfo['scope']);
         }
+
+        //make this object global to the site
+        return $this;
     }
 
     /**
@@ -151,7 +109,6 @@ class reddit{
             
             //get JSON access token object (with refresh_token parameter)
             $token = self::runCurl(redditConfig::$ENDPOINT_OAUTH_KILL_TOKEN, $postvals, null, true);
-            setcookie('reddit_token', '', time() - 3600);
             unset($_SESSION['permissions']);
         }
     }

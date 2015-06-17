@@ -15,7 +15,7 @@
 	</ul>
 	<h2>See Also</h2>
 	<ul>
-		<li><a href="/applications" <?php if ($title == "Mod Applications") { echo 'class="active"'; } ?>>Moderator Applications</a></li>
+		<li><a href="/applications-4" <?php if ($title == "Mod Applications") { echo 'class="active"'; } ?>>Moderator Applications</a></li>
 		<li><a href="/giveaway" <?php if ($title == "Giveaway") { echo 'class="active"'; } ?>>Giveaway Winners</a></li>
 		<li><a href="/giveaway/items" <?php if ($title == "Giveaway Items") { echo 'class="active"'; } ?>>Giveaway Items</a></li>
 		<li><a href="/top-commenters" <?php if ($title == "Top Commenters") { echo 'class="active"'; } ?>>Top Commenters (January)</a></li>

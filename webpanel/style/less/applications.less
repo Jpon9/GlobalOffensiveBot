@@ -1,0 +1,155 @@
+@import (reference) "./colors.less";
+
+@font-face {
+	font-family: roboto;
+	src: url('/fonts/Roboto/Regular.ttf');
+}
+
+@font-face {
+	font-family: sourcecodepro;
+	src: url('/fonts/SourceCodePro/Regular.ttf');
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+	color: @font-color;
+	background-color: @body-bg-color;
+	font-family: roboto;
+
+	a {
+		color: @link-color;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	table.stats {
+		margin: 0 auto 30px auto;
+		min-width: 110px;
+
+		tr:first-child { font-weight: bold; }
+
+		td:first-child {
+			text-align: right;
+			padding-right: 20px;
+		}
+	}
+}
+
+body h2 {
+	font-weight: 500;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	text-align: center;
+}
+
+body p {
+	text-align: center;
+	&:last-of-type { padding-bottom: 25px; }
+}
+
+body > p, body > div > p {
+	a { color: #202884; }
+}
+
+#applicants {
+	width: 600px;
+	margin: 0 auto;
+	line-height: 2em;
+}
+
+#applications {
+	width: 100%;
+}
+
+#applications > div {
+	width: 834px;
+	margin: 0 auto;
+
+	.vote-container {
+		float: right;
+		margin: 0;
+		width: 64px;
+
+		img {
+			height: 64px;
+			width: 64px;
+			opacity: 0.35;
+
+			&[src*="approve"], &[src*="deny"] {
+				height: 58px;
+				width: 58px;
+				padding: 3px;
+			}
+
+			&[src*="approve"] { background-color: #00C400; }
+			&[src*="deny"]	  { background-color: #C40000; }
+
+			&.chosen, &:hover {
+				opacity: 1;
+				cursor: pointer;
+			}
+		}
+
+		div {
+			width: 75px;
+
+			span {
+				position: relative;
+				bottom: 24px;
+				left: 10px;
+			}
+		}
+
+		&:not(.chosen) {
+			span { display: none; }
+		}
+	}
+}
+
+#applications table {
+	color: darken(@font-color-light, 20%);
+	float: left;
+	margin-bottom: 30px;
+	width: 770px;
+
+	a {
+		color: @link-color-light;
+
+		&.permalink { float: right; }
+	}
+
+	tr {
+		background-color: @header-bg-color;
+		display: inline-flex;
+
+		&:nth-child(odd) {
+			background-color: darken(@header-bg-color, 3%);
+		}
+
+		td {
+			padding: 4px 10px;
+			width: 500px;
+
+			&:first-child {
+				width: 230px;
+			}
+		}
+	}
+
+	td:first-child a {
+		height: 100%;
+	}
+
+	td:nth-child(6) {
+		max-width: 550px;
+	}
+
+	td:nth-child(7) {
+		width: 250px;
+	}
+}

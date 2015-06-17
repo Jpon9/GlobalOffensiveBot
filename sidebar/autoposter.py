@@ -137,7 +137,7 @@ def autoposter():
         #saveJson(notice_path, {'notices': notices})
         saveNotices(notice_path, notices)
         # Write notices to notices section of the sidebar
-        print "Num notices to build: " + str(len(noticesToBuild))
+        #print "Num notices to build: " + str(len(noticesToBuild))
         sidebarConfig = json.loads(open(base_path + "config/description.json", 'r').read())
         for chunk in sidebarConfig['chunks']:
             if chunk['name'] == '__notices__':
@@ -149,6 +149,7 @@ def autoposter():
                     chunk['body'] += "1. [" + notice[1] + "](" + notice[2] + "#" + notice[0] + ")\n"
                 break
         saveJson(base_path + "config/description.json", sidebarConfig)
+        saveJson(base_path + "cache/autoposter.json", { "last_updated": int(time.time()) })
         time.sleep(5)
 
 def createLinkPost(account, title, link):

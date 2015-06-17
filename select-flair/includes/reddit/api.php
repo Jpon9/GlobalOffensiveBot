@@ -1,6 +1,6 @@
 <?php
-require_once("config.php");
-require_once($_SERVER['DOCUMENT_ROOT'] . "includes/database.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/reddit/config.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/includes/database.php");
 
 /**
 * Reddit PHP SDK
