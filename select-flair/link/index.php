@@ -28,4 +28,11 @@
 	        $_SESSION["steamId"] = str_replace("http://steamcommunity.com/openid/id/", "", $_SESSION["steamAuth"]);
 	    }
     }
+
+    var_dump($_SESSION['steamId']);
+    var_dump($_SESSION['redditUsername']);
+
+    die("wat");
+
+    header("Location: http://" . $domain);
 ?>

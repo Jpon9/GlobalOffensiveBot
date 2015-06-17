@@ -28,9 +28,9 @@
 	}
 
 	function getUserInventory($steamId) {
-		return file_get_contents("cache.json");
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, "http://steamcommunity.com/profiles/{$steamId}/inventory/json/730/2");
+		curl_setopt($ch, CURLOPT_URL, "http://steamcommunity.com/id/boozyy/inventory/json/730/2");
+		//curl_setopt($ch, CURLOPT_URL, "http://steamcommunity.com/profiles/{$steamId}/inventory/json/730/2");
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);

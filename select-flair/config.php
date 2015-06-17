@@ -1,6 +1,6 @@
 <?php
 
-//$domain = "flair.globaloffensivebot.com";
-$domain = "localhost";
+$domain = "flair.globaloffensivebot.com";
+//$domain = "localhost";
 
 ?>

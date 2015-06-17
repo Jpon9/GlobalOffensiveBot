@@ -6,7 +6,7 @@ class redditConfig{
     static $ENDPOINT_OAUTH_AUTHORIZE = 'https://ssl.reddit.com/api/v1/authorize';
     static $ENDPOINT_OAUTH_TOKEN = 'https://ssl.reddit.com/api/v1/access_token';
     static $ENDPOINT_OAUTH_KILL_TOKEN = 'https://ssl.reddit.com/api/v1/revoke_token';
-    static $ENDPOINT_OAUTH_REDIRECT = 'http://localhost/link/';
+    static $ENDPOINT_OAUTH_REDIRECT = 'http://flair.globaloffensivebot.com/link/';
     
     //access token configuration from https://ssl.reddit.com/prefs/apps
     static $CLIENT_ID = '5Aw3pt85Dx9BYA';

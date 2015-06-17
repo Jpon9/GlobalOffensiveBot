@@ -74,15 +74,18 @@
                     var pe = createElem("DIV", target);
                     var mc = createElem("DIV", target);
                     var mp = createElem("DIV", target);
+                    var sc = createElem("DIV", target);
                     op.className = "flair-group";
                     pe.className = "flair-group";
                     mc.className = "flair-group";
                     mp.className = "flair-group";
+                    sc.className = "flair-group";
 
                     createElem("H2", op).innerHTML = "Operation Coin Flairs";
                     createElem("H2", pe).innerHTML = "Pick'Em Challenge Flairs";
                     createElem("H2", mc).innerHTML = "Map Coin Flairs";
                     createElem("H2", mp).innerHTML = "Exotic Pin Flairs";
+                    createElem("H2", sc).innerHTML = "Showcase Items";
 
                     function setFlair(ev) {
                         var flair = ev.target.attributes[0].nodeValue;
@@ -111,6 +114,8 @@
                             parent = mc;
                         } else if (identifier === "mp") {
                             parent = mp;                          
+                        } else if (identifier === "sc") {
+                            parent = sc;                          
                         }
                         var flairButton = createElem("A", parent);
                         flairButton.innerHTML = flairs[i]['name'];
@@ -132,6 +137,9 @@
                     }
                     if ($(mp).children().size() === 1) {
                         mp.style.display = "none";
+                    }
+                    if ($(sc).children().size() === 1) {
+                        sc.style.display = "none";
                     }
 
                     $("div.loading").fadeOut(550, function() {
@@ -199,6 +207,8 @@
 //                      mp_guardian: false,
 //                      mp_tactics: false,
 //                      mp_train: false
+//                      /* Showcase */
+//                      sc_5yearcoin: true
 //                  };
                 for (var i in inventory) {
                     /* Operation Coins */
@@ -223,7 +233,7 @@
                     var mapauthor = inventory[i].name.match(/Prototype (.{3,32}) Map Coin/);
                     if (mapauthor !== null) {
                         flairOptions["mc_" + mapauthor[1].toLowerCase().split(' ').join('')] = {};
-                        flairOptions["mc_" + mapauthor[1].toLowerCase().split(' ').join('')]['status'] = true;
+                        flairOptions["mc_" + mapauthor[1].toLowerCase().split(' ').join('')]['status'] = "";
                         flairOptions["mc_" + mapauthor[1].toLowerCase().split(' ').join('')]['name'] = inventory[i].name;
                         flairOptions["mc_" + mapauthor[1].toLowerCase().split(' ').join('')]['fullname'] = inventory[i].name;
                         continue;
@@ -232,10 +242,17 @@
                     var pin = inventory[i].name.match(/Genuine (.{3,32}) Pin/);
                     if (pin !== null) {
                         flairOptions["mp_" + pin[1].toLowerCase().split(' ').join('')] = {};
-                        flairOptions["mp_" + pin[1].toLowerCase().split(' ').join('')]['status'] = true;
+                        flairOptions["mp_" + pin[1].toLowerCase().split(' ').join('')]['status'] = "";
                         flairOptions["mp_" + pin[1].toLowerCase().split(' ').join('')]['name'] = inventory[i].name;
                         flairOptions["mp_" + pin[1].toLowerCase().split(' ').join('')]['fullname'] = inventory[i].name;
                         continue;
+                    }
+                    /* Showcase Items */
+                    if (inventory[i].name == "5 Year Veteran Coin") {
+                        flairOptions["sc_5yearcoin"] = {};
+                        flairOptions["sc_5yearcoin"]['status'] = "";
+                        flairOptions["sc_5yearcoin"]['name'] = "5 Year Veteran Coin";
+                        flairOptions["sc_5yearcoin"]['fullname'] = "5 Year Veteran Coin";
                     }
                 }
                 return flairOptions;

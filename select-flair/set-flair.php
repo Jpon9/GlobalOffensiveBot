@@ -80,7 +80,9 @@ function setFlair() {
         "mp_nuke" => "Genuine Nuke Pin",
         "mp_guardian" => "Genuine Guardian Pin",
         "mp_tactics" => "Genuine Tactics Pin",
-        "mp_train" => "Genuine Train Pin"
+        "mp_train" => "Genuine Train Pin",
+        /* Showcase Items */
+        "sc_5yearcoin" => "5 Year Veteran Coin"
 	];
 
 	if (!isset($flairMapping[$_GET['flair']])) {

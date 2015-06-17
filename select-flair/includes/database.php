@@ -45,7 +45,6 @@ class database {
 		if (isset($result['access_token_expires'])) {
 			return $result['access_token_expires'] < time();
 		} else {
-			die("COUDLN'T GET DA ACCESS TOKEN EXPIRATION MON");
 			return null;
 		}
 	}
@@ -62,8 +61,7 @@ class database {
 		if (isset($result)) {
 			return $result;
 		} else {
-			die("COUDLN'T GET DA USER MON");
-			return false;
+			return null;
 		}
 	}
 
