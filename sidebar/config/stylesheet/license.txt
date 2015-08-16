@@ -1,0 +1,99 @@
+/*
+/r/GlobalOffensive Stylesheet
+Version 0.1
+Created 1 April 2015
+
+  Feel free to use and distribute any or all of
+  this stylesheet as desired. Please give credit
+  where credit is due.
+  
+  This stylesheet will attempt to mark where it
+  gets ideas and code from wherevever possible.
+  It would be nice if you do the same.
+
+Contributors:
+  Jpon9
+  JovialFeline
+  eNzyy (Previous versions only)
+
+TABLE OF CONTENTS
+---
+  The table of contents outlines the major
+  sections of the stylesheet along with what
+  their basic parent CSS selectors are.
+  
+  The top-level section names will be three-line
+  comments with 42 stars on the top / bottom of
+  the centered label, like so:
+  
+  /******************************************
+   *                  LABEL
+   ****************************************** /
+  
+  The major sub-sections will be single lines with
+  enough asterisks to make the line take up equal
+  horizontal width to the top-level section it
+  resides in, preferring removing from the left
+  side if uneven stars are on each side, like so:
+  
+  /***************** LABEL ****************** /
+  
+  Any other sub-sub-sections will be single-line
+  comments with one space on either side of the
+  label, like so:
+  
+  /* LABEL * /
+  
+  This is mentioned here to provide a structure
+  and show how this formatting corresponds with
+  the Table of Contents here.
+---
+    Misc.                           N/A
+        Flags                       a[href*='lang-xx']
+    All Pages                       Rules meant for all pages
+    Header (line xxx)               div#header
+        Background                      "
+        Reddit link / Snoo              a#header-img.default-header
+        Subreddit link                  div#header-bottom-left span.hover.pagename.redditname a
+        Userbar                         div#header-bottom-right
+    Sidebar                         div.side
+        Default Reddit / RES            ...
+        Calendar                        "
+        Livestream feed                 "
+        Upcoming matches                "
+        Link lists                      "
+    Submit Page                     .submit-page
+    Listing page                    .listing-page
+        Voting area                     div.midcol.likes
+        Thumbnail                       a.thumbnail
+        Titles                          p.title a.title
+        Byline                          p.tagline
+        Flat link list                  ul.flat-list.buttons
+    Basic Markdown                  div.md
+    Thread body                     .comments-page
+        User post body (Link)           div.link div.usertext-body
+        User post body (Text)           div.link div.usertext-body div.md
+    Between Body & Comments         .commentarea
+        Navigation / thread menu        .menuarea
+        Comment / editing               form .usertext-edit
+    Comment Listing                 .sitetable.nestedlisting
+        Tagline                         p.tagline
+        Comment body                    div.md p
+        Flat link list                  ul.flat-list.buttons
+    Footer                          div.footer.rounded
+    Wiki                            .wiki-page
+    Flairs                          ...
+    Nightmode                       .res-nightmode
+---
+
+Color Scheme (http://i.imgur.com/LZrUrgh.png)
+    Primary Color (Yellowish, used for headers mainly)
+        PC-1    #FCB00C (Lightest)
+        PC-3    #F0A40A
+        PC-5    #E69A0A (Darkest)
+    Secondary Color (Primarily used as backdrop colors)
+        TC-1    #1E2636 (Lightest)
+        TC-3    #101828
+        TC-5    #010713 (Darkest)
+
+*/

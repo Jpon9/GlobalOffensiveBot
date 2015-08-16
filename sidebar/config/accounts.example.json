@@ -1,0 +1,7 @@
+{
+	"accounts": {
+		"__MODERATORACCOUNT__": "ExampleAccountName2",
+		"ExampleAccountName": "ExampleAccountPassword",
+		"ExampleAccountName2": "ExampleAccountPassword2"
+	}
+}

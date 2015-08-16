@@ -1,0 +1,49 @@
+{
+    "chunks": [
+        {
+            "body": "[*New? Questions? Click here!*](/r/GlobalOffensive/wiki/index#heading#intro)\r\n\r\n[Subreddit Rules](/r/GlobalOffensive/wiki/rules#rules#button)\r\n[Message Moderators](http://goo.gl/oEG7Pb#mods#button)\r\n\r\n> * Our Social Media\r\n> * [](http://goo.gl/Yrc6kr)\r\n> * [](http://goo.gl/fwu1eP)\r\n> * [](http://goo.gl/bHoLLk)",
+            "name": "__header__"
+        },
+        {
+            "body": "1. [](http://www.teamspeak.com/invite/#ts3) {TEAMSPEAK_USERS} users online",
+            "name": "__teamspeak__"
+        },
+        {
+            "body": "* [Filters](http://goo.gl/3Zc2H0)\r\n* [Unfiltered](http://goo.gl/8v5H25#noflair-icon)\r\n* [Gameplay](http://goo.gl/rWRCmd#gameplay-icon)\r\n* [Fluff](http://goo.gl/K9Xe2D#fluff-icon)\r\n* [Feedback](http://goo.gl/LdV5yD#feedback-icon)\r\n* [User Generated Content](http://goo.gl/JstweH#ugc-icon)\r\n* [News & Events](http://goo.gl/YideTb#news-icon)\r\n* [Game Update](http://goo.gl/DN2zAZ#update-icon)\r\n* [Discussion](http://goo.gl/Y9AjI5#discussion-icon)\r\n* [Tips & Guides](http://goo.gl/XXUpJ0#guides-icon)\r\n* [Help](http://goo.gl/g4N0OS#help-icon)\r\n* [AMA](http://goo.gl/rqe2ei#ama-icon)\r\n* [Announcement](http://goo.gl/xtlHIQ#announce-icon)\r\n* [Scheduled Sticky](http://goo.gl/52O6tM#sticky-icon)",
+            "name": "__filters__"
+        },
+        {
+            "body": "",
+            "name": "__currently_streaming__"
+        },
+        {
+            "body": "",
+            "name": "__upcoming_games__"
+        },
+        {
+            "body": ">>Community\r\n\r\n[ ](#db)  \r\n\r\n>>>#[SPOTLIGHT:](http://www.youtube.com/user/csgoworldorg#ytspotlight)  \r\n##CSGOWORLD\r\n###A reliable source of PoV and strat videos from major events\r\n\r\n\r\n>>>#[WORKSHOP:](http://steamcommunity.com/sharedfiles/filedetails/?id=163589843&searchtext=?workshop)\r\n##de_cache\r\n###An upgraded, revamped version of the new competitive classic by Volcano and FMPONE\r\n\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Steam Forums](http://forums.steampowered.com/forums/forumdisplay.php?f=1188)\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Reddit Steam Group!](http://steamcommunity.com/groups/redditcommunitynights#RDDT)\r\n\r\n>>[ ](#db) \r\n\r\n\r\n>[ ](#goup) \r\n\r\n\r\n[ ](#db)",
+            "name": "__community__"
+        },
+        {
+            "body": ">>Improving Your Play \r\n\r\n[ ](#db)  \r\n\r\n>>>#[PRO TIP:](http://steamcommunity.com/sharedfiles/filedetails/?id=142687770#protips)  \r\n##Curse \r\n###A brand new set of video guides created by the players from Curse to help you improve your game \r\n\r\n\r\n>>>#[PERSONALIZE:](http://www.krisskarbo.com/csgocrosshair?crosshair)\r\n##Crosshair \r\n###Create a custom crosshair with this easy-to-use web app  \r\n\r\n\r\n>>>#[AUTOEXEC:](http://csgohelp.com/autoexec/#autoexec)\r\n##Getting Started  \r\n###What is it, and how do I use it? \r\n\r\n>>>#[PRACTICE:](http://www.reddit.com/r/GlobalOffensive/comments/19t57a/im_having_trouble_transferring_my_aim_from/c8ra3yn)\r\n##Deathmatch \r\n###How to get the most out of your deathmatch sessions\r\n\r\n\r\n>>[ ](#db) \r\n\r\n>>>[Kniferound.net Guides](http://kniferound.net/wiki/Category:Guides)  \r\n\r\n>>[ ](#db)\r\n\r\n>>>[Spreadsheet with weapon data](https://docs.google.com/spreadsheet/ccc?key=0AuOy-5I1VcBMdGZmYndxUjctc1VNUDZHTXJFUE9Dbmc#gid=0)  \r\n\r\n>>[ ](#db)\r\n\r\n\r\n>[ ](#goup) \r\n\r\n\r\n[ ](#db)",
+            "name": "__improving_your_play__"
+        },
+        {
+            "body": "[*Resources*](#heading)\r\n\r\n[Matchmaking: {MM_STATUS}](http://steamstat.us#button{MM_STATUS_TAG})\r\n\r\n[Wiki](/r/GlobalOffensive/wiki/index#wiki#button)\r\n\r\n[Chat (IRC)](/r/GlobalOffensive/wiki/irc#irc#button)\r\n\r\n[Gathers (IRC)](/r/GlobalOffensive/wiki/irc-gathers#gathers#button)\r\n\r\n[VODs](http://bit.ly/1tnDX4K#vods#button)\r\n\r\n[Demos](http://bit.ly/1wLGhVx#demos#button)",
+            "name": "__resources__"
+        },
+        {
+            "body": "[*Subreddits*](#heading)\r\n\r\n[CSeventVODs](/r/CSeventVODs#vods#button)\r\n\r\n[GlobalOffensiveTrade](/r/globaloffensivetrade#trade#button)\r\n\r\n[RecruitCS](/r/recruitcs#recruitcs#button)\r\n\r\n[CSmapmakers](/r/csmapmakers#csmapmakers#button)\r\n\r\n[RandomActsOfCSGO](/r/randomactsofcsgo#gathers#button)",
+            "name": "__subreddits__"
+        },
+        {
+            "body": "1. [The /r/GlobalOffensive + MapCore Mapping Contest](http://redd.it/383fl4#notice)\n1. [Windows 10 Support Megathread](http://redd.it/3f1r0m#notice)\n1. [Latest Newbie Thursday Thread](http://redd.it/3f4ogx#discussion)\n",
+            "name": "__notices__"
+        },
+        {
+            "body": "* [Banner by /u/bay-_-](https://www.reddit.com/r/GlobalOffensive/comments/34n7ws/-/cr02nmq)\r\n* [Banner by /u/blAke139](https://www.reddit.com/r/GlobalOffensive/comments/34n7ws/-/cqz5abc)\r\n* [Banner by /u/DankRood](https://www.reddit.com/r/GlobalOffensive/comments/34n7ws/-/cr58c72)\r\n* [Banner by /u/Braedoktor](https://www.reddit.com/r/GlobalOffensive/comments/34n7ws/-/cqwftuf)\r\n* [Banner by /u/Chewbacker](https://www.reddit.com/r/GlobalOffensive/comments/34n7ws/-/cqwmhxg)",
+            "name": "__banner_author__"
+        }
+    ],
+    "template": "__header__\r\n__teamspeak__\r\n__filters__\r\n__currently_streaming__\r\n__upcoming_games__\r\n__resources__\r\n__subreddits__\r\n__notices__\r\n__banner_author__"
+}

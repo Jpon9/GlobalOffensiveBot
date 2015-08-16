@@ -1,0 +1,15 @@
+*.bat
+*.7z
+*.log
+*.jpg
+*.png
+cache/*.json
+cache/error/*.json
+cache/flairs*.json
+config/accounts.json
+config/settings.json
+config/notices.json
+config/stylesheet/random_demonyms.json
+config/stylesheet/main_stylesheet.txt
+config/*.txt
+
