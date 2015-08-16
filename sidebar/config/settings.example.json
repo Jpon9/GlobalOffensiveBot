@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"settings": {
 		"target_subreddit": "TARGET_SUBREDDIT",
@@ -12,4 +13,20 @@
 		"num_of_headers": 7,
 		"minify_stylesheet": true
 	}
+=======
+{
+	"settings": {
+		"target_subreddit": "TARGET_SUBREDDIT",
+		"update_timeout": 5,
+		"max_streams_shown": 7,
+		"max_games_shown": 5,
+		"stream_thumbnail_css_name": "stream-images",
+		"spotlight_rotation_timeout": 30,
+		"google_api_key": "GOOGLE_API_KEY",
+		"gosugamers_api_key": "GOSUGAMERS_API_KEY",
+		"steam_api_key": "STEAM_API_KEY",
+		"num_of_headers": 7,
+		"minify_stylesheet": true
+	}
+>>>>>>> 9cac3ffc7ca44891b14144e22e1df4c1b1e14243
 }

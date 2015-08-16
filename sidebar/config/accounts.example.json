@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 {
 	"accounts": {
 		"__MODERATORACCOUNT__": "ExampleAccountName2",
 		"ExampleAccountName": "ExampleAccountPassword",
 		"ExampleAccountName2": "ExampleAccountPassword2"
 	}
+=======
+{
+	"accounts": {
+		"__MODERATORACCOUNT__": "ExampleAccountName2",
+		"ExampleAccountName": "ExampleAccountPassword",
+		"ExampleAccountName2": "ExampleAccountPassword2"
+	}
+>>>>>>> 9cac3ffc7ca44891b14144e22e1df4c1b1e14243
 }

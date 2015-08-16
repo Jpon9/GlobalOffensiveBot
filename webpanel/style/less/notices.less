@@ -1,0 +1,135 @@
+body.pure-g {
+	height: 75em;
+
+	#notices {
+		transition: 1s;
+	}
+
+	.pure-form fieldset {
+		#notices {
+			width: 75%;
+		}
+
+		.notice {
+			background-color: #202834;
+			border-radius: 5px;
+			color: #FFFFFF;
+			clear: both;
+			margin-bottom: 15px;
+			width: 100%;
+
+			h4 {
+				display: inline-block;
+				padding-right: 10px;
+			}
+
+			.arrow {
+				margin-right: 10px;
+			}
+
+			.delete {
+				-webkit-filter: brightness(100%) contrast(0%) grayscale(100%);
+				-moz-filter: brightness(100%) contrast(0%) grayscale(100%);
+				filter: brightness(100%) contrast(0%) grayscale(100%);
+				float: right;
+				height: 16px;
+				width: 16px;
+				position: relative;
+				top: 12px;
+				right: 10px;
+
+				&:hover {
+					-webkit-filter: brightness(100%) contrast(100%) grayscale(0%);
+					-moz-filter: brightness(100%) contrast(100%) grayscale(0%);
+					filter: brightness(100%) contrast(100%) grayscale(0%);
+					cursor: pointer;
+				}
+			}
+
+			.collapsible {
+				background-color: #EDEDED;
+				color: #000000;
+			}
+
+			input[name$="_title"],
+			input[name$="_link"] {
+				width: 60%;
+			}
+			input[name="url"] {
+				width: 25em;
+			}
+			input[name$="_duration"] {
+				width: 3em;
+			}
+
+			.post-type-selection {
+				background-color: #BBBBBB;
+				-webkit-box-shadow: inset 0px 0px 46px -14px rgba(0,0,0,0.75);
+				-moz-box-shadow: inset 0px 0px 46px -14px rgba(0,0,0,0.75);
+				box-shadow: inset 0px 0px 46px -14px rgba(0,0,0,0.75);
+				padding-bottom: 3px;
+				margin-bottom: 10px;
+
+				p {
+					background-color: #202834;
+					color: #FFFFFF;
+					cursor: pointer;
+					display: inline-block;
+					margin-bottom: 15px;
+					opacity: 0.7;
+					padding: 10px 0px;
+					text-align: center;
+					width: 50%;
+				}
+
+				p.active {
+					opacity: 1;
+				}
+
+			}
+		}
+
+		label {
+			width: 12em;
+		}
+
+		textarea {
+			width: 50%;
+			height: 700px;
+		}
+
+		/*textarea {
+			max-width: 400px;
+			max-height: 800px;
+
+			width: 275px;
+			height: 125px;
+
+			&:active, &:focus {
+				width: 500px;
+				height: 400px;
+			}
+		}*/
+
+		button#submit-notices {
+			img {
+				position: relative;
+				top: 2px;
+				left: 7px;
+				height: 16px;
+				width: 0px;
+				-moz-animation: spin 0.75s linear infinite;
+				-webkit-animation: spin 0.75s linear infinite;
+				animation: spin 0.75s linear infinite;
+			}
+		}
+
+		#success, #failure {
+			display: inline;
+		}
+	}
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { transform: rotate(360deg); } }

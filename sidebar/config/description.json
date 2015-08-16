@@ -1,6 +1,7 @@
 {
     "chunks": [
         {
+<<<<<<< HEAD
             "body": "[*New? Questions? Click here!*](/r/GlobalOffensive/wiki/index#heading#intro)\r\n\r\n[Subreddit Rules](/r/GlobalOffensive/wiki/rules#rules#button)\r\n[Message Moderators](http://goo.gl/oEG7Pb#mods#button)\r\n\r\n> * Our Social Media\r\n> * [](http://goo.gl/Yrc6kr)\r\n> * [](http://goo.gl/fwu1eP)\r\n> * [](http://goo.gl/bHoLLk)",
             "name": "__header__"
         },
@@ -13,6 +14,12 @@
             "name": "__filters__"
         },
         {
+=======
+            "body": "[*New? Questions? Click here!*](/r/GlobalOffensive/wiki/index#heading#intro)\r\n\r\n[Subreddit Rules](/r/GlobalOffensive/wiki/rules#rules#button)\r\n[Message Moderators](http://goo.gl/oEG7Pb#mods#button)\r\n\r\n> * Our Social Media\r\n> * [](http://goo.gl/Yrc6kr)\r\n> * [](http://goo.gl/fwu1eP)\r\n> * [](http://goo.gl/bHoLLk)\r\n\r\n* [Filters](http://goo.gl/3Zc2H0)\r\n* [Unfiltered](http://goo.gl/8v5H25#noflair-icon)\r\n* [Gameplay](http://goo.gl/rWRCmd#gameplay-icon)\r\n* [Fluff](http://goo.gl/K9Xe2D#fluff-icon)\r\n* [Feedback](http://goo.gl/LdV5yD#feedback-icon)\r\n* [User Generated Content](http://goo.gl/JstweH#ugc-icon)\r\n* [News & Events](http://goo.gl/YideTb#news-icon)\r\n* [Game Update](http://goo.gl/DN2zAZ#update-icon)\r\n* [Discussion](http://goo.gl/Y9AjI5#discussion-icon)\r\n* [Tips & Guides](http://goo.gl/XXUpJ0#guides-icon)\r\n* [Help](http://goo.gl/g4N0OS#help-icon)\r\n* [AMA](http://goo.gl/rqe2ei#ama-icon)\r\n* [Announcement](http://goo.gl/xtlHIQ#announce-icon)\r\n* [Scheduled Sticky](http://goo.gl/52O6tM#sticky-icon)",
+            "name": "__header__"
+        },
+        {
+>>>>>>> 9cac3ffc7ca44891b14144e22e1df4c1b1e14243
             "body": "",
             "name": "__currently_streaming__"
         },
@@ -37,6 +44,7 @@
             "name": "__subreddits__"
         },
         {
+<<<<<<< HEAD
             "body": "1. [The /r/GlobalOffensive + MapCore Mapping Contest](http://redd.it/383fl4#notice)\n1. [Windows 10 Support Megathread](http://redd.it/3f1r0m#notice)\n1. [Latest Newbie Thursday Thread](http://redd.it/3f4ogx#discussion)\n",
             "name": "__notices__"
         },
@@ -46,4 +54,15 @@
         }
     ],
     "template": "__header__\r\n__teamspeak__\r\n__filters__\r\n__currently_streaming__\r\n__upcoming_games__\r\n__resources__\r\n__subreddits__\r\n__notices__\r\n__banner_author__"
+=======
+            "body": "1. [Latest Newbie Thursday - Weekly Q/A Thread](http://redd.it/2zkdgw#discussion)\n1. [Latest Newbie Thursday 2 - Weekly Q/A Thread](http://redd.it/2zkdgw#discussion)\n1. [Newbie Thursday - Your weekly questions thread!](http://redd.it/36smjb#discussion)\n",
+            "name": "__notices__"
+        },
+        {
+            "body": "* [Banner by /u/bay-_-](https://www.reddit.com/r/GlobalOffensive/comments/34n7ws/-/cr02nmq)",
+            "name": "__banner_author__"
+        }
+    ],
+    "template": "__header__\r\n__currently_streaming__\r\n__upcoming_games__\r\n__resources__\r\n__subreddits__\r\n__notices__\r\n__banner_author__"
+>>>>>>> 9cac3ffc7ca44891b14144e22e1df4c1b1e14243
 }

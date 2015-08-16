@@ -1,0 +1,148 @@
+{
+    "stickies": [
+        {
+            "body": "TEST TEST",
+            "noticetype": "event",
+            "post_title": "[In 4 Hours] EU Reddit Community Night",
+            "hide_notice": false,
+            "notice_title": "EU Reddit Community Night",
+            "postedflag": 0,
+            "postlink": "",
+            "master_disable": false,
+            "time": [
+                1,
+                15,
+                30
+            ],
+            "duration_hours": 7,
+            "type": "recurring_event",
+            "wiki_page": "http://reddit.com/r/GlobalOffensive/wiki/communitynight"
+        },
+        {
+            "body": "TEST TEST",
+            "noticetype": "event",
+            "post_title": "[In 4 Hours] NA Reddit Community Night",
+            "hide_notice": false,
+            "notice_title": "NA Reddit Community Night",
+            "postedflag": 0,
+            "postlink": "",
+            "master_disable": false,
+            "time": [
+                1,
+                22,
+                30
+            ],
+            "duration_hours": 7,
+            "type": "recurring_event",
+            "wiki_page": "http://reddit.com/r/GlobalOffensive/wiki/communitynight"
+        },
+        {
+            "body": "TEST TEST",
+            "noticetype": "event",
+            "post_title": "[In 3 Hours] Workshop Showcase Night",
+            "hide_notice": false,
+            "notice_title": "Workshop Showcase Night",
+            "postedflag": 0,
+            "postlink": "",
+            "master_disable": false,
+            "time": [
+                4,
+                16,
+                30
+            ],
+            "duration_hours": 7,
+            "type": "recurring_biweekly_event",
+            "wiki_page": "http://reddit.com/r/GlobalOffensive/wiki/workshopshowcase"
+        },
+        {
+            "body": "TEST TEST",
+            "noticetype": "event",
+            "post_title": "[In 3 Hours] Workshop Showcase Night test",
+            "hide_notice": false,
+            "notice_title": "Workshop Showcase Night test",
+            "postedflag": 0,
+            "postlink": "http://www.reddit.com/r/jpon9/comments/2n46ps/in_3_hours_workshop_showcase_night_test/",
+            "master_disable": false,
+            "time": [
+                5,
+                22,
+                35
+            ],
+            "duration_hours": 7,
+            "type": "recurring_biweekly_event",
+            "wiki_page": "http://reddit.com/r/GlobalOffensive/wiki/workshopshowcase"
+        },
+        {
+            "body": "",
+            "noticetype": "discussion",
+            "post_title": "",
+            "hide_notice": false,
+            "notice_title": "TEST TWO HERE WE GO",
+            "postedflag": 0,
+            "postlink": "http://redd.it/2htv90",
+            "master_disable": false,
+            "time": [
+                5,
+                19,
+                55
+            ],
+            "duration_hours": 7,
+            "type": "link_recurring",
+            "wiki_page": "http://reddit.com/r/GlobalOffensive/wiki/workshopshowcase"
+        },
+		{
+            "body": "",
+            "noticetype": "discussion",
+            "post_title": "",
+            "hide_notice": false,
+            "notice_title": "TEST TWO non recurring",
+            "postedflag": 0,
+            "postlink": "http://redd.it/2htv90",
+            "master_disable": false,
+            "time": [
+                5,
+                19,
+                55
+            ],
+            "duration_hours": 7,
+            "type": "link_non_recurring",
+            "wiki_page": "http://reddit.com/r/GlobalOffensive/wiki/workshopshowcase"
+        },
+        {
+            "body": "This is a test post, thanks for reading",
+            "noticetype": "event",
+            "post_title": "This is a recurring weekly thread, woohoo!",
+            "hide_notice": false,
+            "notice_title": "RECURRING TEST 2 HERE WE GO",
+            "postedflag": 0,
+            "postlink": "http://www.reddit.com/r/jpon9/comments/2n3zmk/this_is_a_recurring_weekly_thread_woohoo/",
+            "master_disable": false,
+            "time": [
+                5,
+                21,
+                20
+            ],
+            "duration_hours": 0.5,
+            "type": "recurring_event",
+            "wiki_page": "http://reddit.com/r/GlobalOffensive/wiki/workshopshowcase"
+        },
+        {
+            "body": "This is a test post, thanks for reading",
+            "noticetype": "announcement",
+            "post_title": "This is a non recurring thread, woohoo?",
+            "hide_notice": false,
+            "notice_title": "NON RECURRING TEST",
+            "postedflag": 0,
+            "postlink": "",
+            "master_disable": false,
+            "time": [
+                5,
+                21,
+                20
+            ],
+            "duration_hours": 0.5,
+            "type": "post_non_recurring",
+            "wiki_page": "http://reddit.com/r/GlobalOffensive/wiki/workshopshowcase"
+        }
+    ]
+}

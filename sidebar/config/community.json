@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"community_spotlight": [
         {
@@ -39,4 +40,47 @@
             "link": "http://steamcommunity.com/sharedfiles/filedetails/?id=334373434"
         }
     ]
+=======
+{
+	"community_spotlight": [
+        {
+            "title": "WatchSpade",
+            "type": "YouTube",
+            "description": "Watch Spade learn the ropes of Counter-Strike in his series of videos!",
+            "link": "http://youtube.com/user/watchspade"
+        },
+        {
+            "title": "adreN",
+            "type": "YouTube",
+            "description": "Helpful videos from former iBUYPOWER and current TST player adreN teaching you how to play CS:GO from Silver 1 to Global Elite.",
+            "link": "https://www.youtube.com/user/CurseCS"
+        },
+		{
+			"title": "WarOwl",
+			"type": "YouTube",
+			"description": "Helpful videos and match casts from the one and only WarOwl who inexplicably has no closer.",
+			"link": "https://www.youtube.com/user/TheWarOwl"
+		}
+	],
+    "workshop_spotlight": [
+        {
+            "title": "de_season",
+            "type": "Map",
+            "description": "FMPOne's majorly anticipated update to ted's popular competitive bomb defusal map set outside of Tokyo, Japan",
+            "link": "http://steamcommunity.com/sharedfiles/filedetails/?id=322837144"
+        },
+        {
+            "title": "Soccer Breezeway Park",
+            "type": "Map",
+            "description": "hingle mccringleberry brings us the latest and greatest Soccermod 2014 map, sure to be loads of fun for you and your friends.",
+            "link": "http://steamcommunity.com/sharedfiles/filedetails/?id=335258762"
+        },
+        {
+            "title": "Dodgeball Gymnasium",
+            "type": "Map",
+            "description": "Get ready for gym class, we're playing Volgarman's dodgeball map: throw decoys at the enemy team, one hit kills.",
+            "link": "http://steamcommunity.com/sharedfiles/filedetails/?id=334373434"
+        }
+    ]
+>>>>>>> 9cac3ffc7ca44891b14144e22e1df4c1b1e14243
 }

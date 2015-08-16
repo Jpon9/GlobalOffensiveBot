@@ -1,0 +1,163 @@
+html {
+	background-color: #EDEDED;
+    font-family: Verdana;
+    transition: 0.3s;
+
+	body {
+		div.loading {
+			width: 350px;
+			margin: 10em auto 0 auto;
+			padding: 20px 50px;
+			background-color: #1E2636;
+			border-radius: 15px;
+
+			p:first-child { padding-bottom: 15px; }
+			#loadingDesc { font-size: 12px; }
+            #result-status {
+                width: 750px;
+                text-align: center;
+            }
+		}
+
+		div#inventory, .intro {
+			display: none;
+			width: 900px;
+			min-height: 500px;
+			background-color: #1E2636;
+            padding: 20px;
+            margin: 50px auto 30px auto;
+
+            h2 {
+                text-align: center;
+                padding: 20px;
+                font-size: 1.25em;
+            }
+
+            .flair-group a {
+                display: inline-block;
+                background-color: #101828;
+                width: 175px;
+                height: 175px;
+                border-radius: 10px;
+                font-size: 0.75em;
+                margin: 15px;
+                padding: 10px;
+                text-align: center;
+                overflow: hidden;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #0A101A;
+                }
+
+                img {
+                    width: 125px;
+                    padding-top: 17px;
+                }
+            }
+		}
+
+        div.intro {
+            display: block;
+
+            p {
+                text-align: justify;
+                width: 80%;
+                margin: 20px 0px 0px 10%;
+                line-height: 1.75em;
+                overflow: hidden;
+                font-size: 12pt;
+
+                a {
+                    color: #E1A636;
+                }
+
+                span {
+                    float: right;
+                    font-style: italic;
+                    font-size: 11pt;
+                }
+            }
+        }
+	}
+}
+
+/********************
+ *	LOADING SCREEN (Copied from old SteamToolbox)
+ ********************/
+
+#loadAnim {
+    width: 154px;
+    height: 50px;
+    overflow: hidden;
+    margin: 0 auto;
+
+    div {
+        width: 25px;
+        margin-left: 5px;
+        background-color: #FFFFFF;
+        height: 0%;
+        display: block;
+        float: left;
+        clear: none;
+        -webkit-animation: heightShift 0.9s infinite cubic-bezier(1, 0.25, 0.5, 1) alternate;
+        -moz-animation: heightShift 0.9s infinite cubic-bezier(1, 0.25, 0.5, 1) alternate;
+        animation: heightShift 0.9s infinite cubic-bezier(1, 0.25, 0.5, 1) alternate;
+
+        &:nth-child(1) {
+            -webkit-animation-delay: 0.1s;
+            -moz-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+
+        &:nth-child(2) {
+            -webkit-animation-delay: 0.3s;
+            -moz-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+
+        &:nth-child(3) {
+            -webkit-animation-delay: 0.5s;
+            -moz-animation-delay: 0.5s;
+            animation-delay: 0.5s;
+        }
+
+        &:nth-child(4) {
+            -webkit-animation-delay: 0.7s;
+            -moz-animation-delay: 0.7s;
+            animation-delay: 0.7s;
+        }
+
+        &:nth-child(5) {
+            -webkit-animation-delay: 0.9s;
+            -moz-animation-delay: 0.9s;
+            animation-delay: 0.9s;
+            margin-right: 0px;
+        }
+    }
+}
+
+p.loading {
+    font-size: 16px;
+    text-align: center;
+    margin: 20px 0px;
+
+    &:first-child {
+        font-size: 30px;
+    }
+}
+
+@-webkit-keyframes heightShift {
+	from { height: 1%; margin-top: 35%; }
+	to { height: 99%; margin-top: 1%; }
+}
+
+@-moz-keyframes heightShift {
+	from { height: 1%; margin-top: 35%; }
+	to { height: 99%; margin-top: 1%; }
+}
+
+@keyframes heightShift {
+	from { height: 1%; margin-top: 35%; }
+	to { height: 99%; margin-top: 1%; }
+}

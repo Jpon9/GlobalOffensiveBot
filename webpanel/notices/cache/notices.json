@@ -1,0 +1,31 @@
+{
+    "notices": [
+        {
+            "type": "autopost+notice",
+            "frequency": "weekly",
+            "category": "event",
+            "notice_title": "NA Community Night",
+            "notice_link": "",
+            "notice_start_time": [
+                5,
+                17,
+                0
+            ],
+            "permanent_notice": false,
+            "notice_duration": 6,
+            "thread_title": "[In 4 hours] NA Community Night",
+            "poster_account": "csgocomnights",
+            "post_time": [
+                5,
+                17,
+                0
+            ],
+            "self_post": false,
+            "sticky_duration": 6,
+            "permanent_sticky": false,
+            "body": "body of the thread",
+            "thread_link": "https:\/\/reddit.com\/r\/GlobalOffensive\/",
+            "created": 1426483731
+        }
+    ]
+}
